@@ -16,7 +16,8 @@ const val API_KEY = "8013e6a72812262e6b07a40357a7549d"
 interface OpenWeatherServiceApi {
     @GET("weather")
     fun getCurrentWeather(
-        @Query("q") location: String
+        @Query("q") location: String,
+        @Query("units") unit: String
     ): Call<RemoteFetch>
 
     companion object{

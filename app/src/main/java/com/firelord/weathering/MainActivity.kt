@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
 
         val apiService = OpenWeatherServiceApi()
         GlobalScope.launch(Dispatchers.IO) {
-            apiService.getCurrentWeather("Noida").awaitResponse()
+            apiService.getCurrentWeather("Noida","metric").awaitResponse()
                 .run {
                     if(isSuccessful) {
                         body()?.let {
                             runOnUiThread {
-                                mBinding.tvTemp.text = it.main.temp.toString()
+                                mBinding.tvTemp.text =it.main.temp.toString()
                             }
                         }
                     }
