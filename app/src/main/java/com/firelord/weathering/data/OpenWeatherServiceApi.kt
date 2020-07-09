@@ -1,10 +1,9 @@
 package com.firelord.weathering.data
 
 import com.firelord.weathering.data.response.RemoteFetch
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -18,7 +17,7 @@ interface OpenWeatherServiceApi {
     @GET("weather")
     fun getCurrentWeather(
         @Query("q") location: String
-    ): Deferred<RemoteFetch>
+    ): Call<RemoteFetch>
 
     companion object{
         operator fun invoke(): OpenWeatherServiceApi {
@@ -40,7 +39,6 @@ interface OpenWeatherServiceApi {
             return Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(OpenWeatherServiceApi::class.java)
