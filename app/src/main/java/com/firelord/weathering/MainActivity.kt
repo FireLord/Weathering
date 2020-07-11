@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
     val apiService = OpenWeatherServiceApi()
     suspend fun getApi() {
         withContext(IO) {
-            apiService.getCurrentWeather("Noida", "metric").awaitResponse()
+            val city = mainActivity.etLocation.text.toString()
+            apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
                     if (isSuccessful) {
                         body()?.let {

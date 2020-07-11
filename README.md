@@ -12,7 +12,7 @@
 - [ ] Notify user to turn on net if it's off
 - [ ] Config ui properly
 - [ ] Add splash screen
-- [ ] Add user input for location
+- [X] Add user input for location
 - [ ] Config sidebar navigation
     - [ ] Add option to add 3 locations as card view
     - [ ] Add about icon
