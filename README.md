@@ -20,7 +20,7 @@
 - [ ] **Settings page**
     - [ ] Option for c and f
     - [ ] Option for auto location
-    - [ ] Option for auto location
+    - [ ] Change default location if device location is denied
 - [ ] **About page**
     - [ ] Mention every libs used
     - [ ] Tell everyone that i made those artwork
