@@ -1,8 +1,7 @@
-# Weathering
+# Weathering :partly_sunny:
 ![Logo](/app/src/main/ic_launcher-playstore.png)
 
-A weather app but with beautiful artwork. These artworks are made by me with suggestions from various people to make it
-look perfect.
+#### A weather app but with beautiful artwork. These artworks are made by me with suggestions from various people to make it look perfect.
 
 > Goal is to keep it minimal!
 
@@ -22,6 +21,9 @@ look perfect.
     - [ ] Option for c and f
     - [ ] Option for auto location
     - [ ] Option for auto location
+- [ ] **About page**
+    - [ ] Mention every libs used
+    - [ ] Tell everyone that i made those artwork
 - [ ] **Advance stuff**
 - [ ] Scroll ui
     - [ ] Hourly forecast
@@ -29,3 +31,4 @@ look perfect.
     - [ ] Sunrise sunset
     - [ ] Feels like temp
     - [ ] Min/Max temp
+
