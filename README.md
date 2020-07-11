@@ -6,7 +6,7 @@
 > Goal is to keep it minimal!
 
 ### TODO
-- [ ] Api call
+- [X] Api call
     - [ ] Trim it
 - [ ] Add some loader during network calls
 - [ ] Notify user to turn on net if it's off
