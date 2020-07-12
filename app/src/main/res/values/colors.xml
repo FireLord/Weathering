@@ -8,6 +8,7 @@
     <!-- Sunny colors -->
     <color name="colorSunnyDark">#381422</color>
     <color name="colorSunnyLight">#FFC5C5</color>
+    <color name="colorSunnyAccent">#cb9495</color>
 
     <!-- Rain colors -->
     <color name="colorRainDark">#004D40</color>
