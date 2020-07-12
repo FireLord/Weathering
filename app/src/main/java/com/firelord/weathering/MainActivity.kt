@@ -46,7 +46,11 @@ class MainActivity : AppCompatActivity() {
                                 mainActivity.tvRain.text = "${it.clouds.all}%"
                                 mainActivity.tvHumidity.text = "${it.main.humidity}%"
                                 mainActivity.tvWind.text = "${it.wind.deg}" //TODO take deg change to sw/e/n
-                                mainActivity.tvDay.text = "Sunday" //TODO get it from system
+                                mainActivity.tvDay.text = Calendar.getInstance().getDisplayName(
+                                    Calendar.DAY_OF_WEEK,
+                                    Calendar.LONG,
+                                    Locale.getDefault()
+                                )
                                 mainActivity.tvDate.text = "${Calendar.getInstance()
                                     .get(Calendar.DATE)}/${Calendar.getInstance()
                                     .get(Calendar.MONTH)}/${Calendar.getInstance()
