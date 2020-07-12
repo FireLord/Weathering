@@ -3,4 +3,17 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <!-- Weathering colors -->
+    <!-- Sunny colors -->
+    <color name="colorSunnyDark">#381422</color>
+    <color name="colorSunnyLight">#FFC5C5</color>
+
+    <!-- Rain colors -->
+    <color name="colorRainDark">#004D40</color>
+    <color name="colorRainLight">#B2DFDB</color>
+
+    <!-- Snow colors -->
+    <color name="colorSnowDark">#263238</color>
+    <color name="colorSnowLight">#CFD8DC</color>
 </resources>
