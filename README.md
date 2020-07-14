@@ -10,8 +10,8 @@
     - [ ] error handling
     - [ ] Trim it
 - [ ] Add some loader during network calls
-- [ ] Notify user to turn on net if it's off
-- [ ] Config ui properly
+- [X] Notify user to turn on net if it's off
+- [X] Config ui properly
 - [ ] Add splash screen
 - [X] Add user input for location
 - [ ] Config sidebar navigation
