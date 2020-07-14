@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
+        mainActivity.progressBar.visibility = View.VISIBLE
         withContext(IO) {
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
@@ -74,6 +76,7 @@ class MainActivity : AppCompatActivity() {
                                     .get(Calendar.DATE)}/${Calendar.getInstance()
                                     .get(Calendar.MONTH)}/${Calendar.getInstance()
                                     .get(Calendar.YEAR)}"
+                                mainActivity.progressBar.visibility = View.GONE
                             }
                         }
                     } else {

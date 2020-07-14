@@ -9,7 +9,7 @@
 - [X] Api call
     - [X] error handling
     - [ ] Trim it
-- [ ] Add some loader during network calls
+- [X] Add some loader during network calls
 - [X] Notify user to turn on net if it's off
 - [X] Config ui properly
 - [ ] Add splash screen

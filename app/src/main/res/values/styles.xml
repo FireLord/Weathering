@@ -4,6 +4,6 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorSunnyLight</item>
         <item name="colorPrimaryDark">@color/colorSunnyLight</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorSunnyLight</item>
     </style>
 </resources>
