@@ -76,6 +76,13 @@ class MainActivity : AppCompatActivity() {
                                     .get(Calendar.YEAR)}"
                             }
                         }
+                    } else {
+                        when(code()){
+                            429 -> Toast.makeText(this@MainActivity, "Server error: reached limit", Toast.LENGTH_SHORT).show()
+                            404 -> Toast.makeText(this@MainActivity, "Location not found", Toast.LENGTH_SHORT).show()
+                            401 -> Toast.makeText(this@MainActivity, "Server error: Unauthorized", Toast.LENGTH_SHORT).show()
+                            else -> Toast.makeText(this@MainActivity, "Server error: unknown", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
         }

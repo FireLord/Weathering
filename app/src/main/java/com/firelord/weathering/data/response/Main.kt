@@ -12,6 +12,5 @@ data class Main(
     val tempMax: Double,
     @SerializedName("temp_min")
     val tempMin: Double,
-    val humidity: Int,
-    val pressure: Int
+    val humidity: Int
 )

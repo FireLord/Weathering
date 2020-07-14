@@ -7,7 +7,7 @@
 
 ### TODO
 - [X] Api call
-    - [ ] error handling
+    - [X] error handling
     - [ ] Trim it
 - [ ] Add some loader during network calls
 - [X] Notify user to turn on net if it's off
