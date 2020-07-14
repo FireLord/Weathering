@@ -141,7 +141,7 @@
         android:layout_marginTop="4dp"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/buReport" />

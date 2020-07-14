@@ -54,6 +54,20 @@ class MainActivity : AppCompatActivity() {
         return connected
     }
 
+    fun getWindDirction(deg: Int): String {
+        return when {
+            deg > 337.5 -> "North"
+            deg > 292.5 -> "North West"
+            deg > 247.5 -> "West"
+            deg > 202.5 -> "South West"
+            deg > 157.5 -> "South"
+            deg > 122.5 -> "South East"
+            deg > 67.5 -> "East"
+            deg > 22.5 -> "North East"
+            else -> "North"
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
         mainActivity.progressBar.visibility = View.VISIBLE
@@ -66,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                                 mainActivity.tvTemp.text = "${it.main.temp.toInt()}°C"
                                 mainActivity.tvRain.text = "${it.clouds.all}%"
                                 mainActivity.tvHumidity.text = "${it.main.humidity}%"
-                                mainActivity.tvWind.text = "${it.wind.deg}" //TODO take deg change to sw/e/n
+                                mainActivity.tvWind.text = getWindDirction(it.wind.deg)
                                 mainActivity.tvDay.text = Calendar.getInstance().getDisplayName(
                                     Calendar.DAY_OF_WEEK,
                                     Calendar.LONG,
