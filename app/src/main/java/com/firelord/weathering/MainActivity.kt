@@ -1,6 +1,9 @@
 package com.firelord.weathering
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,8 +30,12 @@ class MainActivity : AppCompatActivity() {
         mainActivity.buReport.setOnClickListener {
             val city = mainActivity.etLocation.text.toString()
             if (city.isNotEmpty()) {
-                lifecycleScope.launch {
-                    getApi(city)
+                if (checkNetwork(this)) {
+                    lifecycleScope.launch {
+                        getApi(city)
+                    }
+                } else {
+                    Toast.makeText(this, "Please turn on net", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Please enter location", Toast.LENGTH_SHORT).show()
@@ -38,6 +45,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     val apiService = OpenWeatherServiceApi()
+
+    fun checkNetwork(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
+        val connected = capabilities?.hasCapability(NET_CAPABILITY_INTERNET) == true
+        return connected
+    }
 
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
