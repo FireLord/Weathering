@@ -2,6 +2,7 @@ package com.firelord.weathering
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
@@ -24,8 +25,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         mainActivity.buReport.setOnClickListener {
-            lifecycleScope.launch {
-                getApi()
+            val city = mainActivity.etLocation.text.toString()
+            if (city.isNotEmpty()) {
+                lifecycleScope.launch {
+                    getApi(city)
+                }
+            } else {
+                Toast.makeText(this, "Please enter location", Toast.LENGTH_SHORT).show()
             }
         }
         supportActionBar?.elevation = 0F
@@ -34,9 +40,8 @@ class MainActivity : AppCompatActivity() {
     val apiService = OpenWeatherServiceApi()
 
     @SuppressLint("SetTextI18n")
-    suspend fun getApi() {
+    suspend fun getApi(city: String) {
         withContext(IO) {
-            val city = mainActivity.etLocation.text.toString()
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
                     if (isSuccessful) {
