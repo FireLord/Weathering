@@ -77,12 +77,14 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     } else {
-                        when(code()){
-                            429 -> Toast.makeText(this@MainActivity, "Server error: reached limit", Toast.LENGTH_SHORT).show()
-                            404 -> Toast.makeText(this@MainActivity, "Location not found", Toast.LENGTH_SHORT).show()
-                            401 -> Toast.makeText(this@MainActivity, "Server error: Unauthorized", Toast.LENGTH_SHORT).show()
-                            else -> Toast.makeText(this@MainActivity, "Server error: unknown", Toast.LENGTH_SHORT).show()
+                        var errorMsg: String? = null
+                        errorMsg = when (code()) {
+                            429 -> "Server error: reached limit"
+                            404 -> "Location not found"
+                            401 -> "Server error: Unauthorized"
+                            else -> "Server error: unknown"
                         }
+                        Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
                     }
                 }
         }
