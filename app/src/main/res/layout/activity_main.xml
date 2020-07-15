@@ -45,8 +45,9 @@
 
     <ImageView
         android:id="@+id/ivBackground"
-        android:layout_width="412dp"
-        android:layout_height="411dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -57,8 +58,8 @@
 
     <EditText
         android:id="@+id/etLocation"
-        android:layout_width="160dp"
-        android:layout_height="54dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@null"
         android:drawableStart="@drawable/ic_sunny_map"
         android:drawablePadding="10dp"
@@ -68,9 +69,12 @@
         android:textColorHint="@color/colorSunnyAccent"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.897" />
+
 
     <TextView
         android:id="@+id/tvTemp"
@@ -80,18 +84,20 @@
         android:maxLines="1"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
-        android:textSize="40sp"
+        android:textSize="42sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
         app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle"
+        app:layout_constraintVertical_bias="0.242"
         tools:text="40°C" />
-
 
     <TextView
         android:id="@+id/tvRain"
-        android:layout_width="95dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:drawableStart="@drawable/ic_sunny_rain"
         android:drawablePadding="10dp"
@@ -105,8 +111,8 @@
 
     <TextView
         android:id="@+id/tvWind"
-        android:layout_width="95dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_sunny_wind"
         android:drawablePadding="10dp"
         android:text="--"
@@ -121,8 +127,8 @@
 
     <TextView
         android:id="@+id/tvHumidity"
-        android:layout_width="95dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:drawableStart="@drawable/ic_sunny_hum"
         android:drawablePadding="10dp"
@@ -136,15 +142,18 @@
 
     <TextView
         android:id="@+id/tvDay"
-        android:layout_width="159dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/buReport" />
+        app:layout_constraintTop_toBottomOf="@+id/buReport"
+        tools:text="Wednesday" />
 
     <TextView
         android:id="@+id/tvDate"
@@ -153,6 +162,8 @@
         android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvDay" />
 
@@ -165,15 +176,19 @@
         android:text="Get Weather"
         android:textColor="@color/colorSunnyDark"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guidelineTopMiddle"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft" />
 </androidx.constraintlayout.widget.ConstraintLayout>
