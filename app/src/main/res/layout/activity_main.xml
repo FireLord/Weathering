@@ -111,7 +111,7 @@
         android:drawablePadding="10dp"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"

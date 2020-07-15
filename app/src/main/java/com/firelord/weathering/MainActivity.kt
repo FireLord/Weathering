@@ -101,7 +101,10 @@ class MainActivity : AppCompatActivity() {
                             401 -> "Server error: Unauthorized"
                             else -> "Server error: unknown"
                         }
-                        Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
+                        withContext(Dispatchers.Main) {
+                            mainActivity.progressBar.visibility = View.GONE
+                            Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
         }
