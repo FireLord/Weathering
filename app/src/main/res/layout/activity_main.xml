@@ -13,35 +13,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="46dp" />
+        app:layout_constraintGuide_percent="0.10" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="366dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="606dp" />
+        app:layout_constraintGuide_percent="0.90" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineSideMiddle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="206dp" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTopMiddle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="354dp" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <ImageView
         android:id="@+id/ivBackground"
@@ -63,47 +56,50 @@
         android:background="@null"
         android:drawableStart="@drawable/ic_sunny_map"
         android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_light"
         android:hint="Location"
-        android:inputType="textPersonName"
+        android:inputType="textPostalAddress"
         android:textColor="@color/colorSunnyLight"
         android:textColorHint="@color/colorSunnyAccent"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWind"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintVertical_bias="0.897" />
-
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tvTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_sunny_temp"
+        android:fontFamily="@font/roboto_bold"
         android:maxLines="1"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="42sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle"
-        app:layout_constraintVertical_bias="0.242"
-        tools:text="40°C" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle" />
 
     <TextView
         android:id="@+id/tvRain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:drawableStart="@drawable/ic_sunny_rain"
         android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_light"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="24sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
@@ -113,28 +109,33 @@
         android:id="@+id/tvWind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_sunny_wind"
         android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_light"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
         app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_sunny_hum"
         android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_light"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="24sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
@@ -144,24 +145,28 @@
         android:id="@+id/tvDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRain"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/buReport"
-        tools:text="Wednesday" />
+        app:layout_constraintTop_toBottomOf="@+id/buReport" />
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
         android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="18sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
@@ -171,17 +176,17 @@
         android:id="@+id/buReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:maxLines="1"
         android:text="Get Weather"
         android:textColor="@color/colorSunnyDark"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTemp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle" />
 
     <ProgressBar
         android:id="@+id/progressBar"
