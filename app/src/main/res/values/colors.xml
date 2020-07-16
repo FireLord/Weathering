@@ -17,4 +17,7 @@
     <!-- Snow colors -->
     <color name="colorSnowDark">#263238</color>
     <color name="colorSnowLight">#CFD8DC</color>
+
+    <!-- Logo background color -->
+    <color name="logoBg">#232F34</color>
 </resources>

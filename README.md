@@ -12,7 +12,7 @@
 - [X] Add some loader during network calls
 - [X] Notify user to turn on net if it's off
 - [X] Config ui properly
-- [ ] Add splash screen
+- [X] Add splash screen
 - [X] Add user input for location
 - [ ] Config sidebar navigation
     - [ ] Add option to add 3 locations as card view
