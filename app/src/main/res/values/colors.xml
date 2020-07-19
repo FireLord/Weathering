@@ -21,9 +21,12 @@
     <color name="colorSnowAccent">#9ea7aa</color>
 
     <!-- Girl colors -->
-    <color name="colorGirlDark">#0287D0</color>
+    <color name="colorGirlDark">#D42348</color>
     <color name="colorGirlLight">#E0F3FC</color>
     <color name="colorGirlAccent">#9ea7aa</color>
+    <color name="girlPurple">#C877E6</color>
+    <color name="girlGrey">#707070</color>
+    <color name="girlWhite">#ffffff</color>
 
     <!-- Logo background color -->
     <color name="logoBg">#232F34</color>

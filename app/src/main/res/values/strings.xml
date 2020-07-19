@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Weathering</string>
+    <string name="introPara">
+        <br>Welcome to weathering.\n</br>
+        <br>A beautiful looking weather app\n</br>
+        <br>with handcrafted backgrounds\n</br>
+    </string>
 </resources>
