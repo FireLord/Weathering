@@ -10,5 +10,6 @@ data class WeatherModel(
     val tvHumidity: String,
     val tvWind: String,
     val tvDay: String?,
-    val tvDate: String?
+    val tvDate: String?,
+    val tvLocation: String
 ) : Parcelable

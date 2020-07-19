@@ -23,5 +23,6 @@ class Snow : AppCompatActivity() {
         snowActivity.tvWind.text = weatherInfo.tvWind
         snowActivity.tvDay.text = weatherInfo.tvDay
         snowActivity.tvDate.text = weatherInfo.tvDate
+        snowActivity.tvLocation.text = weatherInfo.tvLocation
     }
 }

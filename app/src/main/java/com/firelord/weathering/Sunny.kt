@@ -23,5 +23,6 @@ class Sunny : AppCompatActivity() {
         sunnyActivity.tvWind.text = weatherInfo.tvWind
         sunnyActivity.tvDay.text = weatherInfo.tvDay
         sunnyActivity.tvDate.text = weatherInfo.tvDate
+        sunnyActivity.tvLocation.text = weatherInfo.tvLocation
     }
 }

@@ -6,16 +6,12 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
-import android.os.Parcelable
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
-import kotlinx.android.parcel.Parcelize
-import kotlinx.android.synthetic.main.activity_rain.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -74,16 +70,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun weatherCondition(id: Int): String {
-        return if (id in 600..622) {
-            "Snow"
-        } else if (id in 500..531 || id in 300..321 || id in 200..232) {
-            "Rain"
-        } else {
-            "Sunny"
-        }
-    }
-
     val day:String? = Calendar.getInstance().getDisplayName(
         Calendar.DAY_OF_WEEK,
         Calendar.LONG,
@@ -115,7 +101,8 @@ class MainActivity : AppCompatActivity() {
                                             "${it.main.humidity}%",
                                             getWindDirction(it.wind.deg),
                                             day,
-                                            date
+                                            date,
+                                            city
                                         )
                                     )
                                     startActivity(snow)
@@ -128,7 +115,8 @@ class MainActivity : AppCompatActivity() {
                                             "${it.main.humidity}%",
                                             getWindDirction(it.wind.deg),
                                             day,
-                                            date
+                                            date,
+                                            city
                                         )
                                     )
                                     startActivity(rain)
@@ -141,7 +129,8 @@ class MainActivity : AppCompatActivity() {
                                             "${it.main.humidity}%",
                                             getWindDirction(it.wind.deg),
                                             day,
-                                            date
+                                            date,
+                                            city
                                         )
                                     )
                                     startActivity(sunny)

@@ -23,5 +23,6 @@ class Rain : AppCompatActivity() {
         rainActivity.tvWind.text = weatherInfo.tvWind
         rainActivity.tvDay.text = weatherInfo.tvDay
         rainActivity.tvDate.text = weatherInfo.tvDate
+        rainActivity.tvLocation.text = weatherInfo.tvLocation
     }
 }

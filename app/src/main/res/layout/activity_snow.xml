@@ -49,19 +49,16 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/snow" />
 
-    <EditText
-        android:id="@+id/etLocation"
+    <TextView
+        android:id="@+id/tvLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@null"
         android:drawableStart="@drawable/ic_snow_map"
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_light"
-        android:hint="Location"
-        android:inputType="textPostalAddress"
         android:textColor="@color/colorSnowLight"
-        android:textColorHint="@color/colorSnowAccent"
         android:textSize="24sp"
+        android:text="--"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/tvWind"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
