@@ -13,10 +13,17 @@
     <!-- Rain colors -->
     <color name="colorRainDark">#004D40</color>
     <color name="colorRainLight">#B2DFDB</color>
+    <color name="colorRainAccent">#82ada9</color>
 
     <!-- Snow colors -->
     <color name="colorSnowDark">#263238</color>
     <color name="colorSnowLight">#CFD8DC</color>
+    <color name="colorSnowAccent">#9ea7aa</color>
+
+    <!-- Girl colors -->
+    <color name="colorGirlDark">#0287D0</color>
+    <color name="colorGirlLight">#E0F3FC</color>
+    <color name="colorGirlAccent">#9ea7aa</color>
 
     <!-- Logo background color -->
     <color name="logoBg">#232F34</color>

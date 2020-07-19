@@ -2,36 +2,34 @@ package com.firelord.weathering
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
-import com.firelord.weathering.databinding.ActivityMainBinding
+import com.firelord.weathering.databinding.ActivityRainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
+import java.util.*
 
+class Rain : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var mainActivity: ActivityMainBinding
+    private lateinit var rainActivity: ActivityRainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainActivity = ActivityMainBinding.inflate(layoutInflater)
-        val view = mainActivity.root
+        rainActivity = ActivityRainBinding.inflate(layoutInflater)
+        val view = rainActivity.root
         setContentView(view)
 
-        mainActivity.button.setOnClickListener {
-            val city = mainActivity.etLocation.text.toString()
+        rainActivity.buReport.setOnClickListener {
+            val city = rainActivity.etLocation.text.toString()
             if (city.isNotEmpty()) {
                 if (checkNetwork(this)) {
                     lifecycleScope.launch {
@@ -70,38 +68,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun weatherCondition(id: Int): String {
-        return if (id in 600..622) {
-            "Snow"
-        } else if (id in 500..531 || id in 300..321 || id in 200..232) {
-            "Rain"
-        } else {
-            "Sunny"
-        }
-    }
-
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
-        mainActivity.progressBar.visibility = View.VISIBLE
+        rainActivity.progressBar.visibility = View.VISIBLE
         withContext(IO) {
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
                     if (isSuccessful) {
                         body()?.let {
                             withContext(Dispatchers.Main) {
-                                val weatherNumber = it.weather[0]
-                                // https://openweathermap.org/weather-conditions
-                                if (weatherNumber.id in 600..622) {
-                                    val intent = Intent(this@MainActivity, Snow::class.java)
-                                    startActivity(intent)
-                                } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701) {
-                                    val intent = Intent(this@MainActivity, Rain::class.java)
-                                    startActivity(intent)
-                                } else {
-                                    val intent = Intent(this@MainActivity, Sunny::class.java)
-                                    startActivity(intent)
-                                }
-                                mainActivity.progressBar.visibility = View.GONE
+                                rainActivity.tvTemp.text = "${it.main.temp.toInt()}°C"
+                                rainActivity.tvRain.text = "${it.clouds.all}%"
+                                rainActivity.tvHumidity.text = "${it.main.humidity}%"
+                                rainActivity.tvWind.text = getWindDirction(it.wind.deg)
+                                rainActivity.tvDay.text = Calendar.getInstance().getDisplayName(
+                                    Calendar.DAY_OF_WEEK,
+                                    Calendar.LONG,
+                                    Locale.getDefault()
+                                )
+                                rainActivity.tvDate.text = "${Calendar.getInstance()
+                                    .get(Calendar.DATE)}/${Calendar.getInstance()
+                                    .get(Calendar.MONTH)}/${Calendar.getInstance()
+                                    .get(Calendar.YEAR)}"
+                                rainActivity.progressBar.visibility = View.GONE
                             }
                         }
                     } else {
@@ -113,8 +102,8 @@ class MainActivity : AppCompatActivity() {
                             else -> "Server error: unknown"
                         }
                         withContext(Dispatchers.Main) {
-                            mainActivity.progressBar.visibility = View.GONE
-                            Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
+                            rainActivity.progressBar.visibility = View.GONE
+                            Toast.makeText(this@Rain, errorMsg, Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
