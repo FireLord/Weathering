@@ -70,13 +70,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val day:String? = Calendar.getInstance().getDisplayName(
+    val day: String? = Calendar.getInstance().getDisplayName(
         Calendar.DAY_OF_WEEK,
         Calendar.LONG,
         Locale.getDefault()
     )
 
-    val date:String? = "${Calendar.getInstance()
+    val date: String? = "${Calendar.getInstance()
         .get(Calendar.DATE)}/${Calendar.getInstance()
         .get(Calendar.MONTH)}/${Calendar.getInstance()
         .get(Calendar.YEAR)}"

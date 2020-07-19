@@ -56,9 +56,9 @@
         android:drawableStart="@drawable/ic_sunny_map"
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_light"
+        android:text="--"
         android:textColor="@color/colorSunnyLight"
         android:textSize="24sp"
-        android:text="--"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/tvWind"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
@@ -167,5 +167,4 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvDay" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

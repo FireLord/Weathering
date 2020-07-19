@@ -8,7 +8,6 @@
     android:background="@drawable/girl"
     tools:context=".MainActivity">
 
-
     <EditText
         android:id="@+id/etLocation"
         android:layout_width="wrap_content"
@@ -51,5 +50,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLocation" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
