@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -13,11 +14,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.synthetic.main.activity_rain.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -80,6 +84,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    val day:String? = Calendar.getInstance().getDisplayName(
+        Calendar.DAY_OF_WEEK,
+        Calendar.LONG,
+        Locale.getDefault()
+    )
+
+    val date:String? = "${Calendar.getInstance()
+        .get(Calendar.DATE)}/${Calendar.getInstance()
+        .get(Calendar.MONTH)}/${Calendar.getInstance()
+        .get(Calendar.YEAR)}"
+
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
         mainActivity.progressBar.visibility = View.VISIBLE
@@ -92,14 +107,44 @@ class MainActivity : AppCompatActivity() {
                                 val weatherNumber = it.weather[0]
                                 // https://openweathermap.org/weather-conditions
                                 if (weatherNumber.id in 600..622) {
-                                    val intent = Intent(this@MainActivity, Snow::class.java)
-                                    startActivity(intent)
+                                    val snow = Intent(this@MainActivity, Snow::class.java)
+                                    snow.putExtra(
+                                        "weatherModel", WeatherModel(
+                                            "${it.main.temp.toInt()}°C",
+                                            "${it.clouds.all}%",
+                                            "${it.main.humidity}%",
+                                            getWindDirction(it.wind.deg),
+                                            day,
+                                            date
+                                        )
+                                    )
+                                    startActivity(snow)
                                 } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701) {
-                                    val intent = Intent(this@MainActivity, Rain::class.java)
-                                    startActivity(intent)
+                                    val rain = Intent(this@MainActivity, Rain::class.java)
+                                    rain.putExtra(
+                                        "weatherModel", WeatherModel(
+                                            "${it.main.temp.toInt()}°C",
+                                            "${it.clouds.all}%",
+                                            "${it.main.humidity}%",
+                                            getWindDirction(it.wind.deg),
+                                            day,
+                                            date
+                                        )
+                                    )
+                                    startActivity(rain)
                                 } else {
-                                    val intent = Intent(this@MainActivity, Sunny::class.java)
-                                    startActivity(intent)
+                                    val sunny = Intent(this@MainActivity, Sunny::class.java)
+                                    sunny.putExtra(
+                                        "weatherModel", WeatherModel(
+                                            "${it.main.temp.toInt()}°C",
+                                            "${it.clouds.all}%",
+                                            "${it.main.humidity}%",
+                                            getWindDirction(it.wind.deg),
+                                            day,
+                                            date
+                                        )
+                                    )
+                                    startActivity(sunny)
                                 }
                                 mainActivity.progressBar.visibility = View.GONE
                             }
