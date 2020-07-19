@@ -19,7 +19,6 @@ import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
 import java.util.*
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainActivity: ActivityMainBinding
@@ -106,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                                         )
                                     )
                                     startActivity(snow)
-                                } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701) {
+                                } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701 || weatherNumber.id in 803..804 ) {
                                     val rain = Intent(this@MainActivity, Rain::class.java)
                                     rain.putExtra(
                                         "weatherModel", WeatherModel(
