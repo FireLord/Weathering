@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">Weathering</string>
     <string name="introPara">
-        <br>Welcome to weathering.\n</br>
-        <br>A beautiful looking weather app\n</br>
-        <br>with handcrafted backgrounds\n</br>
+        Welcome to weathering.
     </string>
     <string name="loading">
         Loading
@@ -15,4 +13,14 @@
         Get Weather
     </string>
     <string name="hello">Hello,</string>
+    <string name="location">Location</string>
+    <string name="locationError">
+        Location not found
+    </string>
+    <string name="limitError">
+        Reached limit
+    </string>
+    <string name="serverError">
+        Server error
+    </string>
 </resources>

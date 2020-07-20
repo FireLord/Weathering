@@ -7,6 +7,8 @@ import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         bindProgressButton(mainActivity.button)
 
         mainActivity.button.setOnClickListener {
-            val city = mainActivity.etLocation.text.toString()
+            val city = mainActivity.textInputEditTextOutlined.text.toString()
             if (city.isNotEmpty()) {
                 if (checkNetwork(this)) {
                     lifecycleScope.launch {
@@ -149,14 +151,36 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         var errorMsg: String? = null
                         errorMsg = when (code()) {
-                            429 -> "Server error: reached limit"
-                            404 -> "Location not found"
-                            401 -> "Server error: Unauthorized"
-                            else -> "Server error: unknown"
+                            429 -> getString(R.string.limitError)
+                            404 -> getString(R.string.locationError)
+                            else -> getString(R.string.serverError)
                         }
                         withContext(Dispatchers.Main) {
                             mainActivity.button.hideProgress(R.string.tryAgain)
-                            Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
+                            mainActivity.textInputLayoutOutlined.error = errorMsg
+                            mainActivity.textInputEditTextOutlined.addTextChangedListener(object :
+                                TextWatcher {
+                                override fun onTextChanged(
+                                    s: CharSequence,
+                                    start: Int,
+                                    before: Int,
+                                    count: Int
+                                ) {
+                                }
+
+                                override fun beforeTextChanged(
+                                    s: CharSequence,
+                                    start: Int,
+                                    count: Int,
+                                    aft: Int
+                                ) {
+                                }
+
+                                override fun afterTextChanged(s: Editable) {
+                                    mainActivity.button.hideProgress(R.string.getWeather)
+                                    mainActivity.textInputLayoutOutlined.error = null
+                                }
+                            })
                         }
                     }
                 }

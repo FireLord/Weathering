@@ -15,27 +15,26 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.74" />
 
-    <EditText
-        android:id="@+id/etLocation"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_outlined"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@null"
-        android:drawableStart="@drawable/ic_girl_map"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/ubuntu"
-        android:hint="Location"
-        android:inputType="textCapSentences"
-        android:maxLength="10"
-        android:textColor="@color/girlGrey"
-        android:textColorHint="@color/girlGrey"
-        android:textSize="24sp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="200dp"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintStart_toStartOf="@+id/tvIntroPara"
+        app:layout_constraintTop_toTopOf="@+id/button">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_edit_text_outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/location"
+            android:inputType="textCapSentences"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/tvAppName"
@@ -56,7 +55,7 @@
         android:id="@+id/tvHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ubuntu_medium"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/hello"
         android:textColor="@color/colorGirlDark"
         android:textSize="36sp"
@@ -69,7 +68,7 @@
         android:id="@+id/tvIntroPara"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ubuntu"
+        android:fontFamily="@font/roboto"
         android:maxLines="3"
         android:text="@string/introPara"
         android:textColor="@color/girlGrey"
