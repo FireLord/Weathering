@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter location", Toast.LENGTH_SHORT).show()
             }
         }
-        supportActionBar?.elevation = 0F
     }
 
     val apiService = OpenWeatherServiceApi()

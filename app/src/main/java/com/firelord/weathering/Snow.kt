@@ -14,7 +14,7 @@ class Snow : AppCompatActivity() {
         val view = snowActivity.root
         setContentView(view)
 
-        supportActionBar?.elevation = 0F
+        setSupportActionBar(snowActivity.toolbar)
 
         val weatherInfo = intent.extras!!.getParcelable<WeatherModel>("weatherModel")
         snowActivity.tvTemp.text = weatherInfo!!.tvTemp

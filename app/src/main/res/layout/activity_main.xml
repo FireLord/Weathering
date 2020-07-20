@@ -24,7 +24,7 @@
         android:fontFamily="@font/ubuntu"
         android:hint="Location"
         android:maxLength="10"
-        android:inputType="textPostalAddress"
+        android:inputType="textCapSentences"
         android:textColor="@color/girlGrey"
         android:textColorHint="@color/girlGrey"
         android:textSize="24sp"
