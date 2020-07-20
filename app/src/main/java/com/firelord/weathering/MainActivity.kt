@@ -3,15 +3,18 @@ package com.firelord.weathering
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
+import com.github.razir.progressbutton.bindProgressButton
+import com.github.razir.progressbutton.hideProgress
+import com.github.razir.progressbutton.showProgress
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -28,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         mainActivity = ActivityMainBinding.inflate(layoutInflater)
         val view = mainActivity.root
         setContentView(view)
+
+        // ProgressBar button
+        bindProgressButton(mainActivity.button)
 
         mainActivity.button.setOnClickListener {
             val city = mainActivity.etLocation.text.toString()
@@ -81,7 +87,11 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
-        mainActivity.progressBar.visibility = View.VISIBLE
+        // Show progress with "Loading" text
+        mainActivity.button.showProgress {
+            buttonTextRes = R.string.loading
+            progressColor = Color.WHITE
+        }
         withContext(IO) {
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
@@ -104,7 +114,7 @@ class MainActivity : AppCompatActivity() {
                                         )
                                     )
                                     startActivity(snow)
-                                } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701 || weatherNumber.id in 803..804 ) {
+                                } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701 || weatherNumber.id in 803..804) {
                                     val rain = Intent(this@MainActivity, Rain::class.java)
                                     rain.putExtra(
                                         "weatherModel", WeatherModel(
@@ -133,7 +143,7 @@ class MainActivity : AppCompatActivity() {
                                     )
                                     startActivity(sunny)
                                 }
-                                mainActivity.progressBar.visibility = View.GONE
+                                mainActivity.button.hideProgress(R.string.getWeather)
                             }
                         }
                     } else {
@@ -145,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                             else -> "Server error: unknown"
                         }
                         withContext(Dispatchers.Main) {
-                            mainActivity.progressBar.visibility = View.GONE
+                            mainActivity.button.hideProgress(R.string.tryAgain)
                             Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_SHORT).show()
                         }
                     }

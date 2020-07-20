@@ -5,4 +5,14 @@
         <br>A beautiful looking weather app\n</br>
         <br>with handcrafted backgrounds\n</br>
     </string>
+    <string name="loading">
+        Loading
+    </string>
+    <string name="tryAgain">
+        Try Again!
+    </string>
+    <string name="getWeather">
+        Get Weather
+    </string>
+    <string name="hello">Hello,</string>
 </resources>
