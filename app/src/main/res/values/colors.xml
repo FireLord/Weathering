@@ -22,11 +22,9 @@
 
     <!-- Girl colors -->
     <color name="colorGirlDark">#D42348</color>
-    <color name="colorGirlLight">#E0F3FC</color>
-    <color name="colorGirlAccent">#9ea7aa</color>
-    <color name="girlPurple">#C877E6</color>
     <color name="girlGrey">#707070</color>
     <color name="girlWhite">#ffffff</color>
+    <color name="girlBlack">#000000</color>
 
     <!-- Logo background color -->
     <color name="logoBg">#232F34</color>

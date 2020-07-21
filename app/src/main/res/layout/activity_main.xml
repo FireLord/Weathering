@@ -20,12 +20,18 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="50dp"
+        app:boxStrokeErrorColor="@color/girlBlack"
+        app:endIconDrawable="@drawable/ic_arrow_right_alt_24px"
+        app:endIconMode="custom"
+        app:endIconTint="@color/colorGirlDark"
         app:errorEnabled="true"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:errorIconTint="@color/girlBlack"
+        app:errorTextColor="@color/girlBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tvIntroPara"
-        app:layout_constraintTop_toTopOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/tvIntroPara">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_input_edit_text_outlined"
@@ -79,17 +85,4 @@
         app:layout_constraintStart_toStartOf="@+id/tvHello"
         app:layout_constraintTop_toBottomOf="@+id/tvHello"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/getWeather"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

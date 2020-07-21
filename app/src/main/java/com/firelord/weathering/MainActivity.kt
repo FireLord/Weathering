@@ -3,7 +3,6 @@ package com.firelord.weathering
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
@@ -14,9 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
-import com.github.razir.progressbutton.bindProgressButton
-import com.github.razir.progressbutton.hideProgress
-import com.github.razir.progressbutton.showProgress
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -34,10 +30,7 @@ class MainActivity : AppCompatActivity() {
         val view = mainActivity.root
         setContentView(view)
 
-        // ProgressBar button
-        bindProgressButton(mainActivity.button)
-
-        mainActivity.button.setOnClickListener {
+        mainActivity.textInputLayoutOutlined.setEndIconOnClickListener {
             val city = mainActivity.textInputEditTextOutlined.text.toString()
             if (city.isNotEmpty()) {
                 if (checkNetwork(this)) {
@@ -45,10 +38,10 @@ class MainActivity : AppCompatActivity() {
                         getApi(city)
                     }
                 } else {
-                    Toast.makeText(this, "Please turn on net", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,getString(R.string.noNet), Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Please enter location", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.noLoc), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -89,11 +82,8 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
-        // Show progress with "Loading" text
-        mainActivity.button.showProgress {
-            buttonTextRes = R.string.loading
-            progressColor = Color.WHITE
-        }
+        mainActivity.textInputLayoutOutlined.endIconDrawable =
+            getDrawable(R.drawable.ic_check_circle_outline_24px)
         withContext(IO) {
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
@@ -145,7 +135,8 @@ class MainActivity : AppCompatActivity() {
                                     )
                                     startActivity(sunny)
                                 }
-                                mainActivity.button.hideProgress(R.string.getWeather)
+                                mainActivity.textInputLayoutOutlined.endIconDrawable =
+                                    getDrawable(R.drawable.ic_check_circle_24px)
                             }
                         }
                     } else {
@@ -156,7 +147,6 @@ class MainActivity : AppCompatActivity() {
                             else -> getString(R.string.serverError)
                         }
                         withContext(Dispatchers.Main) {
-                            mainActivity.button.hideProgress(R.string.tryAgain)
                             mainActivity.textInputLayoutOutlined.error = errorMsg
                             mainActivity.textInputEditTextOutlined.addTextChangedListener(object :
                                 TextWatcher {
@@ -177,8 +167,9 @@ class MainActivity : AppCompatActivity() {
                                 }
 
                                 override fun afterTextChanged(s: Editable) {
-                                    mainActivity.button.hideProgress(R.string.getWeather)
                                     mainActivity.textInputLayoutOutlined.error = null
+                                    mainActivity.textInputLayoutOutlined.endIconDrawable =
+                                        getDrawable(R.drawable.ic_arrow_right_alt_24px)
                                 }
                             })
                         }

@@ -46,11 +46,11 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorGirlDark</item>
         <item name="colorPrimaryDark">@color/girlWhite</item>
-        <item name="colorAccent">@color/colorGirlAccent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimaryDark">@color/logoBg</item>
         <item name="android:windowBackground">@drawable/splash_activity</item>
     </style>
 </resources>
