@@ -14,15 +14,17 @@ class Sunny : AppCompatActivity() {
         val view = sunnyActivity.root
         setContentView(view)
 
-        setSupportActionBar(sunnyActivity.toolbar)
-
         val weatherInfo = intent.extras!!.getParcelable<WeatherModel>("weatherModel")
         sunnyActivity.tvTemp.text = weatherInfo!!.tvTemp
         sunnyActivity.tvRain.text = weatherInfo.tvRain
         sunnyActivity.tvHumidity.text = weatherInfo.tvHumidity
-        sunnyActivity.tvWind.text = weatherInfo.tvWind
-        sunnyActivity.tvDay.text = weatherInfo.tvDay
+        sunnyActivity.tvWind.text = weatherInfo.tvWindSpeed
+        sunnyActivity.tvWeatherType.text = weatherInfo.tvWeatherType
         sunnyActivity.tvDate.text = weatherInfo.tvDate
         sunnyActivity.tvLocation.text = weatherInfo.tvLocation
+
+        // Bottom bar
+
+
     }
 }

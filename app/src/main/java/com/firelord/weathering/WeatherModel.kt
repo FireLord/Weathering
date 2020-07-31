@@ -8,8 +8,8 @@ data class WeatherModel(
     val tvTemp: String,
     val tvRain: String,
     val tvHumidity: String,
-    val tvWind: String,
-    val tvDay: String?,
+    val tvWindSpeed: String,
+    val tvWeatherType: String?,
     val tvDate: String?,
     val tvLocation: String
 ) : Parcelable

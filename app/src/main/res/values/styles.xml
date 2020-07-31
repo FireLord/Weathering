@@ -5,13 +5,12 @@
         <item name="colorPrimary">@color/colorSunnyLight</item>
         <item name="colorPrimaryDark">@color/colorSunnyLight</item>
         <item name="colorAccent">@color/colorSunnyLight</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="toolbarSunny" parent="Sunny">
-        <item name="android:textColorPrimary">@color/colorSunnyDark</item>
-        <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:paddingLeft">20dp</item>
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">20dp</item>
     </style>
 
     <style name="Rain" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -22,24 +21,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="toolbarRain" parent="Rain">
-        <item name="android:textColorPrimary">@color/colorRainDark</item>
-        <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:paddingLeft">20dp</item>
-    </style>
-
     <style name="Snow" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorSnowLight</item>
         <item name="colorPrimaryDark">@color/colorSnowLight</item>
         <item name="colorAccent">@color/colorSnowLight</item>
         <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-    <style name="toolbarSnow" parent="Snow">
-        <item name="android:textColorPrimary">@color/colorSnowDark</item>
-        <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:paddingLeft">20dp</item>
     </style>
 
     <style name="MainActivity" parent="Theme.MaterialComponents.Light.NoActionBar">

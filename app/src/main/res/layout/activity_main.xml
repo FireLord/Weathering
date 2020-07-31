@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         app:boxStrokeErrorColor="@color/girlBlack"
-        app:endIconDrawable="@drawable/ic_arrow_right_alt_24px"
+        app:endIconDrawable="@drawable/ic_arrow"
         app:endIconMode="custom"
         app:endIconTint="@color/colorGirlDark"
         app:errorEnabled="true"

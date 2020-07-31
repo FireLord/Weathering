@@ -5,8 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSunnyDark"
     tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCardTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineLeft"
@@ -23,159 +29,192 @@
         app:layout_constraintGuide_percent="0.90" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineSideMiddle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineTopMiddle"
+        android:id="@+id/guidelineCardBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/toolbarSunny"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/ivBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:adjustViewBounds="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/sunny" />
-
-    <TextView
-        android:id="@+id/tvLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_sunny_map"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
-        android:textSize="24sp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/tvWind"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/tvTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_sunny_temp"
-        android:fontFamily="@font/roboto_bold"
-        android:maxLines="1"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
-        android:textSize="42sp"
-        android:textStyle="bold"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+        android:contentDescription="@string/bgImgInfo"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineCardBottom"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTopMiddle" />
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@+id/guidelineCardTop"
+        app:srcCompat="@drawable/sunny" />
 
     <TextView
         android:id="@+id/tvRain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:drawableStart="@drawable/ic_sunny_rain"
         android:drawablePadding="10dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/dash"
+        android:textColor="@color/girlBlack"
         android:textSize="24sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvRainName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="69 %" />
+
+    <TextView
+        android:id="@+id/tvTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:maxLines="1"
+        android:text="@string/dash"
+        android:textColor="@color/girlBlack"
+        android:textSize="72sp"
+        android:textStyle="bold"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintTop_toBottomOf="@+id/tvTemp" />
+        app:layout_constraintStart_toEndOf="@+id/tvLocation"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="40°" />
+
+    <TextView
+        android:id="@+id/tvWeatherType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/dash"
+        android:textColor="@color/sunnyPink"
+        android:textSize="30sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineCardTop"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate"
+        tools:text="Sunny" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/dash"
+        android:textColor="@color/girlBlack"
+        android:textSize="30sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="New Delhi,IN" />
 
     <TextView
         android:id="@+id/tvWind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:drawableStart="@drawable/ic_sunny_wind"
         android:drawablePadding="10dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/dash"
+        android:textColor="@color/girlBlack"
         android:textSize="22sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWindName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="69 km" />
 
     <TextView
         android:id="@+id/tvHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/ic_sunny_hum"
         android:drawablePadding="10dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/dash"
+        android:textColor="@color/girlBlack"
         android:textSize="24sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintTop_toBottomOf="@+id/tvRain" />
-
-    <TextView
-        android:id="@+id/tvDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/tvRain"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/ivBackground" />
+        app:layout_constraintEnd_toStartOf="@+id/tvWind"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/tvRain"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidityName"
+        tools:text="69%" />
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_light"
-        android:text="--"
-        android:textColor="@color/colorSunnyLight"
-        android:textSize="18sp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/dash"
+        android:textColor="@color/girlGrey"
+        android:textSize="16sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineSideMiddle"
+        app:layout_constraintEnd_toEndOf="@+id/tvLocation"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvDay" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation"
+        tools:text="July 31, 2020" />
+
+    <TextView
+        android:id="@+id/tvAddInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/addInfo"
+        android:textColor="@color/girlBlack"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/tvRainName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableTop="@drawable/ic_sunny_rain"
+        android:text="@string/rain"
+        android:textColor="@color/girlGrey"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
+
+    <TextView
+        android:id="@+id/tvHumidityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableTop="@drawable/ic_sunny_hum"
+        android:text="@string/humidity"
+        android:textColor="@color/girlGrey"
+        app:layout_constraintEnd_toStartOf="@+id/tvWindName"
+        app:layout_constraintStart_toEndOf="@+id/tvRainName"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
+
+    <TextView
+        android:id="@+id/tvWindName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableTop="@drawable/ic_sunny_wind"
+        android:text="@string/wind"
+        android:textColor="@color/girlGrey"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/colorSunnyDark"
+        app:itemIconTint="@color/girlWhite"
+        app:itemTextColor="@color/girlWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

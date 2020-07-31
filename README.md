@@ -14,10 +14,10 @@
 - [X] Config ui properly
 - [X] Add splash screen
 - [X] Add user input for location
-- [ ] Config sidebar navigation
+- [X] Config sidebar navigation
     - [ ] Add option to add 3 locations as card view
-    - [ ] Add about icon
-    - [ ] Add settings icon
+    - [X] Add about icon
+    - [X] Add settings icon
 - [ ] **Settings page**
     - [ ] Option for c and f
     - [ ] Option for auto location
@@ -32,4 +32,3 @@
     - [ ] Sunrise sunset
     - [ ] Feels like temp
     - [ ] Min/Max temp
-

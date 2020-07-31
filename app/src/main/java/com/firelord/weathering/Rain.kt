@@ -14,14 +14,12 @@ class Rain : AppCompatActivity() {
         val view = rainActivity.root
         setContentView(view)
 
-        setSupportActionBar(rainActivity.toolbar)
-
         val weatherInfo = intent.extras!!.getParcelable<WeatherModel>("weatherModel")
         rainActivity.tvTemp.text = weatherInfo!!.tvTemp
         rainActivity.tvRain.text = weatherInfo.tvRain
         rainActivity.tvHumidity.text = weatherInfo.tvHumidity
-        rainActivity.tvWind.text = weatherInfo.tvWind
-        rainActivity.tvDay.text = weatherInfo.tvDay
+        rainActivity.tvWind.text = weatherInfo.tvWindSpeed
+        rainActivity.tvWeatherType.text = weatherInfo.tvWeatherType
         rainActivity.tvDate.text = weatherInfo.tvDate
         rainActivity.tvLocation.text = weatherInfo.tvLocation
     }

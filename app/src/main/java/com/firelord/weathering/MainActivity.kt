@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                         getApi(city)
                     }
                 } else {
-                    Toast.makeText(this,getString(R.string.noNet), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.noNet), Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, getString(R.string.noLoc), Toast.LENGTH_SHORT).show()
@@ -69,21 +69,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val day: String? = Calendar.getInstance().getDisplayName(
-        Calendar.DAY_OF_WEEK,
-        Calendar.LONG,
-        Locale.getDefault()
-    )
+    fun monthName(month: Int): String {
+        return when (month) {
+            0 -> "Jan"
+            1 -> "Feb"
+            2 -> "Mar"
+            3 -> "Apr"
+            4 -> "May"
+            5 -> "June"
+            6 -> "July"
+            7 -> "Aug"
+            8 -> "Sep"
+            9 -> "Oct"
+            10 -> "Nov"
+            11 -> "Dec"
+            else -> "error"
+        }
+    }
 
-    val date: String? = "${Calendar.getInstance()
-        .get(Calendar.DATE)}/${Calendar.getInstance()
-        .get(Calendar.MONTH)}/${Calendar.getInstance()
+    val date: String? = "${monthName(
+        Calendar.getInstance()
+            .get(Calendar.MONTH)
+    )} ${Calendar.getInstance()
+        .get(Calendar.DATE)},${Calendar.getInstance()
         .get(Calendar.YEAR)}"
 
     @SuppressLint("SetTextI18n")
     suspend fun getApi(city: String) {
         mainActivity.textInputLayoutOutlined.endIconDrawable =
-            getDrawable(R.drawable.ic_check_circle_outline_24px)
+            getDrawable(R.drawable.ic_check_circle_outline)
         withContext(IO) {
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
@@ -96,13 +110,13 @@ class MainActivity : AppCompatActivity() {
                                     val snow = Intent(this@MainActivity, Snow::class.java)
                                     snow.putExtra(
                                         "weatherModel", WeatherModel(
-                                            "${it.main.temp.toInt()}°C",
+                                            "${it.main.temp.toInt()}°",
                                             "${it.clouds.all}%",
                                             "${it.main.humidity}%",
-                                            getWindDirction(it.wind.deg),
-                                            day,
+                                            "${it.wind.speed}ms",
+                                            weatherNumber.main,
                                             date,
-                                            city
+                                            "${city}, ${it.sys.country}"
                                         )
                                     )
                                     startActivity(snow)
@@ -110,13 +124,13 @@ class MainActivity : AppCompatActivity() {
                                     val rain = Intent(this@MainActivity, Rain::class.java)
                                     rain.putExtra(
                                         "weatherModel", WeatherModel(
-                                            "${it.main.temp.toInt()}°C",
+                                            "${it.main.temp.toInt()}°",
                                             "${it.clouds.all}%",
                                             "${it.main.humidity}%",
-                                            getWindDirction(it.wind.deg),
-                                            day,
+                                            "${it.wind.speed}ms",
+                                            weatherNumber.main,
                                             date,
-                                            city
+                                            "${city},${it.sys.country}"
                                         )
                                     )
                                     startActivity(rain)
@@ -124,19 +138,19 @@ class MainActivity : AppCompatActivity() {
                                     val sunny = Intent(this@MainActivity, Sunny::class.java)
                                     sunny.putExtra(
                                         "weatherModel", WeatherModel(
-                                            "${it.main.temp.toInt()}°C",
+                                            "${it.main.temp.toInt()}°",
                                             "${it.clouds.all}%",
                                             "${it.main.humidity}%",
-                                            getWindDirction(it.wind.deg),
-                                            day,
+                                            "${it.wind.speed}ms",
+                                            weatherNumber.main,
                                             date,
-                                            city
+                                            "${city},${it.sys.country}"
                                         )
                                     )
                                     startActivity(sunny)
                                 }
                                 mainActivity.textInputLayoutOutlined.endIconDrawable =
-                                    getDrawable(R.drawable.ic_check_circle_24px)
+                                    getDrawable(R.drawable.ic_check_circle)
                             }
                         }
                     } else {
@@ -169,7 +183,7 @@ class MainActivity : AppCompatActivity() {
                                 override fun afterTextChanged(s: Editable) {
                                     mainActivity.textInputLayoutOutlined.error = null
                                     mainActivity.textInputLayoutOutlined.endIconDrawable =
-                                        getDrawable(R.drawable.ic_arrow_right_alt_24px)
+                                        getDrawable(R.drawable.ic_arrow)
                                 }
                             })
                         }
