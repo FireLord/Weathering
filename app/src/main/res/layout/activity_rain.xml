@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -38,18 +39,18 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardElevation="5dp"
         app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineCardBottom"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCardTop" >
+        app:layout_constraintTop_toTopOf="@+id/guidelineCardTop">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/rain">
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@drawable/rain" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -122,8 +123,8 @@
         android:layout_height="wrap_content"
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/dash"
         android:maxLines="2"
+        android:text="@string/dash"
         android:textColor="@color/girlBlack"
         android:textSize="22sp"
         app:autoSizeTextType="uniform"
@@ -217,8 +218,8 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="10dp"
         app:backgroundTint="@color/colorRainDark"
+        app:elevation="10dp"
         app:itemIconTint="@color/girlWhite"
         app:itemTextColor="@color/girlWhite"
         app:layout_constraintBottom_toBottomOf="parent"
