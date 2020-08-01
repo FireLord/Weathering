@@ -198,6 +198,7 @@
         android:drawableTop="@drawable/ic_rain_hum"
         android:text="@string/humidity"
         android:textColor="@color/girlGrey"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
@@ -211,6 +212,7 @@
         android:drawableTop="@drawable/ic_rain_wind"
         android:text="@string/wind"
         android:textColor="@color/girlGrey"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
 
