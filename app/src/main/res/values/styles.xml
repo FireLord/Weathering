@@ -5,12 +5,8 @@
         <item name="colorPrimary">@color/colorSunnyLight</item>
         <item name="colorPrimaryDark">@color/colorSunnyLight</item>
         <item name="colorAccent">@color/colorSunnyLight</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="android:statusBarColor">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerSize">20dp</item>
     </style>
 
     <style name="Rain" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -18,6 +14,7 @@
         <item name="colorPrimary">@color/colorRainLight</item>
         <item name="colorPrimaryDark">@color/colorRainLight</item>
         <item name="colorAccent">@color/colorRainLight</item>
+        <item name="android:statusBarColor">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
@@ -26,6 +23,7 @@
         <item name="colorPrimary">@color/colorSnowLight</item>
         <item name="colorPrimaryDark">@color/colorSnowLight</item>
         <item name="colorAccent">@color/colorSnowLight</item>
+        <item name="android:statusBarColor">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 

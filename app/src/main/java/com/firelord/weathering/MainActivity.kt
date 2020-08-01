@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         Calendar.getInstance()
             .get(Calendar.MONTH)
     )} ${Calendar.getInstance()
-        .get(Calendar.DATE)},${Calendar.getInstance()
+        .get(Calendar.DATE)}, ${Calendar.getInstance()
         .get(Calendar.YEAR)}"
 
     @SuppressLint("SetTextI18n")
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                                             "${it.wind.speed}ms",
                                             weatherNumber.main,
                                             date,
-                                            "${city},${it.sys.country}"
+                                            "${city}, ${it.sys.country}"
                                         )
                                     )
                                     startActivity(rain)
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                                             "${it.wind.speed}ms",
                                             weatherNumber.main,
                                             date,
-                                            "${city},${it.sys.country}"
+                                            "${city}, ${it.sys.country}"
                                         )
                                     )
                                     startActivity(sunny)

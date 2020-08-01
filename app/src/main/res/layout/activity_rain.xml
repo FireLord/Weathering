@@ -35,23 +35,29 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/bgImgInfo"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineCardBottom"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCardTop"
-        app:srcCompat="@drawable/rain" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineCardTop" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rain">
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvRain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dash"
@@ -59,10 +65,11 @@
         android:textSize="24sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+        app:layout_constraintEnd_toEndOf="@+id/tvRainName"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvRainName"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="69 %" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvTemp"
@@ -72,20 +79,20 @@
         android:maxLines="1"
         android:text="@string/dash"
         android:textColor="@color/girlBlack"
-        android:textSize="72sp"
+        android:textSize="69sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tvLocation"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="40°" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvWeatherType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto"
         android:text="@string/dash"
         android:textColor="@color/colorRainDark"
@@ -93,8 +100,7 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/guidelineCardTop"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        tools:text="Sunny" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
     <TextView
         android:id="@+id/tvLocation"
@@ -108,8 +114,7 @@
         android:textSize="30sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="New Delhi,IN" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvWind"
@@ -118,14 +123,16 @@
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dash"
+        android:maxLines="2"
         android:textColor="@color/girlBlack"
         android:textSize="22sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tvWindName"
         app:layout_constraintTop_toBottomOf="@+id/tvWindName"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="69 km" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvHumidity"
@@ -137,11 +144,9 @@
         android:textColor="@color/girlBlack"
         android:textSize="24sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/tvWind"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/tvRain"
-        app:layout_constraintTop_toBottomOf="@+id/tvHumidityName"
-        tools:text="69%" />
+        app:layout_constraintEnd_toEndOf="@+id/tvHumidityName"
+        app:layout_constraintStart_toStartOf="@+id/tvHumidityName"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidityName" />
 
     <TextView
         android:id="@+id/tvDate"
@@ -155,26 +160,28 @@
         app:layout_constraintEnd_toEndOf="@+id/tvLocation"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvLocation"
-        tools:text="July 31, 2020" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
     <TextView
         android:id="@+id/tvAddInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/addInfo"
         android:textColor="@color/girlBlack"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineCardBottom" />
 
     <TextView
         android:id="@+id/tvRainName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
         android:drawableTop="@drawable/ic_rain_rain"
         android:text="@string/rain"
         android:textColor="@color/girlGrey"
@@ -186,19 +193,20 @@
         android:id="@+id/tvHumidityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="35dp"
         android:drawableTop="@drawable/ic_rain_hum"
         android:text="@string/humidity"
         android:textColor="@color/girlGrey"
-        app:layout_constraintEnd_toStartOf="@+id/tvWindName"
-        app:layout_constraintStart_toEndOf="@+id/tvRainName"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
 
     <TextView
         android:id="@+id/tvWindName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="16dp"
         android:drawableTop="@drawable/ic_rain_wind"
         android:text="@string/wind"
         android:textColor="@color/girlGrey"
@@ -209,6 +217,7 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:elevation="10dp"
         app:backgroundTint="@color/colorRainDark"
         app:itemIconTint="@color/girlWhite"
         app:itemTextColor="@color/girlWhite"
