@@ -14,19 +14,22 @@
 - [X] Config ui properly
 - [X] Add splash screen
 - [X] Add user input for location
-- [X] Config sidebar navigation
-    - [ ] Add option to add 3 locations as card view
+- [X] Config navigation
+    - [X] Add search icon
     - [X] Add about icon
     - [X] Add settings icon
 - [ ] **Settings page**
     - [ ] Option for c and f
     - [ ] Option for auto location
     - [ ] Change default location if device location is denied
+    - [ ] Dark mode & light mode
 - [ ] **About page**
     - [ ] Mention every libs used
     - [ ] Tell everyone that i made those artwork
-- [ ] **Advance stuff**
-- [ ] Scroll ui
+- [ ] **Search page**
+    - [ ] search box
+    - [ ] list of locations in card
+- [ ] **Scroll ui**
     - [ ] Hourly forecast
     - [ ] Next 7 day forecast
     - [ ] Sunrise sunset
