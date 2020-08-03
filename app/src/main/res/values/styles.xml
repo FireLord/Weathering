@@ -1,34 +1,10 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="Sunny" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorSunnyLight</item>
-        <item name="colorPrimaryDark">@color/colorSunnyLight</item>
-        <item name="colorAccent">@color/colorSunnyLight</item>
-        <item name="android:statusBarColor">@color/girlWhite</item>
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-    <style name="Rain" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorRainLight</item>
-        <item name="colorPrimaryDark">@color/colorRainLight</item>
-        <item name="colorAccent">@color/colorRainLight</item>
-        <item name="android:statusBarColor">@color/girlWhite</item>
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-    <style name="Snow" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorSnowLight</item>
-        <item name="colorPrimaryDark">@color/colorSnowLight</item>
-        <item name="colorAccent">@color/colorSnowLight</item>
+    <style name="weather" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="MainActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorGirlDark</item>
         <item name="colorPrimaryDark">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>

@@ -22,15 +22,37 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/MainActivity" />
         <activity
-            android:name=".Rain"
-            android:theme="@style/Rain" />
+            android:name=".weatherUi.Rain"
+            android:screenOrientation="portrait"
+            android:theme="@style/weather" />
         <activity
-            android:name=".Snow"
-            android:theme="@style/Snow" />
+            android:name=".weatherUi.Snow"
+            android:screenOrientation="portrait"
+            android:theme="@style/weather" />
         <activity
-            android:name=".Sunny"
-            android:theme="@style/Sunny" />
+            android:name=".weatherUi.Sunny"
+            android:screenOrientation="portrait"
+            android:theme="@style/weather" />
+        <activity
+            android:name=".info.Info"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/weather"/>
+        <activity
+            android:name=".info.Contributors"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".info.Library"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.Location"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.Settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/weather"/>
     </application>
 </manifest>

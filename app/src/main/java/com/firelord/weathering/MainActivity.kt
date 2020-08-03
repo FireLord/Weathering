@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
+import com.firelord.weathering.weatherUi.Rain
+import com.firelord.weathering.weatherUi.Snow
+import com.firelord.weathering.weatherUi.Sunny
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch

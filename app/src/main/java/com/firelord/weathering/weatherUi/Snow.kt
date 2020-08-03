@@ -1,7 +1,8 @@
-package com.firelord.weathering
+package com.firelord.weathering.weatherUi
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.firelord.weathering.WeatherModel
 import com.firelord.weathering.databinding.ActivitySnowBinding
 
 class Snow : AppCompatActivity() {

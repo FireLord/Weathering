@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".info.Info">
+
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/info"
+        android:textColor="@color/girlBlack"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAboutInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/aboutInfo"
+        android:textColor="@color/girlGrey"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvAbout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvAbout"
+        app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/girlBlack"
+        app:elevation="10dp"
+        app:itemIconTint="@color/girlWhite"
+        app:itemTextColor="@color/girlWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_bar" />
+
+    <Button
+        android:id="@+id/button"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:padding="20dp"
+        android:text="Libraries"
+        android:textAllCaps="false"
+        android:textColor="@color/buPink"
+        android:textSize="18sp"
+        app:icon="@drawable/ic_info"
+        app:iconTint="@color/buPink"
+        app:layout_constraintEnd_toEndOf="@+id/tvAboutInfo"
+        app:layout_constraintStart_toStartOf="@+id/tvAboutInfo"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutInfo"
+        app:rippleColor="@color/buPinkClick"
+        app:strokeColor="@color/buPink" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:padding="20dp"
+        android:text="Changelog"
+        android:textAllCaps="false"
+        android:textColor="@color/buBlue"
+        android:textSize="18sp"
+        app:icon="@drawable/ic_changelog"
+        app:iconTint="@color/buBlue"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:rippleColor="@color/buBlueClick"
+        app:strokeColor="@color/buBlue" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:padding="20dp"
+        android:text="Contriubutors"
+        android:textAllCaps="false"
+        android:textColor="@color/buYellow"
+        android:textSize="18sp"
+        app:icon="@drawable/ic_person"
+        app:iconTint="@color/buYellow"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:rippleColor="@color/buYellowClick"
+        app:strokeColor="@color/buYellow" />
+
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Version 1.0"
+        android:textColor="@color/girlGrey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <TextView
+        android:id="@+id/tvLove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/Love"
+        android:textColor="@color/girlBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvVersion"
+        app:layout_constraintStart_toStartOf="@+id/tvVersion"
+        app:layout_constraintTop_toBottomOf="@+id/tvVersion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

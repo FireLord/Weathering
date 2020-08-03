@@ -24,7 +24,7 @@
         Home
     </string>
     <string name="info">
-        Info
+        About
     </string>
     <string name="settings">
         Settings
@@ -38,4 +38,13 @@
     <string name="humidity">Humidity</string>
     <string name="wind">Wind</string>
     <string name="bgImgInfo">TODO</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="darkModeInfo">Use dark mode to conserve battery on amoled and help your eyes to relax in darker environments.</string>
+    <string name="unit">Weather unit</string>
+    <string name="unitInfo">Depending upon your requirements you can use your favourite scale for weather data.</string>
+    <string name="locationInfo">According to your privacy liking you can select location to be manual or by using device location for ease.</string>
+    <string name="celcius">°C</string>
+    <string name="fahrenheit">°F</string>
+    <string name="aboutInfo">Hello everyone, this app is my first project with goal in mind to keep it minimal and have beautiful illustrations according to the weather conditions. So I’ll be designing more illustrations as times goes by. Thank you for trying my app and please rate it if you liked the app and illustrations.</string>
+    <string name="Love">Made with ❤️ in India</string>
 </resources>
