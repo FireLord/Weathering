@@ -13,9 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
-import com.firelord.weathering.weatherUi.Rain
-import com.firelord.weathering.weatherUi.Snow
-import com.firelord.weathering.weatherUi.Sunny
+import com.firelord.weathering.home.Home
+import com.firelord.weathering.home.WeatherModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -110,8 +109,9 @@ class MainActivity : AppCompatActivity() {
                                 val weatherNumber = it.weather[0]
                                 // https://openweathermap.org/weather-conditions
                                 if (weatherNumber.id in 600..622) {
-                                    val snow = Intent(this@MainActivity, Snow::class.java)
-                                    snow.putExtra(
+                                    // Snow
+                                    val home = Intent(this@MainActivity, Home::class.java)
+                                    home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
                                             "${it.clouds.all}%",
@@ -119,13 +119,19 @@ class MainActivity : AppCompatActivity() {
                                             "${it.wind.speed}ms",
                                             weatherNumber.main,
                                             date,
-                                            "${city}, ${it.sys.country}"
+                                            "${city}, ${it.sys.country}",
+                                            R.drawable.snow,
+                                            R.drawable.ic_snow_rain,
+                                            R.drawable.ic_snow_hum,
+                                            R.drawable.ic_snow_wind,
+                                            R.color.colorRainDark
                                         )
                                     )
-                                    startActivity(snow)
+                                    startActivity(home)
                                 } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701 || weatherNumber.id in 803..804) {
-                                    val rain = Intent(this@MainActivity, Rain::class.java)
-                                    rain.putExtra(
+                                    // Rain
+                                    val home = Intent(this@MainActivity, Home::class.java)
+                                    home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
                                             "${it.clouds.all}%",
@@ -133,13 +139,19 @@ class MainActivity : AppCompatActivity() {
                                             "${it.wind.speed}ms",
                                             weatherNumber.main,
                                             date,
-                                            "${city}, ${it.sys.country}"
+                                            "${city}, ${it.sys.country}",
+                                            R.drawable.rain,
+                                            R.drawable.ic_rain_rain,
+                                            R.drawable.ic_rain_hum,
+                                            R.drawable.ic_rain_wind,
+                                            R.color.colorRainDark
                                         )
                                     )
-                                    startActivity(rain)
+                                    startActivity(home)
                                 } else {
-                                    val sunny = Intent(this@MainActivity, Sunny::class.java)
-                                    sunny.putExtra(
+                                    // Sunny & others
+                                    val home = Intent(this@MainActivity, Home::class.java)
+                                    home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
                                             "${it.clouds.all}%",
@@ -147,10 +159,15 @@ class MainActivity : AppCompatActivity() {
                                             "${it.wind.speed}ms",
                                             weatherNumber.main,
                                             date,
-                                            "${city}, ${it.sys.country}"
+                                            "${city}, ${it.sys.country}",
+                                            R.drawable.sunny,
+                                            R.drawable.ic_sunny_rain,
+                                            R.drawable.ic_sunny_hum,
+                                            R.drawable.ic_sunny_wind,
+                                            R.color.sunnyPink
                                         )
                                     )
-                                    startActivity(sunny)
+                                    startActivity(home)
                                 }
                                 mainActivity.textInputLayoutOutlined.endIconDrawable =
                                     getDrawable(R.drawable.ic_check_circle)

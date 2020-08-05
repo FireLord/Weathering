@@ -5,24 +5,20 @@
     <item
         android:id="@+id/home"
         android:title="@string/home"
-        android:icon="@drawable/ic_home"
-        android:enabled="true" />
+        android:icon="@drawable/ic_home" />
 
     <item
         android:id="@+id/search"
         android:title="@string/search"
-        android:icon="@drawable/ic_search"
-        android:enabled="true" />
+        android:icon="@drawable/ic_search" />
 
     <item
         android:id="@+id/settings"
         android:title="@string/settings"
-        android:icon="@drawable/ic_settings"
-        android:enabled="true" />
+        android:icon="@drawable/ic_settings" />
 
     <item
         android:id="@+id/info"
         android:title="@string/info"
-        android:icon="@drawable/ic_info"
-        android:enabled="true" />
+        android:icon="@drawable/ic_info" />
 </menu>

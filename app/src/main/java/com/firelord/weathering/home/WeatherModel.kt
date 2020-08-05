@@ -1,4 +1,4 @@
-package com.firelord.weathering
+package com.firelord.weathering.home
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -11,5 +11,10 @@ data class WeatherModel(
     val tvWindSpeed: String,
     val tvWeatherType: String?,
     val tvDate: String?,
-    val tvLocation: String
+    val tvLocation: String,
+    val clCard: Int,
+    val tvRainName: Int,
+    val tvHumidityName: Int,
+    val tvWindName: Int,
+    val tvWeatherTypeColor: Int
 ) : Parcelable

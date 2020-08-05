@@ -25,26 +25,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/MainActivity" />
         <activity
-            android:name=".weatherUi.Rain"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
-        <activity
-            android:name=".weatherUi.Snow"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
-        <activity
-            android:name=".weatherUi.Sunny"
+            android:name=".home.Home"
             android:screenOrientation="portrait"
             android:theme="@style/weather" />
         <activity
             android:name=".info.Info"
             android:screenOrientation="portrait"
-            android:theme="@style/weather"/>
+            android:theme="@style/weather" />
         <activity
             android:name=".info.Contributors"
             android:screenOrientation="portrait"
-            android:exported="true"
-            android:theme="@style/weather"/>
+            android:theme="@style/weather" />
         <activity
             android:name=".info.Library"
             android:screenOrientation="portrait" />
@@ -55,6 +46,6 @@
         <activity
             android:name=".settings.Settings"
             android:screenOrientation="portrait"
-            android:theme="@style/weather"/>
+            android:theme="@style/weather" />
     </application>
 </manifest>
