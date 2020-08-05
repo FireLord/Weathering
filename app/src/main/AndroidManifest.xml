@@ -39,17 +39,19 @@
         <activity
             android:name=".info.Info"
             android:screenOrientation="portrait"
-            android:exported="true"
             android:theme="@style/weather"/>
         <activity
             android:name=".info.Contributors"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/weather"/>
         <activity
             android:name=".info.Library"
             android:screenOrientation="portrait" />
         <activity
             android:name=".settings.Location"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/weather" />
         <activity
             android:name=".settings.Settings"
             android:screenOrientation="portrait"

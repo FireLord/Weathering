@@ -6,4 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".info.Contributors">
 
+    <TextView
+        android:id="@+id/tvSettings2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/contributors"
+        android:textColor="@color/girlBlack"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvContributorsInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/contributorsInfo"
+        android:fontFamily="@font/roboto_light"
+        android:textColor="@color/girlGrey"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvSettings2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/tvSettings2"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettings2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContributors"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvContributorsInfo"
+        app:layout_constraintStart_toStartOf="@+id/tvContributorsInfo"
+        app:layout_constraintTop_toBottomOf="@+id/tvContributorsInfo">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:backgroundTint="@color/girlBlack"
+        app:layout_constraintEnd_toEndOf="@+id/rvContributors"
+        app:layout_constraintTop_toBottomOf="@+id/rvContributors"
+        app:rippleColor="@color/girlGrey"
+        app:srcCompat="@drawable/ic_keyboard_arrow_left"
+        app:tint="@color/girlWhite" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

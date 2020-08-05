@@ -47,4 +47,14 @@
     <string name="fahrenheit">°F</string>
     <string name="aboutInfo">Hello everyone, this app is my first project with goal in mind to keep it minimal and have beautiful illustrations according to the weather conditions. So I’ll be designing more illustrations as times goes by. Thank you for trying my app and please rate it if you liked the app and illustrations.</string>
     <string name="Love">Made with ❤️ in India</string>
+    <string name="contributors">Contributors</string>
+    <string name="contributorsInfo">Group of friends who helped me to bring this fine looking app to table for you all.</string>
+    <string name="devansh">Devansh Bajaj</string>
+    <string name="devanshInfo">Web Developer</string>
+    <string name="harsh">Harsh Shandilya</string>
+    <string name="harshInfo">Android developer</string>
+    <string name="sam">Samir Khushwaha</string>
+    <string name="samInfo">Hold my ppt / Designer</string>
+    <string name="shubham">Shubham Singh</string>
+    <string name="shubhamInfo">Android developer</string>
 </resources>
