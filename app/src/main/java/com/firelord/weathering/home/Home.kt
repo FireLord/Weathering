@@ -1,38 +1,46 @@
 package com.firelord.weathering.home
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.firelord.weathering.databinding.ActivityHomeBinding
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getColor
+import androidx.fragment.app.Fragment
+import com.firelord.weathering.databinding.FragmentHomeBinding
 
-class Home : AppCompatActivity() {
+class Home : Fragment() {
 
-    private lateinit var homeActivity: ActivityHomeBinding
+    private lateinit var homeActivity: FragmentHomeBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        homeActivity = ActivityHomeBinding.inflate(layoutInflater)
-        val view = homeActivity.root
-        setContentView(view)
-
-        val weatherInfo = intent.extras!!.getParcelable<WeatherModel>("weatherModel")
-        homeActivity.tvTemp.text = weatherInfo!!.tvTemp
-        homeActivity.tvRain.text = weatherInfo.tvRain
-        homeActivity.tvHumidity.text = weatherInfo.tvHumidity
-        homeActivity.tvWind.text = weatherInfo.tvWindSpeed
-        homeActivity.tvWeatherType.text = weatherInfo.tvWeatherType
-        homeActivity.tvDate.text = weatherInfo.tvDate
-        homeActivity.tvLocation.text = weatherInfo.tvLocation
-        homeActivity.clCard.setBackgroundResource(weatherInfo.clCard)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        homeActivity = FragmentHomeBinding.inflate(inflater)
+        homeActivity.tvTemp.text = arguments?.getString("tvTemp")
+        homeActivity.tvRain.text = arguments?.getString("tvRain")
+        homeActivity.tvHumidity.text = arguments?.getString("tvHumidity")
+        homeActivity.tvWind.text = arguments?.getString("tvWindSpeed")
+        homeActivity.tvWeatherType.text = arguments?.getString("tvWeatherType")
+        homeActivity.tvDate.text = arguments?.getString("tvDate")
+        homeActivity.tvLocation.text = arguments?.getString("tvLocation")
+        homeActivity.clCard.setBackgroundResource(arguments?.getInt("clCard")!!)
         homeActivity.tvRainName.setCompoundDrawablesRelativeWithIntrinsicBounds(
-            0, weatherInfo.tvRainName, 0, 0
+            0, arguments?.getInt("tvRainName")!!, 0, 0
         )
         homeActivity.tvHumidityName.setCompoundDrawablesRelativeWithIntrinsicBounds(
-            0, weatherInfo.tvHumidityName, 0, 0
+            0, arguments?.getInt("tvHumidityName")!!, 0, 0
         )
         homeActivity.tvWindName.setCompoundDrawablesRelativeWithIntrinsicBounds(
-            0, weatherInfo.tvWindName, 0, 0
+            0, arguments?.getInt("tvWindName")!!, 0, 0
         )
-        homeActivity.tvWeatherType.setTextColor(getColor(weatherInfo.tvWeatherTypeColor))
-
+        homeActivity.tvWeatherType.setTextColor(activity?.let {
+            getColor(
+                it,
+                arguments?.getInt("tvWeatherTypeColor")!!
+            )
+        }!!)
+        return homeActivity.root
     }
 }

@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
-import com.firelord.weathering.home.Home
 import com.firelord.weathering.home.WeatherModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
@@ -110,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                                 // https://openweathermap.org/weather-conditions
                                 if (weatherNumber.id in 600..622) {
                                     // Snow
-                                    val home = Intent(this@MainActivity, Home::class.java)
+                                    val home = Intent(this@MainActivity, DashboardActivity::class.java)
                                     home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
@@ -130,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(home)
                                 } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701 || weatherNumber.id in 803..804) {
                                     // Rain
-                                    val home = Intent(this@MainActivity, Home::class.java)
+                                    val home = Intent(this@MainActivity, DashboardActivity::class.java)
                                     home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
@@ -150,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(home)
                                 } else {
                                     // Sunny & others
-                                    val home = Intent(this@MainActivity, Home::class.java)
+                                    val home = Intent(this@MainActivity, DashboardActivity::class.java)
                                     home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",

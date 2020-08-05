@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/home_category"
         android:title="@string/home"
         android:icon="@drawable/ic_home" />
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/search_category"
         android:title="@string/search"
         android:icon="@drawable/ic_search" />
 
     <item
-        android:id="@+id/settings"
+        android:id="@+id/settings_category"
         android:title="@string/settings"
         android:icon="@drawable/ic_settings" />
 
     <item
-        android:id="@+id/info"
+        android:id="@+id/info_category"
         android:title="@string/info"
         android:icon="@drawable/ic_info" />
 </menu>

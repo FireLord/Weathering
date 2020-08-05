@@ -1,22 +1,31 @@
 package com.firelord.weathering.settings
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
-import com.firelord.weathering.databinding.ActivitySettingsBinding
+import com.firelord.weathering.databinding.FragmentSettingsBinding
 
-class Settings : AppCompatActivity() {
+class Settings : Fragment() {
 
-    private lateinit var settingsActivity: ActivitySettingsBinding
+    private lateinit var settingsActivity: FragmentSettingsBinding
     private lateinit var recyclerView: RecyclerView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        settingsActivity = ActivitySettingsBinding.inflate(layoutInflater)
-        val view = settingsActivity.root
-        setContentView(view)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        settingsActivity = FragmentSettingsBinding.inflate(inflater)
+        return settingsActivity.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         val dataList = ArrayList<Data>()
         dataList.add(
@@ -44,10 +53,9 @@ class Settings : AppCompatActivity() {
             )
         )
 
-        val adapter = SettingsRecyclerAdapter(this, dataList)
+        val adapter = activity?.let { SettingsRecyclerAdapter(it, dataList) }
         recyclerView = settingsActivity.rvSettings
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
-
     }
 }

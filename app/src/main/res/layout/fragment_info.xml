@@ -36,19 +36,6 @@
         app:layout_constraintStart_toStartOf="@+id/tvAbout"
         app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:backgroundTint="@color/girlBlack"
-        app:elevation="10dp"
-        app:itemIconTint="@color/girlWhite"
-        app:itemTextColor="@color/girlWhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_bar" />
-
     <Button
         android:id="@+id/button"
         style="?attr/materialButtonOutlinedStyle"
