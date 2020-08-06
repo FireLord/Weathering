@@ -20,6 +20,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      - name: Decrypt secrets
+        run: release/signing-setup.sh "$ENCRYPT_KEY"
+        env:
+          ENCRYPT_KEY: ${{ secrets.ENCRYPT_KEY }}
 
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
@@ -27,12 +32,16 @@ jobs:
       - name: Download gradle dependencies
         run: ./gradlew dependencies
 
-      - name: Build debug app
-        run: ./gradlew :app:assembleDebug
+      - name: Build Release app
+        run: ./gradlew :app:assembleRelease
 
       - name: Send APK to Telegram
         run: release/deploy-telegram.sh
         env:
           TG_TO: ${{ secrets.TELEGRAM_TO }}
           TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TG_FILE: ./app/build/outputs/apk/debug/app-debug.apk
+          TG_FILE: ./app/build/outputs/apk/release/app-release.apk
+          
+      - name: Clean secrets
+        if: always()
+        run: release/signing-cleanup.sh
