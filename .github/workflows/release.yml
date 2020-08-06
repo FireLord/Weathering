@@ -1,4 +1,4 @@
-name: Build debug
+name: Build release
 on:
   push:
     branches: [ master ]
@@ -14,7 +14,7 @@ on:
       - 'gradlew.bat'
 
 jobs:
-  generate-debug-build:
+  generate-release-build:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
@@ -41,7 +41,7 @@ jobs:
           TG_TO: ${{ secrets.TELEGRAM_TO }}
           TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TG_FILE: ./app/build/outputs/apk/release/app-release.apk
-          
+
       - name: Clean secrets
         if: always()
         run: release/signing-cleanup.sh

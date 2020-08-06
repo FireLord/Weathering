@@ -10,4 +10,4 @@ function send_to_tg() {
   curl -F chat_id="${CHAT_ID}" -F document="@${FILE}" -F caption="${CAPTION}" -F parse_mode="Markdown" "https://api.telegram.org/bot${TG_TOKEN:?}/sendDocument" >/dev/null 2>&1
 }
 
-send_to_tg "${TG_FILE:?}" "${TG_TO:?}" "weathering-alpha-${GITHUB_RUN_NUMBER}-debug"
+send_to_tg "${TG_FILE:?}" "${TG_TO:?}" "weathering-alpha-${GITHUB_RUN_NUMBER}-release"
