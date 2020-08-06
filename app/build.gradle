@@ -7,15 +7,6 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    signingConfigs {
-        release {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-        }
-    }
-
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -42,10 +33,17 @@ android {
         jvmTarget = "1.8"
     }
 
-    android {
-        lintOptions {
-            checkReleaseBuilds false
-            abortOnError true
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
         }
     }
 
