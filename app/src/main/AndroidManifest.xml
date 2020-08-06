@@ -10,8 +10,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/weather"
         android:supportsRtl="true">
-        <activity android:name=".Search"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -27,31 +27,28 @@
             android:theme="@style/MainActivity" />
         <activity
             android:name=".home.Home"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".info.Info"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".info.Contributors"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".info.Library"
             android:screenOrientation="portrait" />
         <activity
             android:name=".settings.Location"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".settings.Settings"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/weather" />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Search"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
