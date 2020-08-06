@@ -1,5 +1,6 @@
 package com.firelord.weathering.info
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,14 @@ class Info : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         infoActivity = FragmentInfoBinding.inflate(inflater)
+        infoActivity.buConti.setOnClickListener{
+            val conti = Intent(activity, Contributors::class.java)
+            startActivity(conti)
+        }
+        infoActivity.buLibrary.setOnClickListener{
+            val library = Intent(activity, Library::class.java)
+            startActivity(library)
+        }
         return infoActivity.root
     }
 }
