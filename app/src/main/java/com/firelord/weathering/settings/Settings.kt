@@ -27,6 +27,13 @@ class Settings : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        /*
+        Create data list based on Data model
+        viewType = simple_setting_row or setting_unit_row
+        textInfo = explain what that setting is for
+        textName = setting's name
+        textIcon = setting's icon
+        */
         val dataList = ArrayList<Data>()
         dataList.add(
             Data(

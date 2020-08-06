@@ -17,6 +17,8 @@ class Home : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        // Set data from dashBoardActivity
         homeActivity = FragmentHomeBinding.inflate(inflater)
         homeActivity.tvTemp.text = arguments?.getString("tvTemp")
         homeActivity.tvRain.text = arguments?.getString("tvRain")

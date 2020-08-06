@@ -31,24 +31,32 @@ class MainActivity : AppCompatActivity() {
         val view = mainActivity.root
         setContentView(view)
 
+        // Material editText
         mainActivity.textInputLayoutOutlined.setEndIconOnClickListener {
+            // Set 'city' from user input
             val city = mainActivity.textInputEditTextOutlined.text.toString()
             if (city.isNotEmpty()) {
+                // if 'city' is not empty start with network check
                 if (checkNetwork(this)) {
+                    // if user has network start api service
                     lifecycleScope.launch {
                         getApi(city)
                     }
                 } else {
+                    // if user has no network report them with toast
                     Toast.makeText(this, getString(R.string.noNet), Toast.LENGTH_SHORT).show()
                 }
             } else {
+                // if 'city' is empty report user with toast
                 Toast.makeText(this, getString(R.string.noLoc), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    // create instance from api interface
     val apiService = OpenWeatherServiceApi()
 
+    // using connectivityManager check for network state
     fun checkNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
@@ -56,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         return connected
     }
 
+    // Use deg provided by api to set wind direction
     fun getWindDirction(deg: Int): String {
         return when {
             deg > 337.5 -> "North"
@@ -70,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Set month name from calender util
     fun monthName(month: Int): String {
         return when (month) {
             0 -> "Jan"
@@ -88,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Set date using various calendar output
     val date: String? = "${monthName(
         Calendar.getInstance()
             .get(Calendar.MONTH)
@@ -96,7 +107,9 @@ class MainActivity : AppCompatActivity() {
         .get(Calendar.YEAR)}"
 
     @SuppressLint("SetTextI18n")
+    // Start api call using kotlin coroutines
     suspend fun getApi(city: String) {
+        // When api call starts set outline circle check
         mainActivity.textInputLayoutOutlined.endIconDrawable =
             getDrawable(R.drawable.ic_check_circle_outline)
         withContext(IO) {
@@ -109,7 +122,8 @@ class MainActivity : AppCompatActivity() {
                                 // https://openweathermap.org/weather-conditions
                                 if (weatherNumber.id in 600..622) {
                                     // Snow
-                                    val home = Intent(this@MainActivity, DashboardActivity::class.java)
+                                    val home =
+                                        Intent(this@MainActivity, DashboardActivity::class.java)
                                     home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
@@ -129,7 +143,8 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(home)
                                 } else if (weatherNumber.id in 500..531 || weatherNumber.id in 300..321 || weatherNumber.id in 200..232 || weatherNumber.id == 701 || weatherNumber.id in 803..804) {
                                     // Rain
-                                    val home = Intent(this@MainActivity, DashboardActivity::class.java)
+                                    val home =
+                                        Intent(this@MainActivity, DashboardActivity::class.java)
                                     home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
@@ -149,7 +164,8 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(home)
                                 } else {
                                     // Sunny & others
-                                    val home = Intent(this@MainActivity, DashboardActivity::class.java)
+                                    val home =
+                                        Intent(this@MainActivity, DashboardActivity::class.java)
                                     home.putExtra(
                                         "weatherModel", WeatherModel(
                                             "${it.main.temp.toInt()}°",
@@ -168,6 +184,7 @@ class MainActivity : AppCompatActivity() {
                                     )
                                     startActivity(home)
                                 }
+                                // After successful fetching data set filled circle icon
                                 mainActivity.textInputLayoutOutlined.endIconDrawable =
                                     getDrawable(R.drawable.ic_check_circle)
                             }
@@ -175,12 +192,25 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         var errorMsg: String? = null
                         errorMsg = when (code()) {
+                            /*
+                            These responses are from OWA website
+                            https://openweathermap.org/faq at last
+                            */
                             429 -> getString(R.string.limitError)
                             404 -> getString(R.string.locationError)
                             else -> getString(R.string.serverError)
                         }
                         withContext(Dispatchers.Main) {
+                            /*
+                            On error for above reasons, display the message
+                            to the user using material editText error ui
+                            */
                             mainActivity.textInputLayoutOutlined.error = errorMsg
+                            /*
+                            When user starts to fix his/her error bcz of location
+                            not found change the error icon to arrow again and
+                            remove material error ui
+                            */
                             mainActivity.textInputEditTextOutlined.addTextChangedListener(object :
                                 TextWatcher {
                                 override fun onTextChanged(
@@ -200,7 +230,9 @@ class MainActivity : AppCompatActivity() {
                                 }
 
                                 override fun afterTextChanged(s: Editable) {
+                                    // Here material error ui is removed
                                     mainActivity.textInputLayoutOutlined.error = null
+                                    // Here icon is changed to arrow
                                     mainActivity.textInputLayoutOutlined.endIconDrawable =
                                         getDrawable(R.drawable.ic_arrow)
                                 }

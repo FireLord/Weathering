@@ -12,13 +12,14 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
-        const val VIEW_TYPE_ONE = 1
-        const val VIEW_TYPE_TWO = 2
+        const val VIEW_TYPE_ONE = 1 // simple_setting_row
+        const val VIEW_TYPE_TWO = 2 // setting_unit_row
     }
 
     private val context: Context = context
     var list: ArrayList<Data> = list
 
+    // set data to viewHolder 1
     private inner class View1ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         var optionInfo: TextView = itemView.findViewById(R.id.tvOptionInfo)
@@ -36,6 +37,7 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
         }
     }
 
+    // set data to viewHolder 2
     private inner class View2ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         var optionInfo: TextView = itemView.findViewById(R.id.tvOptionInfo)

@@ -18,10 +18,14 @@ class Info : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         infoActivity = FragmentInfoBinding.inflate(inflater)
+
+        // Open conti activity on conti Button press
         infoActivity.buConti.setOnClickListener{
             val conti = Intent(activity, Contributors::class.java)
             startActivity(conti)
         }
+
+        // Open lib activity on lib Button press
         infoActivity.buLibrary.setOnClickListener{
             val library = Intent(activity, Library::class.java)
             startActivity(library)

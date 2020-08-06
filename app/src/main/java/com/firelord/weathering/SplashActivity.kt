@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.firelord.weathering.databinding.ActivityMainBinding
 
-
 class SplashActivity : AppCompatActivity() {
+
     private lateinit var splashActivity: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
         val view = splashActivity.root
         setContentView(view)
 
+        // Start MainActivity for location
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

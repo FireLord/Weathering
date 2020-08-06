@@ -1,7 +1,7 @@
 package com.firelord.weathering.info
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
@@ -19,6 +19,12 @@ class Contributors : AppCompatActivity() {
         val view = contributorsActivity.root
         setContentView(view)
 
+        /*
+        Create data list based on Data model
+        textInfo = explain conti's job
+        textName = conti's name
+        textIcon = conti's photo
+        */
         val dataList = ArrayList<Data>()
         // Names are in A-Z order
         dataList.add(
