@@ -60,4 +60,7 @@
     <string name="dark">Dark</string>
     <string name="light">Light</string>
     <string name="str_theme_system">System setting</string>
+    <string name="library">Libraries</string>
+    <string name="changelog">Changelog</string>
+    <string name="libInfo">Names of all the libraries used to make this app functional with their license and author name.</string>
 </resources>
