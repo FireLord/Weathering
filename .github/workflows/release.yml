@@ -41,6 +41,12 @@ jobs:
           TG_TO: ${{ secrets.TELEGRAM_TO }}
           TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TG_FILE: ./app/build/outputs/apk/release/app-release.apk
+      
+      - name: Send changelog to Telegram
+        run: release/changelog-telegram.sh
+        env:
+          TG_TO: ${{ secrets.TELEGRAM_TO }}
+          TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
 
       - name: Clean secrets
         if: always()
