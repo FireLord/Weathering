@@ -7,16 +7,31 @@
     tools:context=".info.Library">
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvLib"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="316dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginBottom="396dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/library"
+        android:textColor="@color/girlBlack"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLibInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/libInfo"
+        android:textColor="@color/girlGrey"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvLib"
+        app:layout_constraintStart_toStartOf="@+id/tvLib"
+        app:layout_constraintTop_toBottomOf="@+id/tvLib" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
