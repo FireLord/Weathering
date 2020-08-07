@@ -1,6 +1,7 @@
 package com.firelord.weathering.settings
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,7 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
                 0,
                 0
             )
+            // Open dark mode bottom sheet
             if (recyclerViewModel.textName==context.getString(R.string.dark_mode)) {
                 optionInfo.setOnClickListener {
                     val bottomSheet = BottomSheetDarkMode()
@@ -42,6 +44,13 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
                         (context as FragmentActivity).supportFragmentManager,
                         bottomSheet.tag
                     )
+                }
+            }
+            // Open location activity
+            if (recyclerViewModel.textName==context.getString(R.string.location)){
+                optionInfo.setOnClickListener {
+                    val intent = Intent(context, Location::class.java)
+                    context.startActivity(intent)
                 }
             }
         }
