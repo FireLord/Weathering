@@ -57,4 +57,7 @@
     <string name="samInfo">Hold my ppt / Designer</string>
     <string name="shubham">Shubham Singh</string>
     <string name="shubhamInfo">Android developer</string>
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+    <string name="str_theme_system">System setting</string>
 </resources>

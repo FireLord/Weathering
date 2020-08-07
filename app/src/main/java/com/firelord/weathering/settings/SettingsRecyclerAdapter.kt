@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
 
@@ -34,6 +35,15 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
                 0,
                 0
             )
+            if (recyclerViewModel.textName==context.getString(R.string.dark_mode)) {
+                optionInfo.setOnClickListener {
+                    val bottomSheet = BottomSheetDarkMode()
+                    bottomSheet.show(
+                        (context as FragmentActivity).supportFragmentManager,
+                        bottomSheet.tag
+                    )
+                }
+            }
         }
     }
 
