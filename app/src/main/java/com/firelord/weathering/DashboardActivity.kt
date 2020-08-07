@@ -8,6 +8,7 @@ import com.firelord.weathering.databinding.ActivityDashboardBinding
 import com.firelord.weathering.home.Home
 import com.firelord.weathering.home.WeatherModel
 import com.firelord.weathering.info.Info
+import com.firelord.weathering.search.Search
 import com.firelord.weathering.settings.Settings
 
 class DashboardActivity : AppCompatActivity() {

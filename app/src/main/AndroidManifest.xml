@@ -47,7 +47,7 @@
             android:name=".DashboardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Search"
+            android:name=".search.Search"
             android:screenOrientation="portrait"/>
     </application>
 

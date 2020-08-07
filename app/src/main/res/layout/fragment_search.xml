@@ -4,6 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Search">
+    tools:context=".search.Search">
+
+    <TextView
+        android:id="@+id/tvLocation2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/search"
+        android:textColor="@color/girlBlack"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_outlined"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:boxStrokeErrorColor="@color/girlBlack"
+        app:endIconDrawable="@drawable/ic_add_location"
+        app:endIconMode="custom"
+        app:endIconTint="@color/colorGirlDark"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/girlBlack"
+        app:errorTextColor="@color/girlBlack"
+        app:layout_constraintEnd_toEndOf="@+id/tvLocation2"
+        app:layout_constraintStart_toStartOf="@+id/tvLocation2"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_edit_text_outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/location"
+            android:inputType="textCapSentences"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_input_layout_outlined"
+        app:layout_constraintStart_toStartOf="@+id/text_input_layout_outlined"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_outlined"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
