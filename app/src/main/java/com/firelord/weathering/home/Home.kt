@@ -17,9 +17,14 @@ class Home : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        homeActivity = FragmentHomeBinding.inflate(inflater)
+        return homeActivity.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         // Set data from dashBoardActivity
-        homeActivity = FragmentHomeBinding.inflate(inflater)
         homeActivity.tvTemp.text = arguments?.getString("tvTemp")
         homeActivity.tvRain.text = arguments?.getString("tvRain")
         homeActivity.tvHumidity.text = arguments?.getString("tvHumidity")
@@ -43,6 +48,5 @@ class Home : Fragment() {
                 arguments?.getInt("tvWeatherTypeColor")!!
             )
         }!!)
-        return homeActivity.root
     }
 }
