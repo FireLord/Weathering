@@ -18,6 +18,11 @@ class Info : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         infoActivity = FragmentInfoBinding.inflate(inflater)
+        return infoActivity.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         // Open conti activity on conti Button press
         infoActivity.buConti.setOnClickListener{
@@ -30,6 +35,11 @@ class Info : Fragment() {
             val library = Intent(activity, Library::class.java)
             startActivity(library)
         }
-        return infoActivity.root
+
+        // Open changelog sheet on changelog button press
+        infoActivity.buChangelog.setOnClickListener {
+            val bottomSheet = BottomSheetChangelog()
+            activity?.supportFragmentManager?.let { it1 -> bottomSheet.show(it1,bottomSheet.tag) }
+        }
     }
 }
