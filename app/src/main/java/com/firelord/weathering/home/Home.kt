@@ -32,7 +32,7 @@ class Home : Fragment() {
         homeActivity.tvWeatherType.text = arguments?.getString("tvWeatherType")
         homeActivity.tvDate.text = arguments?.getString("tvDate")
         homeActivity.tvLocation.text = arguments?.getString("tvLocation")
-        homeActivity.clCard.setBackgroundResource(arguments?.getInt("clCard")!!)
+        homeActivity.ivBgWeather.setImageDrawable(context?.getDrawable(arguments?.getInt("ivBgWeather")!!))
         homeActivity.tvRainName.setCompoundDrawablesRelativeWithIntrinsicBounds(
             0, arguments?.getInt("tvRainName")!!, 0, 0
         )

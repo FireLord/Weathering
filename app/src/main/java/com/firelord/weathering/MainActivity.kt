@@ -190,7 +190,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     } else {
-                        var errorMsg: String? = null
+                        val errorMsg: String?
                         errorMsg = when (code()) {
                             /*
                             These responses are from OWA website

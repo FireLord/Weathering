@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
 
-class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
+class SettingsRecyclerAdapter(context: Context, list: ArrayList<SettingsModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -19,7 +19,7 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<Data>) :
     }
 
     private val context: Context = context
-    var list: ArrayList<Data> = list
+    var list: ArrayList<SettingsModel> = list
 
     // set data to viewHolder 1
     private inner class View1ViewHolder(itemView: View) :

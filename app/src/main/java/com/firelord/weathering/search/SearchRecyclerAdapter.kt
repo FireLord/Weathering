@@ -9,10 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
 
-class SearchRecyclerAdapter(context: Context, list: ArrayList<Data>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class SearchRecyclerAdapter(context: Context, list: ArrayList<SearchModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     private val context: Context = context
-    var list: ArrayList<Data> = list
+    var list: ArrayList<SearchModel> = list
 
     private inner class View1ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {

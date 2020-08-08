@@ -12,7 +12,7 @@ data class WeatherModel(
     val tvWeatherType: String?,
     val tvDate: String?,
     val tvLocation: String,
-    val clCard: Int,
+    val ivBgWeather: Int,
     val tvRainName: Int,
     val tvHumidityName: Int,
     val tvWindName: Int,

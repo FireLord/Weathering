@@ -25,19 +25,19 @@ class Contributors : AppCompatActivity() {
         textName = conti's name
         textIcon = conti's photo
         */
-        val dataList = ArrayList<Data>()
+        val dataList = ArrayList<ContributorsModel>()
         // Names are in A-Z order
         dataList.add(
-            Data(getString(R.string.devanshInfo), getString(R.string.devansh), getDrawable(R.drawable.devansh))
+            ContributorsModel(getString(R.string.devanshInfo), getString(R.string.devansh), getDrawable(R.drawable.devansh))
         )
         dataList.add(
-            Data(getString(R.string.harshInfo), getString(R.string.harsh), getDrawable(R.drawable.harsh))
+            ContributorsModel(getString(R.string.harshInfo), getString(R.string.harsh), getDrawable(R.drawable.harsh))
         )
         dataList.add(
-            Data(getString(R.string.samInfo), getString(R.string.sam), getDrawable(R.drawable.sam))
+            ContributorsModel(getString(R.string.samInfo), getString(R.string.sam), getDrawable(R.drawable.sam))
         )
         dataList.add(
-            Data(getString(R.string.shubhamInfo), getString(R.string.shubham), getDrawable(R.drawable.shubham))
+            ContributorsModel(getString(R.string.shubhamInfo), getString(R.string.shubham), getDrawable(R.drawable.shubham))
         )
 
         val adapter = InfoRecyclerAdapter(this, dataList)

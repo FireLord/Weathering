@@ -36,7 +36,7 @@ class DashboardActivity : AppCompatActivity() {
         data.putString("tvWeatherType", weatherInfo.tvWeatherType)
         data.putString("tvDate", weatherInfo.tvDate)
         data.putString("tvLocation", weatherInfo.tvLocation)
-        data.putInt("clCard", weatherInfo.clCard)
+        data.putInt("ivBgWeather",weatherInfo.ivBgWeather)
         data.putInt("tvRainName", weatherInfo.tvRainName)
         data.putInt("tvHumidityName", weatherInfo.tvHumidityName)
         data.putInt("tvWindName", weatherInfo.tvWindName)

@@ -34,9 +34,9 @@ class Settings : Fragment() {
         textName = setting's name
         textIcon = setting's icon
         */
-        val dataList = ArrayList<Data>()
+        val dataList = ArrayList<SettingsModel>()
         dataList.add(
-            Data(
+            SettingsModel(
                 SettingsRecyclerAdapter.VIEW_TYPE_ONE,
                 getString(R.string.darkModeInfo),
                 getString(R.string.dark_mode),
@@ -44,7 +44,7 @@ class Settings : Fragment() {
             )
         )
         dataList.add(
-            Data(
+            SettingsModel(
                 SettingsRecyclerAdapter.VIEW_TYPE_TWO,
                 getString(R.string.unitInfo),
                 getString(R.string.unit),
@@ -52,7 +52,7 @@ class Settings : Fragment() {
             )
         )
         dataList.add(
-            Data(
+            SettingsModel(
                 SettingsRecyclerAdapter.VIEW_TYPE_ONE,
                 getString(R.string.locationInfo),
                 getString(R.string.location),

@@ -8,49 +8,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCardTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.90" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCardBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
-
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineCardBottom"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCardTop">
+        app:layout_constraintEnd_toEndOf="@+id/tvTemp"
+        app:layout_constraintStart_toStartOf="@+id/tvWeatherType"
+        app:layout_constraintTop_toBottomOf="@+id/tvWeatherType">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clCard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/sunny" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBgWeather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/sunny" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -58,7 +42,6 @@
         android:id="@+id/tvRain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dash"
@@ -67,13 +50,14 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/tvRainName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintStart_toStartOf="@+id/tvRainName"
         app:layout_constraintTop_toBottomOf="@+id/tvRainName" />
 
     <TextView
         android:id="@+id/tvTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/roboto_bold"
         android:maxLines="1"
         android:text="@string/dash"
@@ -81,7 +65,7 @@
         android:textSize="69sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tvLocation"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,29 +74,30 @@
         android:id="@+id/tvWeatherType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto"
         android:text="@string/dash"
         android:textColor="@color/sunnyPink"
         android:textSize="30sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineCardTop"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@+id/tvDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvDate"
         app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
     <TextView
         android:id="@+id/tvLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dash"
         android:textColor="@color/girlBlack"
         android:textSize="30sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -125,8 +110,7 @@
         android:textColor="@color/girlBlack"
         android:textSize="22sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/tvWindName"
         app:layout_constraintStart_toStartOf="@+id/tvWindName"
         app:layout_constraintTop_toBottomOf="@+id/tvWindName" />
 
@@ -155,60 +139,61 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/tvLocation"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintStart_toStartOf="@+id/tvLocation"
         app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
     <TextView
         android:id="@+id/tvAddInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/addInfo"
         android:textColor="@color/girlBlack"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCardBottom" />
+        app:layout_constraintStart_toStartOf="@+id/materialCardView2"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView2" />
 
     <TextView
         android:id="@+id/tvRainName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16dp"
         android:drawableTop="@drawable/ic_sunny_rain"
         android:text="@string/rain"
         android:textColor="@color/girlGrey"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@+id/tvAddInfo"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/tvAddInfo"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
 
     <TextView
         android:id="@+id/tvHumidityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16dp"
         android:drawableTop="@drawable/ic_sunny_hum"
         android:text="@string/humidity"
         android:textColor="@color/girlGrey"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintEnd_toStartOf="@+id/tvWindName"
+        app:layout_constraintStart_toEndOf="@+id/tvRainName"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
 
     <TextView
         android:id="@+id/tvWindName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:drawableTop="@drawable/ic_sunny_wind"
         android:text="@string/wind"
         android:textColor="@color/girlGrey"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

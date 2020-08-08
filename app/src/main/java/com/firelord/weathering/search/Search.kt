@@ -29,9 +29,9 @@ class Search : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         // TODO: Add data on user's search
-        val dataList = ArrayList<Data>()
+        val dataList = ArrayList<SearchModel>()
         dataList.add(
-            Data("Noida", "Snow","0",
+            SearchModel("Noida", "Snow","0",
                 context?.getDrawable(R.drawable.snow)
             )
         )
