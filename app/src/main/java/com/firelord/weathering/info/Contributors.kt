@@ -40,9 +40,13 @@ class Contributors : AppCompatActivity() {
             ContributorsModel(getString(R.string.shubhamInfo), getString(R.string.shubham), getDrawable(R.drawable.shubham))
         )
 
-        val adapter = InfoRecyclerAdapter(this, dataList)
+        val adapter = ContributorsRecyclerAdapter(this, dataList)
         recyclerView = contributorsActivity.rvContributors
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        contributorsActivity.fabConti.setOnClickListener {
+            finish()
+        }
     }
 }

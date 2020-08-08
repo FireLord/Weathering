@@ -34,4 +34,30 @@
         app:layout_constraintStart_toStartOf="@+id/tvLib"
         app:layout_constraintTop_toBottomOf="@+id/tvLib" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLibs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLibInfo" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabLib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:rippleColor="@color/girlGrey"
+        app:backgroundTint="@color/girlBlack"
+        app:tint="@color/girlWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvLibInfo"
+        app:layout_constraintTop_toTopOf="@+id/rvLibs"
+        app:layout_constraintVertical_bias="0.9"
+        app:srcCompat="@drawable/ic_keyboard_arrow_left" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="libColors">
+        <item>#E91E63</item>
+        <item>#03A9F4</item>
+        <item>#4CAF50</item>
+        <item>#F44336</item>
+        <item>#9C27B0</item>
+    </string-array>
+</resources>
