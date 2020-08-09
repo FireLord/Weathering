@@ -23,8 +23,8 @@
     - [X] Option for auto location
     - [X] Change default location if device location is denied
     - [X] Dark mode & light mode
-- [ ] **About page**
-    - [ ] Mention every libs used
+- [X] **About page**
+    - [X] Mention every libs used
     - [X] Tell everyone that i made those artwork
 - [ ] **Search page**
     - [X] search box

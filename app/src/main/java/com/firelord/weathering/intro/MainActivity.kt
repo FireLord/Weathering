@@ -1,4 +1,4 @@
-package com.firelord.weathering
+package com.firelord.weathering.intro
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,9 @@ import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.firelord.weathering.data.OpenWeatherServiceApi
+import com.firelord.weathering.DashboardActivity
+import com.firelord.weathering.R
+import com.firelord.weathering.intro.data.OpenWeatherServiceApi
 import com.firelord.weathering.databinding.ActivityMainBinding
 import com.firelord.weathering.home.WeatherModel
 import kotlinx.coroutines.Dispatchers

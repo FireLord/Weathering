@@ -1,6 +1,6 @@
-package com.firelord.weathering.data
+package com.firelord.weathering.intro.data
 
-import com.firelord.weathering.data.response.RemoteFetch
+import com.firelord.weathering.intro.data.response.RemoteFetch
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -26,7 +26,9 @@ interface OpenWeatherServiceApi {
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("appid", API_KEY)
+                    .addQueryParameter("appid",
+                        API_KEY
+                    )
                     .build()
                 val request = chain.request()
                     .newBuilder()

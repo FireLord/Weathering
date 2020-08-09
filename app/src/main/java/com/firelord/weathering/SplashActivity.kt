@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.firelord.weathering.databinding.ActivityMainBinding
+import com.firelord.weathering.intro.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

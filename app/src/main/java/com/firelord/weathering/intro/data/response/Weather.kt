@@ -1,4 +1,4 @@
-package com.firelord.weathering.data.response
+package com.firelord.weathering.intro.data.response
 
 data class Weather(
     val description: String,
