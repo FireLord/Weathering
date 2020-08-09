@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class GhChangelog(
     @SerializedName("logs")
-    val logs: String
+    val logs: List<String>
 )

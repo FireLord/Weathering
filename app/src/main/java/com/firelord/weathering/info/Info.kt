@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.firelord.weathering.BuildConfig
+import com.firelord.weathering.R
 import com.firelord.weathering.databinding.FragmentInfoBinding
 
 class Info : Fragment() {
@@ -41,5 +43,7 @@ class Info : Fragment() {
             val bottomSheet = BottomSheetChangelog()
             activity?.supportFragmentManager?.let { it1 -> bottomSheet.show(it1,bottomSheet.tag) }
         }
+
+        infoActivity.tvVersion.text="${getString(R.string.version)} ${BuildConfig.VERSION_NAME}"
     }
 }

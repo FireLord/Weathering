@@ -100,24 +100,24 @@
         android:id="@+id/tvVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Version 1.0"
+        android:text="@string/version"
         android:textColor="@color/girlGrey"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/buConti"
-        app:layout_constraintStart_toStartOf="@+id/buConti"
-        app:layout_constraintTop_toBottomOf="@+id/buConti" />
+        app:layout_constraintBottom_toTopOf="@+id/tvLove"
+        app:layout_constraintEnd_toEndOf="@+id/tvLove"
+        app:layout_constraintStart_toStartOf="@+id/tvLove" />
 
     <TextView
         android:id="@+id/tvLove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/Love"
         android:textColor="@color/girlBlack"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvVersion"
-        app:layout_constraintStart_toStartOf="@+id/tvVersion"
-        app:layout_constraintTop_toBottomOf="@+id/tvVersion" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

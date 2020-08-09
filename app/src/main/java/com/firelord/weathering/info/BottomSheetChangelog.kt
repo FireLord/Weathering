@@ -1,10 +1,14 @@
 package com.firelord.weathering.info
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import com.firelord.weathering.R
 import com.firelord.weathering.databinding.BottomSheetChangelogBinding
 import com.firelord.weathering.info.data.GithubRawAPIService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -32,22 +36,43 @@ class BottomSheetChangelog : BottomSheetDialogFragment() {
 
         val githubApi = GithubRawAPIService()
         suspend fun getGithubApi() {
+            changelogActivity.prChangelog.visibility = View.VISIBLE
             withContext(IO) {
                 githubApi.getChangelogAdapter().awaitResponse()
                     .run {
                         if (isSuccessful) {
                             body()?.let {
                                 withContext(Dispatchers.Main) {
-                                    changelogActivity.tvGitLog.text = it.logs
+                                    changelogActivity.tvGitLog.text =
+                                        it.logs.joinToString(separator = "\n")
+                                    changelogActivity.prChangelog.visibility = View.GONE
                                 }
+                            }
+                        } else {
+                            withContext(Dispatchers.Main) {
+                                changelogActivity.tvGitLog.text = getString(R.string.serverError)
                             }
                         }
                     }
             }
         }
 
-        lifecycleScope.launch {
-            getGithubApi()
+        // using connectivityManager check for network state
+        fun checkNetwork(context: Context): Boolean {
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
+            val connected =
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            return connected
+        }
+
+        if (activity?.let { checkNetwork(it) }!!) {
+            lifecycleScope.launch {
+                getGithubApi()
+            }
+        } else {
+            // if user has no network report them with
+            changelogActivity.tvGitLog.text = getString(R.string.noNet)
         }
     }
 }

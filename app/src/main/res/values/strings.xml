@@ -63,4 +63,5 @@
     <string name="library">Libraries</string>
     <string name="changelog">Changelog</string>
     <string name="libInfo">Names of all the libraries used to make this app functional with their license and author name.</string>
+    <string name="version">Version</string>
 </resources>
