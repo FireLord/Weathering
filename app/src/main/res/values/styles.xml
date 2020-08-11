@@ -1,10 +1,10 @@
 <resources>
-    <style name="weather" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="weather" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="MainActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="MainActivity" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorGirlDark</item>
         <item name="colorPrimaryDark">@color/girlWhite</item>
         <item name="android:windowLightStatusBar">true</item>

@@ -4,81 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/tvDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/dark"
-        android:textColor="@color/girlBlack"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPill" />
-
-    <TextView
-        android:id="@+id/tvLight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/light"
-        android:textColor="@color/girlBlack"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDark" />
-
-    <TextView
-        android:id="@+id/tvThemeSystem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/str_theme_system"
-        android:textColor="@color/girlBlack"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLight" />
-
-    <Switch
-        android:id="@+id/swDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvDark"
-        app:layout_constraintTop_toTopOf="@+id/tvDark" />
-
-    <Switch
-        android:id="@+id/swLight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvLight"
-        app:layout_constraintTop_toTopOf="@+id/tvLight" />
-
-    <Switch
-        android:id="@+id/swThemeSystem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvThemeSystem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvThemeSystem"
-        app:layout_constraintTop_toTopOf="@+id/tvThemeSystem" />
+    android:layout_height="wrap_content"
+    tools:context=".settings.BottomSheetDarkMode">
 
     <ImageView
         android:id="@+id/ivPill"
@@ -90,4 +17,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pill" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPill">
+
+        <RadioButton
+            android:id="@+id/rbLighttheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center|start"
+            android:layoutDirection="rtl"
+            android:text="@string/light"
+            android:textColor="@color/girlBlack"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="true" />
+
+        <RadioButton
+            android:id="@+id/rbDarkTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center|start"
+            android:layoutDirection="rtl"
+            android:text="@string/dark"
+            android:textColor="@color/girlBlack"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="true" />
+
+        <RadioButton
+            android:id="@+id/rbSystemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center|start"
+            android:layoutDirection="rtl"
+            android:text="@string/str_theme_system"
+            android:textColor="@color/girlBlack"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="true" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
