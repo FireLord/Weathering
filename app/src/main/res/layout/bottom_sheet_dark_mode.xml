@@ -35,7 +35,7 @@
             android:gravity="center|start"
             android:layoutDirection="rtl"
             android:text="@string/str_light"
-            android:textColor="@color/girlBlack"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
             app:useMaterialThemeColors="true" />
 
@@ -47,7 +47,7 @@
             android:gravity="center|start"
             android:layoutDirection="rtl"
             android:text="@string/str_dark"
-            android:textColor="@color/girlBlack"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
             app:useMaterialThemeColors="true" />
 
@@ -59,7 +59,7 @@
             android:gravity="center|start"
             android:layoutDirection="rtl"
             android:text="@string/str_theme_system"
-            android:textColor="@color/girlBlack"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
             app:useMaterialThemeColors="true" />
     </RadioGroup>

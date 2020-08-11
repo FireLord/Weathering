@@ -12,7 +12,7 @@
         android:drawablePadding="10dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/str_dark_mode"
-        android:textColor="@color/girlBlack"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
