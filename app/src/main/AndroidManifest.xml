@@ -11,11 +11,11 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/weather"
+        android:theme="@style/Weather"
         android:supportsRtl="true">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/Weather.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
         <activity
             android:name=".intro.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MainActivity" />
+            android:theme="@style/Weather.MainActivity" />
         <activity
             android:name=".info.Contributors"
             android:screenOrientation="portrait" />
