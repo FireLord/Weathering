@@ -1,9 +1,9 @@
 name: Build release
 on:
   push:
-    branches: [ master ]
+    branches: [ android ]
   pull_request:
-    branches: [ master ]
+    branches: [ android ]
     paths:
       - '.github/**'
       - 'app/**'
