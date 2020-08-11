@@ -21,8 +21,8 @@ class Home : Fragment() {
         return homeActivity.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Set data from dashBoardActivity
         homeActivity.tvTemp.text = arguments?.getString("tvTemp")

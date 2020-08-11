@@ -25,8 +25,8 @@ class Search : Fragment() {
         return searchActivity.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // TODO: Add data on user's search
         val dataList = ArrayList<SearchModel>()
