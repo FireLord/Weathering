@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settings.Location">
+    tools:context=".settings.LocationActivity">
 
     <TextView
         android:id="@+id/tvLocation"
@@ -15,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/location"
+        android:text="@string/str_location"
         android:textColor="@color/girlBlack"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +56,7 @@
             android:id="@+id/text_input_edit_text_outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/location"
+            android:hint="@string/str_location"
             android:inputType="textCapSentences"
             android:maxLength="10" />
     </com.google.android.material.textfield.TextInputLayout>

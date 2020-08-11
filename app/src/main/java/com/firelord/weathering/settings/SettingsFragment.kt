@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
 import com.firelord.weathering.databinding.FragmentSettingsBinding
 
-class Settings : Fragment() {
+class SettingsFragment : Fragment() {
 
-    private lateinit var settingsActivity: FragmentSettingsBinding
+    private lateinit var settingsBinding: FragmentSettingsBinding
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -20,8 +20,8 @@ class Settings : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingsActivity = FragmentSettingsBinding.inflate(inflater)
-        return settingsActivity.root
+        settingsBinding = FragmentSettingsBinding.inflate(inflater)
+        return settingsBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,30 +38,30 @@ class Settings : Fragment() {
         dataList.add(
             SettingsModel(
                 SettingsRecyclerAdapter.VIEW_TYPE_ONE,
-                getString(R.string.darkModeInfo),
-                getString(R.string.dark_mode),
+                getString(R.string.str_dark_mode_info),
+                getString(R.string.str_dark_mode),
                 R.drawable.ic_dark_mode
             )
         )
         dataList.add(
             SettingsModel(
                 SettingsRecyclerAdapter.VIEW_TYPE_TWO,
-                getString(R.string.unitInfo),
-                getString(R.string.unit),
+                getString(R.string.str_unit_info),
+                getString(R.string.str_unit),
                 R.drawable.ic_square_foot
             )
         )
         dataList.add(
             SettingsModel(
                 SettingsRecyclerAdapter.VIEW_TYPE_ONE,
-                getString(R.string.locationInfo),
-                getString(R.string.location),
+                getString(R.string.str_location_info),
+                getString(R.string.str_location),
                 R.drawable.ic_place_add
             )
         )
 
         val adapter = activity?.let { SettingsRecyclerAdapter(it, dataList) }
-        recyclerView = settingsActivity.rvSettings
+        recyclerView = settingsBinding.rvSettings
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
     }

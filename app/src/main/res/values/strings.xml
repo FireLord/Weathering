@@ -1,67 +1,47 @@
 <resources>
     <string name="app_name">Weathering</string>
-    <string name="introPara">
-        Enter your location to get started
-    </string>
-    <string name="hello">Hello,</string>
-    <string name="location">Location</string>
-    <string name="locationError">
-        Location not found
-    </string>
-    <string name="limitError">
-        Reached limit
-    </string>
-    <string name="serverError">
-        Server error
-    </string>
-    <string name="noNet">
-        Please turn on internet
-    </string>
-    <string name="noLoc">
-        Please enter location
-    </string>
-    <string name="home">
-        Home
-    </string>
-    <string name="info">
-        About
-    </string>
-    <string name="settings">
-        Settings
-    </string>
-    <string name="search">
-        Search
-    </string>
-    <string name="dash">--</string>
-    <string name="addInfo">Additional Info</string>
-    <string name="rain">Rain</string>
-    <string name="humidity">Humidity</string>
-    <string name="wind">Wind</string>
-    <string name="bgImgInfo">TODO</string>
-    <string name="dark_mode">Dark mode</string>
-    <string name="darkModeInfo">Use dark mode to conserve battery on amoled and help your eyes to relax in darker environments.</string>
-    <string name="unit">Weather unit</string>
-    <string name="unitInfo">Depending upon your requirements you can use your favourite scale for weather data.</string>
-    <string name="locationInfo">According to your privacy liking you can select location to be manual or by using device location for ease.</string>
-    <string name="celcius">°C</string>
-    <string name="fahrenheit">°F</string>
-    <string name="aboutInfo">Hello everyone, this app is my first project with goal in mind to keep it minimal and have beautiful illustrations according to the weather conditions. So I’ll be designing more illustrations as times goes by. Thank you for trying my app and please rate it if you liked the app and illustrations.</string>
-    <string name="Love">Made with ❤️ in India</string>
-    <string name="contributors">Contributors</string>
-    <string name="contributorsInfo">Group of friends who helped me to bring this fine looking app to table for you all.</string>
-    <string name="devansh">Devansh Bajaj</string>
-    <string name="devanshInfo">Web Developer</string>
-    <string name="harsh">Harsh Shandilya</string>
-    <string name="harshInfo">Android developer</string>
-    <string name="sam">Samir Khushwaha</string>
-    <string name="samInfo">Hold my ppt / Designer</string>
-    <string name="shubham">Shubham Singh</string>
-    <string name="shubhamInfo">Android developer</string>
-    <string name="dark">Dark</string>
-    <string name="light">Light</string>
+    <string name="str_intro_para">Enter your location to get started</string>
+    <string name="str_hello">Hello,</string>
+    <string name="str_location">Location</string>
+    <string name="str_location_error">Location not found</string>
+    <string name="str_limit_error">Reached limit</string>
+    <string name="str_server_error">Server error</string>
+    <string name="str_no_net">Please turn on internet</string>
+    <string name="str_no_loc">Please enter location</string>
+    <string name="str_home">Home</string>
+    <string name="str_info">About</string>
+    <string name="str_settings">Settings</string>
+    <string name="str_search">Search</string>
+    <string name="str_dash">--</string>
+    <string name="str_add_info">Additional Info</string>
+    <string name="str_rain">Rain</string>
+    <string name="str_humidity">Humidity</string>
+    <string name="str_wind">Wind</string>
+    <string name="str_img_info">TODO</string>
+    <string name="str_dark_mode">Dark mode</string>
+    <string name="str_dark_mode_info">Use dark mode to conserve battery on amoled and help your eyes to relax in darker environments.</string>
+    <string name="str_unit">Weather unit</string>
+    <string name="str_unit_info">Depending upon your requirements you can use your favourite scale for weather data.</string>
+    <string name="str_location_info">According to your privacy liking you can select location to be manual or by using device location for ease.</string>
+    <string name="str_celcius">°C</string>
+    <string name="str_fahrenheit">°F</string>
+    <string name="str_about_app">Hello everyone, this app is my first project with goal in mind to keep it minimal and have beautiful illustrations according to the weather conditions. So I’ll be designing more illustrations as times goes by. Thank you for trying my app and please rate it if you liked the app and illustrations.</string>
+    <string name="str_love_india">Made with ❤️ in India</string>
+    <string name="str_contributors">Contributors</string>
+    <string name="str_contributors_info">Group of friends who helped me to bring this fine looking app to table for you all.</string>
+    <string name="str_devansh">Devansh Bajaj</string>
+    <string name="str_devansh_info">Web Developer</string>
+    <string name="str_harsh">Harsh Shandilya</string>
+    <string name="str_harsh_info">Android developer</string>
+    <string name="str_sam">Samir Khushwaha</string>
+    <string name="str_sam_info">Hold my ppt / Designer</string>
+    <string name="str_shubham">Shubham Singh</string>
+    <string name="str_shubham_info">Android developer</string>
+    <string name="str_dark">Dark</string>
+    <string name="str_light">Light</string>
     <string name="str_theme_system">System setting</string>
-    <string name="library">Libraries</string>
-    <string name="changelog">Changelog</string>
-    <string name="libInfo">Names of all the libraries used to make this app functional with their license and author name.</string>
-    <string name="version">Version</string>
+    <string name="str_library">Libraries</string>
+    <string name="str_changelog">Changelog</string>
+    <string name="str_lib_info">Names of all the libraries used to make this app functional with their license and author name.</string>
+    <string name="str_version">Version</string>
 </resources>

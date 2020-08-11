@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:context="info.BottomSheetChangelog">
 
     <ImageView
         android:id="@+id/ivPill"
@@ -24,7 +24,7 @@
         android:layout_marginTop="10dp"
         android:drawableEnd="@drawable/ic_changelog"
         android:drawablePadding="10dp"
-        android:text="@string/changelog"
+        android:text="@string/str_changelog"
         android:textColor="@color/buBlue"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/ivPill"

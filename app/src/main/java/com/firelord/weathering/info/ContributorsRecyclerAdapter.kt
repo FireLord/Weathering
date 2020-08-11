@@ -31,7 +31,7 @@ class ContributorsRecyclerAdapter(context: Context, list: ArrayList<Contributors
             ContiIcon.setImageDrawable(recyclerViewModel.textIcon)
 
             when (recyclerViewModel.textName) {
-                context.getString(R.string.devansh) -> {
+                context.getString(R.string.str_devansh) -> {
                     cvConti.setOnClickListener {
                         val uri: Uri =
                             Uri.parse("https://github.com/devanshbajaj")
@@ -39,7 +39,7 @@ class ContributorsRecyclerAdapter(context: Context, list: ArrayList<Contributors
                         context.startActivity(intent)
                     }
                 }
-                context.getString(R.string.harsh) -> {
+                context.getString(R.string.str_harsh) -> {
                     cvConti.setOnClickListener {
                         val uri: Uri =
                             Uri.parse("https://github.com/msfjarvis")
@@ -47,7 +47,7 @@ class ContributorsRecyclerAdapter(context: Context, list: ArrayList<Contributors
                         context.startActivity(intent)
                     }
                 }
-                context.getString(R.string.sam) -> {
+                context.getString(R.string.str_sam) -> {
                     cvConti.setOnClickListener {
                         val uri: Uri =
                             Uri.parse("https://github.com/samirkushwaha")

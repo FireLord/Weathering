@@ -20,13 +20,14 @@ interface OpenWeatherServiceApi {
         @Query("units") unit: String
     ): Call<RemoteFetch>
 
-    companion object{
+    companion object {
         operator fun invoke(): OpenWeatherServiceApi {
-            val requestInterceptor = Interceptor{chain ->
+            val requestInterceptor = Interceptor { chain ->
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("appid",
+                    .addQueryParameter(
+                        "appid",
                         API_KEY
                     )
                     .build()

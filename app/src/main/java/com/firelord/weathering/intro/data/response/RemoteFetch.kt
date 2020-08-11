@@ -1,6 +1,5 @@
 package com.firelord.weathering.intro.data.response
 
-
 data class RemoteFetch(
     val base: String,
     val clouds: Clouds,

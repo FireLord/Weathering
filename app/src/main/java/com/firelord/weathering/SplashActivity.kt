@@ -8,12 +8,12 @@ import com.firelord.weathering.intro.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var splashActivity: ActivityMainBinding
+    private lateinit var splashBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        splashActivity = ActivityMainBinding.inflate(layoutInflater)
-        val view = splashActivity.root
+        splashBinding = ActivityMainBinding.inflate(layoutInflater)
+        val view = splashBinding.root
         setContentView(view)
 
         // Start MainActivity for location

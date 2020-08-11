@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".info.Library">
+    tools:context=".info.LibraryActivity">
 
     <TextView
         android:id="@+id/tvLib"
@@ -14,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/library"
+        android:text="@string/str_library"
         android:textColor="@color/girlBlack"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_light"
-        android:text="@string/libInfo"
+        android:text="@string/str_lib_info"
         android:textColor="@color/girlGrey"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tvLib"

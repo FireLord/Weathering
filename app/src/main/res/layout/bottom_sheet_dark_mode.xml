@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".settings.BottomSheetDarkMode">
@@ -35,7 +34,7 @@
             android:fontFamily="@font/roboto_medium"
             android:gravity="center|start"
             android:layoutDirection="rtl"
-            android:text="@string/light"
+            android:text="@string/str_light"
             android:textColor="@color/girlBlack"
             android:textSize="18sp"
             app:useMaterialThemeColors="true" />
@@ -47,7 +46,7 @@
             android:fontFamily="@font/roboto_medium"
             android:gravity="center|start"
             android:layoutDirection="rtl"
-            android:text="@string/dark"
+            android:text="@string/str_dark"
             android:textColor="@color/girlBlack"
             android:textSize="18sp"
             app:useMaterialThemeColors="true" />

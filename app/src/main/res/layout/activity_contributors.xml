@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".info.Contributors">
+    tools:context=".info.ContributorsActivity">
 
     <TextView
-        android:id="@+id/tvSettings2"
+        android:id="@+id/tvConti"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/contributors"
+        android:text="@string/str_contributors"
         android:textColor="@color/girlBlack"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,14 +26,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/contributorsInfo"
+        android:text="@string/str_contributors_info"
         android:fontFamily="@font/roboto_light"
         android:textColor="@color/girlGrey"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvSettings2"
+        app:layout_constraintEnd_toEndOf="@+id/tvConti"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/tvSettings2"
-        app:layout_constraintTop_toBottomOf="@+id/tvSettings2" />
+        app:layout_constraintStart_toStartOf="@+id/tvConti"
+        app:layout_constraintTop_toBottomOf="@+id/tvConti" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContributors"

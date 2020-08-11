@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
 import com.firelord.weathering.databinding.FragmentSearchBinding
 
-class Search : Fragment() {
+class SearchFragment : Fragment() {
 
-    private lateinit var searchActivity: FragmentSearchBinding
+    private lateinit var searchBinding: FragmentSearchBinding
 
     private lateinit var recyclerView: RecyclerView
 
@@ -21,8 +21,8 @@ class Search : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchActivity = FragmentSearchBinding.inflate(inflater)
-        return searchActivity.root
+        searchBinding = FragmentSearchBinding.inflate(inflater)
+        return searchBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,13 +31,14 @@ class Search : Fragment() {
         // TODO: Add data on user's search
         val dataList = ArrayList<SearchModel>()
         dataList.add(
-            SearchModel("Noida", "Snow","0",
+            SearchModel(
+                "Noida", "Snow", "0",
                 context?.getDrawable(R.drawable.snow)
             )
         )
 
         val adapter = activity?.let { SearchRecyclerAdapter(it, dataList) }
-        recyclerView = searchActivity.rvSearch
+        recyclerView = searchBinding.rvSearch
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
     }

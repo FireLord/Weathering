@@ -37,7 +37,7 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<SettingsModel>) 
                 0
             )
             // Open dark mode bottom sheet
-            if (recyclerViewModel.textName==context.getString(R.string.dark_mode)) {
+            if (recyclerViewModel.textName == context.getString(R.string.str_dark_mode)) {
                 optionInfo.setOnClickListener {
                     val bottomSheet = BottomSheetDarkMode()
                     bottomSheet.show(
@@ -47,9 +47,9 @@ class SettingsRecyclerAdapter(context: Context, list: ArrayList<SettingsModel>) 
                 }
             }
             // Open location activity
-            if (recyclerViewModel.textName==context.getString(R.string.location)){
+            if (recyclerViewModel.textName == context.getString(R.string.str_location)) {
                 optionInfo.setOnClickListener {
-                    val intent = Intent(context, Location::class.java)
+                    val intent = Intent(context, LocationActivity::class.java)
                     context.startActivity(intent)
                 }
             }

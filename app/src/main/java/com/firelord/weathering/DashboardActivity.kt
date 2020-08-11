@@ -8,12 +8,12 @@ import androidx.fragment.app.commitNow
 import com.firelord.weathering.core.data.Constants
 import com.firelord.weathering.core.data.Preferences
 import com.firelord.weathering.databinding.ActivityDashboardBinding
-import com.firelord.weathering.home.Home
+import com.firelord.weathering.home.HomeFragment
 import com.firelord.weathering.home.WeatherModel
-import com.firelord.weathering.info.Info
-import com.firelord.weathering.search.Search
+import com.firelord.weathering.info.InfoFragment
+import com.firelord.weathering.search.SearchFragment
 import com.firelord.weathering.settings.BottomSheetDarkMode
-import com.firelord.weathering.settings.Settings
+import com.firelord.weathering.settings.SettingsFragment
 
 class DashboardActivity : BottomSheetDarkMode.BottomSheetListener, AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class DashboardActivity : BottomSheetDarkMode.BottomSheetListener, AppCompatActi
 
     private var currentPosition: Int = Constants.POSITION_HOME
     private val fragmentList: ArrayList<Fragment> =
-        arrayListOf(Home(), Search(), Settings(), Info())
+        arrayListOf(HomeFragment(), SearchFragment(), SettingsFragment(), InfoFragment())
     private var preferences: Preferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +66,7 @@ class DashboardActivity : BottomSheetDarkMode.BottomSheetListener, AppCompatActi
 
     private fun switchFrags() {
         val fragment = fragmentList[currentPosition]
-        if(currentPosition == Constants.POSITION_HOME) { // in case its home frag
+        if (currentPosition == Constants.POSITION_HOME) { // in case its home frag
 
             // Get Data from MainActivity
             val weatherInfo = intent.extras?.getParcelable<WeatherModel>("weatherModel")

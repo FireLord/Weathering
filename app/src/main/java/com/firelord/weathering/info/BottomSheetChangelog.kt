@@ -20,15 +20,15 @@ import retrofit2.awaitResponse
 
 class BottomSheetChangelog : BottomSheetDialogFragment() {
 
-    private lateinit var changelogActivity: BottomSheetChangelogBinding
+    private lateinit var changelogBinding: BottomSheetChangelogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        changelogActivity = BottomSheetChangelogBinding.inflate(inflater)
-        return changelogActivity.root
+        changelogBinding = BottomSheetChangelogBinding.inflate(inflater)
+        return changelogBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -36,21 +36,21 @@ class BottomSheetChangelog : BottomSheetDialogFragment() {
 
         val githubApi = GithubRawAPIService()
         suspend fun getGithubApi() {
-            changelogActivity.prChangelog.visibility = View.VISIBLE
+            changelogBinding.prChangelog.visibility = View.VISIBLE
             withContext(IO) {
                 githubApi.getChangelogAdapter().awaitResponse()
                     .run {
                         if (isSuccessful) {
                             body()?.let {
                                 withContext(Dispatchers.Main) {
-                                    changelogActivity.tvGitLog.text =
+                                    changelogBinding.tvGitLog.text =
                                         it.logs.joinToString(separator = "\n")
-                                    changelogActivity.prChangelog.visibility = View.GONE
+                                    changelogBinding.prChangelog.visibility = View.GONE
                                 }
                             }
                         } else {
                             withContext(Dispatchers.Main) {
-                                changelogActivity.tvGitLog.text = getString(R.string.serverError)
+                                changelogBinding.tvGitLog.text = getString(R.string.str_server_error)
                             }
                         }
                     }
@@ -72,7 +72,7 @@ class BottomSheetChangelog : BottomSheetDialogFragment() {
             }
         } else {
             // if user has no network report them with
-            changelogActivity.tvGitLog.text = getString(R.string.noNet)
+            changelogBinding.tvGitLog.text = getString(R.string.str_no_net)
         }
     }
 }

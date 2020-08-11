@@ -4,17 +4,17 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.firelord.weathering.databinding.ActivityLocationBinding
 
-class Location : AppCompatActivity() {
+class LocationActivity : AppCompatActivity() {
 
-    private lateinit var locationActivity: ActivityLocationBinding
+    private lateinit var locationBinding: ActivityLocationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        locationActivity = ActivityLocationBinding.inflate(layoutInflater)
-        val view = locationActivity.root
+        locationBinding = ActivityLocationBinding.inflate(layoutInflater)
+        val view = locationBinding.root
         setContentView(view)
 
-        locationActivity.fabSettingsLocation.setOnClickListener {
+        locationBinding.fabSettingsLocation.setOnClickListener {
             finish()
         }
     }

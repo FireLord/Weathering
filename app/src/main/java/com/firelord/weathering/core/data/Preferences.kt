@@ -9,7 +9,7 @@ class Preferences(context: Context) {
 
     fun storeInt(key: String, data: Int) {
         preference.edit()
-            .putInt(key,data)
+            .putInt(key, data)
             .apply()
     }
 
@@ -19,7 +19,7 @@ class Preferences(context: Context) {
 
     fun storeString(key: String, data: String) {
         preference.edit()
-            .putString(key,data)
+            .putString(key, data)
             .apply()
     }
 
@@ -29,7 +29,7 @@ class Preferences(context: Context) {
 
     fun storeBoolean(key: String, data: Boolean) {
         preference.edit()
-            .putBoolean(key,data)
+            .putBoolean(key, data)
             .apply()
     }
 
@@ -44,7 +44,7 @@ class Preferences(context: Context) {
         @JvmStatic
         fun getInstance(context: Context): Preferences {
             val tempInstance = INSTANCE
-            if(tempInstance != null) {
+            if (tempInstance != null) {
                 return tempInstance
             }
 

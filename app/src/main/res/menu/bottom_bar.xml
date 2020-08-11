@@ -4,21 +4,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home_category"
-        android:title="@string/home"
+        android:title="@string/str_home"
         android:icon="@drawable/ic_home" />
 
     <item
         android:id="@+id/search_category"
-        android:title="@string/search"
+        android:title="@string/str_search"
         android:icon="@drawable/ic_search" />
 
     <item
         android:id="@+id/settings_category"
-        android:title="@string/settings"
+        android:title="@string/str_settings"
         android:icon="@drawable/ic_settings" />
 
     <item
         android:id="@+id/info_category"
-        android:title="@string/info"
+        android:title="@string/str_info"
         android:icon="@drawable/ic_info" />
 </menu>

@@ -37,7 +37,7 @@
             android:id="@+id/text_input_edit_text_outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/location"
+            android:hint="@string/str_location"
             android:inputType="textCapSentences"
             android:maxLength="10" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/hello"
+        android:text="@string/str_hello"
         android:textColor="@color/colorGirlDark"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
         android:maxLines="3"
-        android:text="@string/introPara"
+        android:text="@string/str_intro_para"
         android:textColor="@color/girlGrey"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

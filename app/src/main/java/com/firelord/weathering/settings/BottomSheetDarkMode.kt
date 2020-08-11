@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetDarkMode : BottomSheetDialogFragment() {
 
-    private lateinit var darkModeActivity: BottomSheetDarkModeBinding
+    private lateinit var darkModeBinding: BottomSheetDarkModeBinding
 
     private var darkListener: BottomSheetListener? = null
     private var preferences: Preferences? = null
@@ -24,8 +24,8 @@ class BottomSheetDarkMode : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        darkModeActivity = BottomSheetDarkModeBinding.inflate(inflater)
-        return darkModeActivity.root
+        darkModeBinding = BottomSheetDarkModeBinding.inflate(inflater)
+        return darkModeBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class BottomSheetDarkMode : BottomSheetDialogFragment() {
             updateRadioChecked(currentThemeMode)
         }
 
-        darkModeActivity.radioGroup.setOnCheckedChangeListener { _, checkedId ->
+        darkModeBinding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rbLighttheme -> {
                     dismiss()
@@ -62,9 +62,9 @@ class BottomSheetDarkMode : BottomSheetDialogFragment() {
 
     private fun updateRadioChecked(mode: Int) {
         when (mode) {
-            AppCompatDelegate.MODE_NIGHT_NO -> darkModeActivity.rbLighttheme.isChecked = true
-            AppCompatDelegate.MODE_NIGHT_YES -> darkModeActivity.rbDarkTheme.isChecked = true
-            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM -> darkModeActivity.rbSystemTheme.isChecked =
+            AppCompatDelegate.MODE_NIGHT_NO -> darkModeBinding.rbLighttheme.isChecked = true
+            AppCompatDelegate.MODE_NIGHT_YES -> darkModeBinding.rbDarkTheme.isChecked = true
+            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM -> darkModeBinding.rbSystemTheme.isChecked =
                 true
         }
     }

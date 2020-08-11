@@ -27,13 +27,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/Weather.MainActivity" />
         <activity
-            android:name=".info.Contributors"
+            android:name=".info.ContributorsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".info.Library"
+            android:name=".info.LibraryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".settings.Location"
+            android:name=".settings.LocationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".DashboardActivity"

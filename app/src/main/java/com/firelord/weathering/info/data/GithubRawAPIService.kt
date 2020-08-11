@@ -14,7 +14,7 @@ interface GithubRawAPIService {
     @GET("/FireLord/WeatheringLog/master/${versionName}/changelog.json")
     fun getChangelogAdapter(): Call<GhChangelog>
 
-    companion object{
+    companion object {
         operator fun invoke(): GithubRawAPIService {
             val okHttpClient = OkHttpClient.Builder()
                 .build()
