@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Rain colors -->
+    <color name="colorRainFont">@color/colorRainLight</color>
+
+    <!-- Snow colors -->
+    <color name="colorSnowFont">@color/colorSnowLight</color>
+</resources>

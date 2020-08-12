@@ -76,7 +76,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto"
         android:text="@string/str_dash"
-        android:textColor="@color/sunnyPink"
+        android:textColor="@color/colorSunnyFont"
         android:textSize="30sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/tvDate"

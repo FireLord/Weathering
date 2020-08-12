@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                                             R.drawable.ic_snow_rain,
                                             R.drawable.ic_snow_hum,
                                             R.drawable.ic_snow_wind,
-                                            R.color.colorRainDark
+                                            R.color.colorSnowFont
                                         )
                                     )
                                     startActivity(home)
@@ -160,7 +160,7 @@ class MainActivity : AppCompatActivity() {
                                             R.drawable.ic_rain_rain,
                                             R.drawable.ic_rain_hum,
                                             R.drawable.ic_rain_wind,
-                                            R.color.colorRainDark
+                                            R.color.colorRainFont
                                         )
                                     )
                                     startActivity(home)
@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                                             R.drawable.ic_sunny_rain,
                                             R.drawable.ic_sunny_hum,
                                             R.drawable.ic_sunny_wind,
-                                            R.color.sunnyPink
+                                            R.color.colorSunnyFont
                                         )
                                     )
                                     startActivity(home)

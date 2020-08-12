@@ -5,17 +5,19 @@
     <color name="colorSunnyDark">#381422</color>
     <color name="colorSunnyLight">#FFC5C5</color>
     <color name="colorSunnyAccent">#cb9495</color>
-    <color name="sunnyPink">#FF3950</color>
+    <color name="colorSunnyFont">#FF3950</color>
 
     <!-- Rain colors -->
     <color name="colorRainDark">#004D40</color>
     <color name="colorRainLight">#B2DFDB</color>
     <color name="colorRainAccent">#82ada9</color>
+    <color name="colorRainFont">@color/colorRainDark</color>
 
     <!-- Snow colors -->
     <color name="colorSnowDark">#263238</color>
     <color name="colorSnowLight">#CFD8DC</color>
     <color name="colorSnowAccent">#9ea7aa</color>
+    <color name="colorSnowFont">@color/colorSnowDark</color>
 
     <!-- Girl colors -->
     <color name="colorGirlDark">#D42348</color>
