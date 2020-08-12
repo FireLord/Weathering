@@ -8,4 +8,9 @@
 
     <!-- Fab icon color -->
     <color name="fabIcon">@color/girlBlack</color>
+
+    <!-- About page button colors-->
+    <color name="buPinkClick">#880E4F</color>
+    <color name="buBlueClick">#01579B</color>
+    <color name="buYellowClick">#FF6F00</color>
 </resources>
