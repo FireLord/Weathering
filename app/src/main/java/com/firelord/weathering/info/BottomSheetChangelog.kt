@@ -1,14 +1,12 @@
 package com.firelord.weathering.info
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.R
+import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.BottomSheetChangelogBinding
 import com.firelord.weathering.info.data.GithubRawAPIService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -55,15 +53,6 @@ class BottomSheetChangelog : BottomSheetDialogFragment() {
                         }
                     }
             }
-        }
-
-        // using connectivityManager check for network state
-        fun checkNetwork(context: Context): Boolean {
-            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
-            val connected =
-                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
-            return connected
         }
 
         if (activity?.let { checkNetwork(it) }!!) {

@@ -1,18 +1,17 @@
 package com.firelord.weathering.intro
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.DashboardActivity
 import com.firelord.weathering.R
+import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.ActivityMainBinding
 import com.firelord.weathering.home.WeatherModel
 import com.firelord.weathering.intro.data.OpenWeatherServiceApi
@@ -57,14 +56,6 @@ class MainActivity : AppCompatActivity() {
 
     // create instance from api interface
     val apiService = OpenWeatherServiceApi()
-
-    // using connectivityManager check for network state
-    fun checkNetwork(context: Context): Boolean {
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
-        val connected = capabilities?.hasCapability(NET_CAPABILITY_INTERNET) == true
-        return connected
-    }
 
     // Use deg provided by api to set wind direction
     fun getWindDirction(deg: Int): String {
@@ -113,7 +104,7 @@ class MainActivity : AppCompatActivity() {
     suspend fun getApi(city: String) {
         // When api call starts set outline circle check
         mainBinding.textInputLayoutOutlined.endIconDrawable =
-            getDrawable(R.drawable.ic_check_circle_outline)
+            ContextCompat.getDrawable(this, R.drawable.ic_check_circle_outline)
         withContext(IO) {
             apiService.getCurrentWeather(city, "metric").awaitResponse()
                 .run {
@@ -188,7 +179,10 @@ class MainActivity : AppCompatActivity() {
                                 }
                                 // After successful fetching data set filled circle icon
                                 mainBinding.textInputLayoutOutlined.endIconDrawable =
-                                    getDrawable(R.drawable.ic_check_circle)
+                                    ContextCompat.getDrawable(
+                                        this@MainActivity,
+                                        R.drawable.ic_check_circle
+                                    )
                             }
                         }
                     } else {
@@ -237,7 +231,10 @@ class MainActivity : AppCompatActivity() {
                                         mainBinding.textInputLayoutOutlined.error = null
                                         // Here icon is changed to arrow
                                         mainBinding.textInputLayoutOutlined.endIconDrawable =
-                                            getDrawable(R.drawable.ic_arrow)
+                                            ContextCompat.getDrawable(
+                                                this@MainActivity,
+                                                R.drawable.ic_arrow
+                                            )
                                     }
                                 })
                         }
