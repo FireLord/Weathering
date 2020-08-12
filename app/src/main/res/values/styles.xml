@@ -1,6 +1,7 @@
 <resources>
     <style name="Weather" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/girlWhite</item>
+        <item name="colorPrimary">@color/girlBlack</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 

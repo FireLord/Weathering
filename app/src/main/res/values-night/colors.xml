@@ -5,4 +5,7 @@
 
     <!-- Snow colors -->
     <color name="colorSnowFont">@color/colorSnowLight</color>
+
+    <!-- Fab icon color -->
+    <color name="fabIcon">@color/girlBlack</color>
 </resources>

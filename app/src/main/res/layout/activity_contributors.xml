@@ -26,8 +26,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/str_contributors_info"
         android:fontFamily="@font/roboto_light"
+        android:text="@string/str_contributors_info"
         android:textColor="@color/girlGrey"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tvConti"
@@ -54,11 +54,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:clickable="true"
-        app:backgroundTint="@color/girlBlack"
+        app:backgroundTint="?android:attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/rvContributors"
         app:layout_constraintTop_toBottomOf="@+id/rvContributors"
         app:rippleColor="@color/girlGrey"
         app:srcCompat="@drawable/ic_keyboard_arrow_left"
-        app:tint="@color/girlWhite" />
+        app:tint="@color/fabIcon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

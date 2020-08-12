@@ -35,4 +35,7 @@
 
     <!-- Logo background color -->
     <color name="logoBg">#232F34</color>
+
+    <!-- Fab icon color -->
+    <color name="fabIcon">@color/girlWhite</color>
 </resources>

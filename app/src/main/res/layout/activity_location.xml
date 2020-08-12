@@ -26,9 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:textColor="@color/girlBlack"
         android:fontFamily="@font/roboto_medium"
         android:text="Auto location"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/tvLocation"
         app:layout_constraintHorizontal_bias="0.0"
@@ -76,10 +76,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Current location"
-        android:textSize="24sp"
         android:fontFamily="@font/roboto_medium"
+        android:text="Current location"
         android:textColor="?android:attr/textColorPrimary"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/text_input_layout_outlined"
@@ -90,20 +90,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:textSize="24sp"
         android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/girlGrey"
         android:text="TextView"
-        tools:text="Noida"
+        android:textColor="@color/girlGrey"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/text_input_layout_outlined"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_outlined" />
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_outlined"
+        tools:text="Noida" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSettingsLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:backgroundTint="@color/girlBlack"
+        app:backgroundTint="?android:attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="1.0"
@@ -112,5 +112,5 @@
         app:layout_constraintVertical_bias="0.9"
         app:rippleColor="@color/girlGrey"
         app:srcCompat="@drawable/ic_keyboard_arrow_left"
-        app:tint="@color/girlWhite" />
+        app:tint="@color/fabIcon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
