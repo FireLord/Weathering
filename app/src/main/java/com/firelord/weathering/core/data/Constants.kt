@@ -3,6 +3,8 @@ package com.firelord.weathering.core.data
 object Constants {
 
     const val KEY_LAST_TAB = "lastTab"
+    const val CURRENT_WEATHER_ID = 0
+    const val API_KEY = "8013e6a72812262e6b07a40357a7549d"
 
     // Fragment positions
     const val POSITION_HOME = 0
