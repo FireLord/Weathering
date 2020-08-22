@@ -1,4 +1,4 @@
-package com.firelord.weathering.intro.data.response
+package com.firelord.weathering.intro.data.db.response
 
 import com.google.gson.annotations.SerializedName
 

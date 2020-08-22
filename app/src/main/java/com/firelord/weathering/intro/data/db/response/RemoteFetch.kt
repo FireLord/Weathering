@@ -1,4 +1,4 @@
-package com.firelord.weathering.intro.data.response
+package com.firelord.weathering.intro.data.db.response
 
 import androidx.room.Embedded
 import androidx.room.Entity

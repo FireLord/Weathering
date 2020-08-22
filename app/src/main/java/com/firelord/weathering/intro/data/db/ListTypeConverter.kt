@@ -1,7 +1,7 @@
-package com.firelord.weathering.intro.data
+package com.firelord.weathering.intro.data.db
 
 import androidx.room.TypeConverter
-import com.firelord.weathering.intro.data.response.Weather
+import com.firelord.weathering.intro.data.db.response.Weather
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

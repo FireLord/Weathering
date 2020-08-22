@@ -14,7 +14,7 @@ import com.firelord.weathering.R
 import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.ActivityMainBinding
 import com.firelord.weathering.home.WeatherModel
-import com.firelord.weathering.intro.data.OpenWeatherServiceApi
+import com.firelord.weathering.intro.data.network.OpenWeatherServiceApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch

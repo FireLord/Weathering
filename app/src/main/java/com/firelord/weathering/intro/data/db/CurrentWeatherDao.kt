@@ -1,4 +1,4 @@
-package com.firelord.weathering.intro.data
+package com.firelord.weathering.intro.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.firelord.weathering.core.data.Constants.CURRENT_WEATHER_ID
-import com.firelord.weathering.intro.data.response.RemoteFetch
+import com.firelord.weathering.intro.data.db.response.RemoteFetch
 
 @Dao
 interface CurrentWeatherDao {

@@ -1,7 +1,7 @@
-package com.firelord.weathering.intro.data
+package com.firelord.weathering.intro.data.network
 
 import com.firelord.weathering.core.data.Constants.API_KEY
-import com.firelord.weathering.intro.data.response.RemoteFetch
+import com.firelord.weathering.intro.data.db.response.RemoteFetch
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
