@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     val apiService = OpenWeatherServiceApi()
 
     // Use deg provided by api to set wind direction
-    fun getWindDirction(deg: Int): String {
+    fun getWindDirection(deg: Int): String {
         return when {
             deg > 337.5 -> "North"
             deg > 292.5 -> "North West"
