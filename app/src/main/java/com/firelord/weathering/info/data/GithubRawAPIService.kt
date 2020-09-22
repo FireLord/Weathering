@@ -1,6 +1,7 @@
 package com.firelord.weathering.info.data
 
 import com.firelord.weathering.BuildConfig
+import com.firelord.weathering.core.data.Constants.CHANGELOG_API_URL
 import com.firelord.weathering.info.data.response.GhChangelog
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -20,7 +21,7 @@ interface GithubRawAPIService {
                 .build()
             return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://raw.githubusercontent.com/")
+                .baseUrl(CHANGELOG_API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(GithubRawAPIService::class.java)

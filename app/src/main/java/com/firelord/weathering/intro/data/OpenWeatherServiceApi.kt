@@ -1,5 +1,7 @@
 package com.firelord.weathering.intro.data
 
+import com.firelord.weathering.core.data.Constants.API_KEY
+import com.firelord.weathering.core.data.Constants.WEATHER_API_URL
 import com.firelord.weathering.intro.data.response.RemoteFetch
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -8,8 +10,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-
-const val API_KEY = "8013e6a72812262e6b07a40357a7549d"
 
 //https://api.openweathermap.org/data/2.5/weather?q=Noida&appid=8013e6a72812262e6b07a40357a7549d
 
@@ -42,7 +42,7 @@ interface OpenWeatherServiceApi {
                 .build()
             return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://api.openweathermap.org/data/2.5/")
+                .baseUrl(WEATHER_API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(OpenWeatherServiceApi::class.java)
