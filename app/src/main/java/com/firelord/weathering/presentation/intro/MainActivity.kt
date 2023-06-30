@@ -14,7 +14,7 @@ import com.firelord.weathering.R
 import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.ActivityMainBinding
 import com.firelord.weathering.presentation.home.WeatherModel
-import com.firelord.weathering.domain.repository.WeatherRepositoryTemp
+import com.firelord.weathering.domain.repository.WeatherRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 if (checkNetwork(this)) {
                     // if user has network start api service
                     lifecycleScope.launch {
-                        getApi(city)
+                        //getApi(city)
                     }
                 } else {
                     // if user has no network report them with toast
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // create instance from api interface
-    val apiService = WeatherRepositoryTemp()
+    // val apiService = WeatherRepository()
 
     // Use deg provided by api to set wind direction
     fun getWindDirection(deg: Int): String {
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         .get(Calendar.DATE)}, ${Calendar.getInstance()
         .get(Calendar.YEAR)}"
 
-    @SuppressLint("SetTextI18n")
+    /*@SuppressLint("SetTextI18n")
     // Start api call using kotlin coroutines
     suspend fun getApi(city: String) {
         // When api call starts set outline circle check
@@ -188,25 +188,25 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         val errorMsg: String?
                         errorMsg = when (code()) {
-                            /*
+                            *//*
                             These responses are from OWA website
                             https://openweathermap.org/faq at last
-                            */
+                            *//*
                             429 -> getString(R.string.str_limit_error)
                             404 -> getString(R.string.str_location_error)
                             else -> getString(R.string.str_server_error)
                         }
                         withContext(Dispatchers.Main) {
-                            /*
+                            *//*
                             On error for above reasons, display the message
                             to the user using material editText error ui
-                            */
+                            *//*
                             mainBinding.textInputLayoutOutlined.error = errorMsg
-                            /*
+                            *//*
                             When user starts to fix his/her error bcz of location
                             not found change the error icon to arrow again and
                             remove material error ui
-                            */
+                            *//*
                             mainBinding.textInputEditTextOutlined.addTextChangedListener(
                                 object :
                                     TextWatcher {
@@ -241,5 +241,5 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         }
-    }
+    }*/
 }
