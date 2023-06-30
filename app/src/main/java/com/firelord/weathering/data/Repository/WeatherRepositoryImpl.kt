@@ -22,8 +22,8 @@ class WeatherRepositoryImpl(
         return Resource.Error(response.message())
     }
 
-    override suspend fun getWeatherInfo(): Resource<RemoteFetch> {
-        return responseToResource(weatherRemoteDataSource.getWeatherInfo())
+    override suspend fun getWeatherInfo(location: String, unit: String): Resource<RemoteFetch> {
+        return responseToResource(weatherRemoteDataSource.getWeatherInfo(location,unit))
     }
 
     override suspend fun getSearchedWeather(searchQuery: String): Resource<RemoteFetch> {

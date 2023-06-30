@@ -4,5 +4,5 @@ import com.firelord.weathering.data.model.RemoteFetch
 import retrofit2.Response
 
 interface WeatherRemoteDataSource {
-    suspend fun getWeatherInfo():Response<RemoteFetch>
+    suspend fun getWeatherInfo(location: String, unit: String):Response<RemoteFetch>
 }

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface WeatherRepository {
 
-    suspend fun getWeatherInfo(): Resource<RemoteFetch>
+    suspend fun getWeatherInfo(location: String, unit: String): Resource<RemoteFetch>
     suspend fun getSearchedWeather(searchQuery:String): Resource<RemoteFetch>
     suspend fun saveWeather(main: Main)
     suspend fun deleteWeather(main: Main)

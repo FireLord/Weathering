@@ -6,11 +6,9 @@ import com.firelord.weathering.data.model.RemoteFetch
 import retrofit2.Response
 
 class WeatherRemoteDataSourceImpl(
-    private val weatherAPIService: WeatherAPIService,
-    private val location: String,
-    private val unit: String
+    private val weatherAPIService: WeatherAPIService
 ):WeatherRemoteDataSource {
-    override suspend fun getWeatherInfo(): Response<RemoteFetch> {
+    override suspend fun getWeatherInfo(location: String, unit: String): Response<RemoteFetch> {
         return weatherAPIService.getCurrentWeather(location,unit)
     }
 }
