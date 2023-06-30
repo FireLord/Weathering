@@ -41,10 +41,21 @@ class WeatherAPIServiceTest {
     fun getCurrentWeather_sentRequest_receivedExpected(){
         runBlocking {
             enqueueMockResponse("weatherResponse.json")
-            val responseBody = service.getCurrentWeather("noida","metric")
+            val responseBody = service.getCurrentWeather("noida","metric").body()
             val request = server.takeRequest()
             assertThat(responseBody).isNotNull()
             assertThat(request.path).isEqualTo("/weather?q=noida&units=metric&appid=8013e6a72812262e6b07a40357a7549d")
+        }
+    }
+
+    @Test
+    fun getCurrentWeather_sentRequest_correctContent(){
+        runBlocking {
+            enqueueMockResponse("weatherResponse.json")
+            val responseBody = service.getCurrentWeather("noida","metric").body()
+            val locationId = responseBody!!.sys
+            assertThat(locationId.id).isEqualTo(9165)
+            assertThat(locationId.country).isEqualTo("IN")
         }
     }
 
