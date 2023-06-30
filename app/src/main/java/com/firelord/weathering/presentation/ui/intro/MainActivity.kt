@@ -1,25 +1,13 @@
-package com.firelord.weathering.presentation.intro
+package com.firelord.weathering.presentation.ui.intro
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import com.firelord.weathering.presentation.DashboardActivity
 import com.firelord.weathering.R
 import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.ActivityMainBinding
-import com.firelord.weathering.presentation.home.WeatherModel
-import com.firelord.weathering.domain.repository.WeatherRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.awaitResponse
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

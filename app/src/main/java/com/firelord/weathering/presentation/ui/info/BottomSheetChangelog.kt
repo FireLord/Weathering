@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.info
+package com.firelord.weathering.presentation.ui.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.R
 import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.BottomSheetChangelogBinding
-import com.firelord.weathering.presentation.info.data.GithubRawAPIService
+import com.firelord.weathering.presentation.ui.info.data.GithubRawAPIService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO

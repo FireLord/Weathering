@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.search
+package com.firelord.weathering.presentation.ui.search
 
 import android.graphics.drawable.Drawable
 

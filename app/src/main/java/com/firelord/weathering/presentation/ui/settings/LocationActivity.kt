@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.settings
+package com.firelord.weathering.presentation.ui.settings
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

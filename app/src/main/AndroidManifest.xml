@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".presentation.Weathering"
+        android:name=".presentation.ui.Weathering"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:theme="@style/Weather"
         android:supportsRtl="true">
         <activity
-            android:name=".presentation.SplashActivity"
+            android:name=".presentation.ui.SplashActivity"
             android:theme="@style/Weather.Splash"
             android:exported="true">
             <intent-filter>
@@ -23,20 +23,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.intro.MainActivity"
+            android:name=".presentation.ui.intro.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Weather.MainActivity" />
         <activity
-            android:name=".presentation.info.ContributorsActivity"
+            android:name=".presentation.ui.info.ContributorsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.info.LibraryActivity"
+            android:name=".presentation.ui.info.LibraryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".settings.LocationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.DashboardActivity"
+            android:name=".presentation.ui.DashboardActivity"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

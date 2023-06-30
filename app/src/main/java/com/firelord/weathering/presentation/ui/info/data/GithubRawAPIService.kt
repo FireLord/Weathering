@@ -1,8 +1,8 @@
-package com.firelord.weathering.presentation.info.data
+package com.firelord.weathering.presentation.ui.info.data
 
 import com.firelord.weathering.BuildConfig
 import com.firelord.weathering.data.Constants.CHANGELOG_API_URL
-import com.firelord.weathering.presentation.info.data.response.GhChangelog
+import com.firelord.weathering.presentation.ui.info.data.response.GhChangelog
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit

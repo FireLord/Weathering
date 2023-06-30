@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.home
+package com.firelord.weathering.presentation.ui.home
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

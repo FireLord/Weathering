@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.info.InfoFragment">
+    tools:context=".presentation.ui.info.InfoFragment">
 
     <TextView
         android:id="@+id/tvAbout"

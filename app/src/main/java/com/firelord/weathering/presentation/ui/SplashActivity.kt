@@ -1,10 +1,10 @@
-package com.firelord.weathering.presentation
+package com.firelord.weathering.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.firelord.weathering.databinding.ActivityMainBinding
-import com.firelord.weathering.presentation.intro.MainActivity
+import com.firelord.weathering.presentation.ui.intro.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

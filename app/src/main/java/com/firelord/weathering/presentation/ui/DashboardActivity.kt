@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation
+package com.firelord.weathering.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,12 +9,12 @@ import com.firelord.weathering.R
 import com.firelord.weathering.data.Constants
 import com.firelord.weathering.core.data.Preferences
 import com.firelord.weathering.databinding.ActivityDashboardBinding
-import com.firelord.weathering.presentation.home.HomeFragment
-import com.firelord.weathering.presentation.home.WeatherModel
-import com.firelord.weathering.presentation.info.InfoFragment
-import com.firelord.weathering.presentation.search.SearchFragment
-import com.firelord.weathering.presentation.settings.BottomSheetDarkMode
-import com.firelord.weathering.presentation.settings.SettingsFragment
+import com.firelord.weathering.presentation.ui.home.HomeFragment
+import com.firelord.weathering.presentation.ui.home.WeatherModel
+import com.firelord.weathering.presentation.ui.info.InfoFragment
+import com.firelord.weathering.presentation.ui.search.SearchFragment
+import com.firelord.weathering.presentation.ui.settings.BottomSheetDarkMode
+import com.firelord.weathering.presentation.ui.settings.SettingsFragment
 
 class DashboardActivity : BottomSheetDarkMode.BottomSheetListener, AppCompatActivity() {
 

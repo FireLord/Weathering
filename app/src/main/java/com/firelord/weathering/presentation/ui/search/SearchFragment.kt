@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.search
+package com.firelord.weathering.presentation.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater

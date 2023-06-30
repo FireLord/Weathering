@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.info
+package com.firelord.weathering.presentation.ui.info
 
 import android.content.Context
 import android.content.Intent

@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.home
+package com.firelord.weathering.presentation.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
