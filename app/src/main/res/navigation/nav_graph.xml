@@ -21,15 +21,13 @@
         tools:layout="@layout/fragment_search" >
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.firelord.weathering.presentation.ui.settings.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
-    </fragment>
-    <fragment
         android:id="@+id/infoFragment"
         android:name="com.firelord.weathering.presentation.ui.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" >
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.firelord.weathering.presentation.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

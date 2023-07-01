@@ -14,8 +14,6 @@ class SearchFragment : Fragment() {
 
     private lateinit var searchBinding: FragmentSearchBinding
 
-    private lateinit var recyclerView: RecyclerView
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,19 +25,5 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // TODO: Add data on user's search
-        val dataList = ArrayList<SearchModel>()
-        dataList.add(
-            SearchModel(
-                "Noida", "Snow", "0",
-                context?.getDrawable(R.drawable.snow)
-            )
-        )
-
-        val adapter = activity?.let { SearchRecyclerAdapter(it, dataList) }
-        recyclerView = searchBinding.rvSearch
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = adapter
     }
 }

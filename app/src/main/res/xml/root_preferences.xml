@@ -1,0 +1,35 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="User Interface">
+        <ListPreference
+            app:defaultValue="Light"
+            app:entries="@array/darkMode_entries"
+            app:entryValues="@array/darkMode_values"
+            app:key="darkMode"
+            app:title="Dark Mode"
+            app:icon="@drawable/ic_dark_mode"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="Celsius"
+            app:entries="@array/unit_entries"
+            app:entryValues="@array/unit_values"
+            app:icon="@drawable/ic_square_foot"
+            app:key="unitMode"
+            app:title="Weather Unit"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Location Settings">
+
+        <SwitchPreferenceCompat
+            app:key="autoLocation"
+            app:title="Get location automatically"
+            app:icon="@drawable/ic_add_location"
+            app:summary="Noida"/>
+        <EditTextPreference
+            app:key="manualLocation"
+            app:title="Search location"
+            app:useSimpleSummaryProvider="true"/>
+    </PreferenceCategory>
+</PreferenceScreen>
