@@ -1,18 +1,24 @@
 package com.firelord.weathering.presentation.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
+import com.firelord.weathering.data.util.Resource
 import com.firelord.weathering.databinding.FragmentHomeBinding
+import com.firelord.weathering.presentation.ui.DashboardActivity
+import com.firelord.weathering.presentation.viewmodel.WeatherViewModel
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeBinding: FragmentHomeBinding
-
+    private lateinit var viewModel: WeatherViewModel
+    private var unit = "metric"
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,6 +31,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = (activity as DashboardActivity).viewModel
+        viewWeatherInfo()
        /* // Set data from dashBoardActivity
         homeBinding.tvTemp.text = arguments?.getString("tvTemp")
         homeBinding.tvRain.text = arguments?.getString("tvRain")
@@ -49,5 +57,33 @@ class HomeFragment : Fragment() {
                 arguments?.getInt("tvWeatherTypeColor")!!
             )
         }!!)*/
+    }
+
+    private fun viewWeatherInfo(){
+        viewModel.location.observe(viewLifecycleOwner){location ->
+            viewModel.getWeatherInfo(location, unit)
+        }
+
+        viewModel.weatherInfo.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Resource.Success -> {
+                    response.data?.let {
+                        homeBinding.tvTemp.text = it.main.temp.toString()
+                    }
+                }
+
+                is Resource.Error -> {
+                    response.message?.let {
+                        Toast.makeText(activity, "An error occured: $it", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                is Resource.Loading -> {
+                    // TODO: use progressBar or skeleton loader
+                    Toast.makeText(activity, "Loading", Toast.LENGTH_LONG).show()
+                }
+            }
+
+        }
     }
 }

@@ -20,6 +20,8 @@ class WeatherViewModel(
     private val getWeatherInfoUseCase: GetWeatherInfoUseCase
 ):AndroidViewModel(app) {
     val weatherInfo : MutableLiveData<Resource<RemoteFetch>> = MutableLiveData()
+    val location: MutableLiveData<String> = MutableLiveData()
+    val successBool: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getWeatherInfo(location: String, unit: String) = viewModelScope.launch(Dispatchers.IO) {
         weatherInfo.postValue(Resource.Loading())

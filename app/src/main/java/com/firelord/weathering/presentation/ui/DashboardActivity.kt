@@ -1,6 +1,7 @@
 package com.firelord.weathering.presentation.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode
 import androidx.fragment.app.Fragment
@@ -44,5 +45,9 @@ class DashboardActivity : AppCompatActivity() {
         )
 
         viewModel = ViewModelProvider(this,factory)[WeatherViewModel::class.java]
+        val receivedMessage = intent.getStringExtra("city")
+        receivedMessage?.let {
+            viewModel.location.value = it
+        }
     }
 }
