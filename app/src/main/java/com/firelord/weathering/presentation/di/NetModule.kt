@@ -1,6 +1,7 @@
 package com.firelord.weathering.presentation.di
 
 import com.firelord.weathering.data.Constants.API_KEY
+import com.firelord.weathering.data.Constants.WEATHER_API_URL
 import com.firelord.weathering.data.api.WeatherAPIService
 import dagger.Module
 import dagger.Provides
@@ -19,7 +20,7 @@ class NetModule {
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(API_KEY)
+            .baseUrl(WEATHER_API_URL)
             .build()
     }
 

@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Set data from dashBoardActivity
+       /* // Set data from dashBoardActivity
         homeBinding.tvTemp.text = arguments?.getString("tvTemp")
         homeBinding.tvRain.text = arguments?.getString("tvRain")
         homeBinding.tvHumidity.text = arguments?.getString("tvHumidity")
@@ -48,6 +48,6 @@ class HomeFragment : Fragment() {
                 it,
                 arguments?.getInt("tvWeatherTypeColor")!!
             )
-        }!!)
+        }!!)*/
     }
 }

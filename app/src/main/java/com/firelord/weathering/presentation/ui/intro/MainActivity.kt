@@ -1,14 +1,18 @@
 package com.firelord.weathering.presentation.ui.intro
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.R
 import com.firelord.weathering.core.utils.Utilities.checkNetwork
 import com.firelord.weathering.databinding.ActivityMainBinding
+import com.firelord.weathering.presentation.ui.DashboardActivity
 import kotlinx.coroutines.launch
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 // if 'city' is empty report user with toast
                 Toast.makeText(this, getString(R.string.str_no_loc), Toast.LENGTH_SHORT).show()
             }
+            startActivity(Intent(this,DashboardActivity::class.java))
         }
     }
 

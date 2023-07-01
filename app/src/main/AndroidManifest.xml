@@ -33,7 +33,7 @@
             android:name=".presentation.ui.info.LibraryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".settings.LocationActivity"
+            android:name=".presentation.ui.settings.LocationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.ui.DashboardActivity"
