@@ -6,7 +6,6 @@ plugins {
     id 'com.mikepenz.aboutlibraries.plugin'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
-
 }
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -14,6 +13,7 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    namespace 'com.firelord.weathering'
     compileSdkVersion 33
 
     defaultConfig {
@@ -62,10 +62,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
@@ -86,7 +85,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.0'
 
     // Material
-    implementation 'com.google.android.material:material:1.9.0-beta01'
     implementation 'androidx.cardview:cardview:1.0.0'
 
     // Bottom navigation

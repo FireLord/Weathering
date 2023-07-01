@@ -17,8 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
-        val view = mainBinding.root
-        setContentView(view)
+        setContentView(mainBinding.root)
 
         // Material editText
         mainBinding.textInputLayoutOutlined.setEndIconOnClickListener {
