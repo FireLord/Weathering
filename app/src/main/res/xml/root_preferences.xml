@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory app:title="User Interface">
         <ListPreference
@@ -26,10 +27,13 @@
             app:key="autoLocation"
             app:title="Get location automatically"
             app:icon="@drawable/ic_add_location"
+            app:defaultValue="true"
             app:summary="Noida"/>
         <EditTextPreference
+            app:dependency="autoLocation"
             app:key="manualLocation"
             app:title="Search location"
+            app:defaultValue="false"
             app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
 </PreferenceScreen>
