@@ -10,9 +10,11 @@ import androidx.preference.PreferenceManager
 import com.firelord.weathering.R
 import com.firelord.weathering.data.Constants
 import com.firelord.weathering.databinding.ActivityDashboardBinding
+import com.firelord.weathering.presentation.adapter.LibRecyclerAdapter
 import com.firelord.weathering.presentation.viewmodel.WeatherViewModel
 import com.firelord.weathering.presentation.viewmodel.WeatherViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.multibindings.IntKey
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -21,6 +23,8 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var dashboardBinding: ActivityDashboardBinding
     @Inject
     lateinit var factory: WeatherViewModelFactory
+    @Inject
+    lateinit var libRecyclerAdapter: LibRecyclerAdapter
     lateinit var viewModel: WeatherViewModel
     private var currentPosition: Int = Constants.POSITION_HOME
 

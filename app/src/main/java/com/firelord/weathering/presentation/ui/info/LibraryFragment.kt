@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.firelord.weathering.data.model.Library
 import com.firelord.weathering.databinding.FragmentLibraryBinding
 import com.firelord.weathering.presentation.adapter.LibRecyclerAdapter
+import com.firelord.weathering.presentation.ui.DashboardActivity
 import com.mikepenz.aboutlibraries.Libs
 
 class LibraryFragment : Fragment() {
@@ -28,6 +29,8 @@ class LibraryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        libRecyclerAdapter = (activity as DashboardActivity).libRecyclerAdapter
+
         val dataList = ArrayList<Library>()
 
         val libraries = Libs(requireContext()).libraries
@@ -46,7 +49,7 @@ class LibraryFragment : Fragment() {
     }
 
     private fun initRecyclerView(dataList: ArrayList<Library>){
-        libRecyclerAdapter = LibRecyclerAdapter(requireActivity(), dataList)
+        //libRecyclerAdapter = LibRecyclerAdapter(requireActivity(), dataList)
         libraryBinding.rvLibs.adapter = libRecyclerAdapter
         libraryBinding.rvLibs.layoutManager = LinearLayoutManager(activity)
     }

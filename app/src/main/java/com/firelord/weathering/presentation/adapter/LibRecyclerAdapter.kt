@@ -13,10 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.R
 import com.firelord.weathering.databinding.LibsRowBinding
 import com.firelord.weathering.data.model.Library
+import javax.inject.Inject
 
-class LibRecyclerAdapter(
+class LibRecyclerAdapter
+@Inject
+    constructor(
     private val context: Context,
-    var list: ArrayList<Library>
+    private val list: ArrayList<Library>
     ): RecyclerView.Adapter<LibRecyclerAdapter.LibViewHolder>() {
 
     val libColor: Array<String> = context.resources.getStringArray(R.array.libColors)
