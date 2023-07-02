@@ -1,6 +1,7 @@
 package com.firelord.weathering.presentation.ui.settings
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
@@ -50,9 +51,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         manualLocationEditTextPreference?.setOnPreferenceChangeListener { preference, newValue ->
             val newValue = newValue as String
-            sharedPreferences.edit().putString("location", newValue).apply()
+            sharedPreferences.edit().putString("city", newValue).apply()
             true
         }
+
+        manualLocationEditTextPreference?.summaryProvider =
+            Preference.SummaryProvider<EditTextPreference> { preference ->
+                sharedPreferences.getString("city","not set")
+            }
     }
 
     private fun applyAppTheme(themeValue: String) {

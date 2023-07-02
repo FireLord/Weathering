@@ -3,7 +3,7 @@
 
     <PreferenceCategory app:title="User Interface">
         <ListPreference
-            app:defaultValue="Light"
+            app:defaultValue="system"
             app:entries="@array/darkMode_entries"
             app:entryValues="@array/darkMode_values"
             app:key="darkMode"

@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        val locationValue = sharedPreferences.getString("location",viewModel.location.value)
+        val locationValue = sharedPreferences.getString("city",viewModel.location.value)
         viewModel.location.value = locationValue
     }
 
