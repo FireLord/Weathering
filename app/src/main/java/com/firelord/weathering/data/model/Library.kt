@@ -1,9 +1,9 @@
-package com.firelord.weathering.presentation.ui.info
+package com.firelord.weathering.data.model
 
-data class LibModel(
+data class Library(
     val libName: String,
     val libAuthor: String,
     val libVersion: String,
     val libInfo: String,
-    var libWebsite: String
+    val libWebsite: String
 )

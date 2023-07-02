@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.firelord.weathering.data.model.Library
 import com.firelord.weathering.databinding.FragmentLibraryBinding
+import com.firelord.weathering.presentation.adapter.LibRecyclerAdapter
 import com.mikepenz.aboutlibraries.Libs
 
 class LibraryFragment : Fragment() {
@@ -27,12 +29,12 @@ class LibraryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dataList = ArrayList<LibModel>()
+        val dataList = ArrayList<Library>()
 
         val libraries = Libs(requireContext()).libraries
         for (lib in libraries) {
             dataList.add(
-                LibModel(
+                Library(
                     lib.libraryName,
                     lib.author,
                     lib.libraryVersion,
