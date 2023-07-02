@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.firelord.weathering.data.model.Library
 import com.firelord.weathering.databinding.FragmentLibraryBinding
 import com.firelord.weathering.presentation.adapter.LibRecyclerAdapter
@@ -15,7 +14,7 @@ import com.mikepenz.aboutlibraries.Libs
 class LibraryFragment : Fragment() {
 
     private lateinit var libraryBinding: FragmentLibraryBinding
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var libRecyclerAdapter: LibRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,10 +42,12 @@ class LibraryFragment : Fragment() {
                 )
             )
         }
+        initRecyclerView(dataList)
+    }
 
-        val adapter = LibRecyclerAdapter(requireActivity(), dataList)
-        recyclerView = libraryBinding.rvLibs
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        recyclerView.adapter = adapter
+    private fun initRecyclerView(dataList: ArrayList<Library>){
+        libRecyclerAdapter = LibRecyclerAdapter(requireActivity(), dataList)
+        libraryBinding.rvLibs.adapter = libRecyclerAdapter
+        libraryBinding.rvLibs.layoutManager = LinearLayoutManager(activity)
     }
 }
