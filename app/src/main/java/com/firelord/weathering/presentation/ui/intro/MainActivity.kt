@@ -1,13 +1,16 @@
 package com.firelord.weathering.presentation.ui.intro
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.firelord.weathering.R
 import com.firelord.weathering.data.util.Resource
 import com.firelord.weathering.databinding.ActivityMainBinding
@@ -32,6 +35,9 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this,factory)[WeatherViewModel::class.java]
 
+        val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        sharedPreferences.edit().putBoolean("activityOpened", true).apply()
+
         mainBinding.textInputLayoutOutlined.setEndIconOnClickListener {
            // Set 'city' from user input
             val city = mainBinding.textInputEditTextOutlined.text.toString()
@@ -39,10 +45,10 @@ class MainActivity : AppCompatActivity() {
                 checkCityName(city)
                 viewModel.successBool.observe(this){successBool ->
                     if(successBool){
-                        val intent = Intent(this, DashboardActivity::class.java).apply {
-                            putExtra("city", city)
-                        }
+                        sharedPreferences.edit().putString("city", city).apply()
+                        val intent = Intent(this, DashboardActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }
                 }
             } else {
