@@ -18,7 +18,7 @@
     </string-array>
 
     <string-array name="unit_values">
-        <item>Celsius</item>
-        <item>Fahrenheit</item>
+        <item>metric</item>
+        <item>imperial</item>
     </string-array>
 </resources>

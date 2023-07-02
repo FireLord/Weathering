@@ -12,7 +12,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            app:defaultValue="Celsius"
+            app:defaultValue="metric"
             app:entries="@array/unit_entries"
             app:entryValues="@array/unit_values"
             app:icon="@drawable/ic_square_foot"

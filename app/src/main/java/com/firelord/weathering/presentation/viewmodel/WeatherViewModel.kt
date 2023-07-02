@@ -2,10 +2,12 @@ package com.firelord.weathering.presentation.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.location.Location
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,6 +24,7 @@ class WeatherViewModel(
     val weatherInfo : MutableLiveData<Resource<RemoteFetch>> = MutableLiveData()
     val location: MutableLiveData<String> = MutableLiveData()
     val successBool: MutableLiveData<Boolean> = MutableLiveData()
+    var weatherUnit: MutableLiveData<String> = MutableLiveData("metric")
 
     fun getWeatherInfo(location: String, unit: String) = viewModelScope.launch(Dispatchers.IO) {
         weatherInfo.postValue(Resource.Loading())

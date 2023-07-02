@@ -23,7 +23,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeBinding: FragmentHomeBinding
     private lateinit var viewModel: WeatherViewModel
-    private var unit = "metric"
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,7 +41,9 @@ class HomeFragment : Fragment() {
 
     private fun viewWeatherInfo(){
         viewModel.location.observe(viewLifecycleOwner){location ->
-            viewModel.getWeatherInfo(location, unit)
+            viewModel.weatherUnit.observe(viewLifecycleOwner) { unit ->
+                viewModel.getWeatherInfo(location, unit)
+            }
         }
 
         viewModel.weatherInfo.observe(viewLifecycleOwner) { response ->

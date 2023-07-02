@@ -7,11 +7,16 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.firelord.weathering.R
+import com.firelord.weathering.presentation.ui.DashboardActivity
+import com.firelord.weathering.presentation.viewmodel.WeatherViewModel
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
+    private lateinit var viewModel: WeatherViewModel
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
+
+        viewModel = (activity as DashboardActivity).viewModel
 
         val themePreference: ListPreference? = findPreference("darkMode")
         themePreference?.onPreferenceChangeListener =
@@ -21,6 +26,20 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     PreferenceManager.getDefaultSharedPreferences(requireContext())
                 sharedPreferences.edit().putString("app_theme", themeValue).apply()
                 applyAppTheme(themeValue)
+                true
+            }
+        val unitPreference: ListPreference? = findPreference("unitMode")
+        unitPreference?.onPreferenceChangeListener =
+            Preference.OnPreferenceChangeListener {_,newValue ->
+                val unitValue = newValue as String
+                when (unitValue) {
+                    "metric" -> {
+                        viewModel.weatherUnit.value = "metric"
+                    }
+                    "imperial" -> {
+                        viewModel.weatherUnit.value = "imperial"
+                    }
+                }
                 true
             }
     }
