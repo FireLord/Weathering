@@ -114,7 +114,7 @@ class HomeFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setData(it:RemoteFetch) {
         val weatherNumber = it.weather[0]
-        homeBinding.tvTemp.text = it.main.temp.toString() + "°"
+        homeBinding.tvTemp.text = it.main.temp.toInt().toString() + "°"
         homeBinding.tvRain.text = it.clouds.all.toString() + "%"
         homeBinding.tvHumidity.text = it.main.humidity.toString() + "%"
         homeBinding.tvWind.text = it.wind.speed.toString() + "ms"
