@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.firelord.weathering.BuildConfig
 import com.firelord.weathering.R
 import com.firelord.weathering.databinding.FragmentInfoBinding
@@ -28,8 +29,7 @@ class InfoFragment : Fragment() {
 
         // Open lib activity on lib Button press
         infoBinding.buLibrary.setOnClickListener {
-            val library = Intent(activity, LibraryActivity::class.java)
-            startActivity(library)
+            infoBinding.root.findNavController().navigate(R.id.action_infoFragment_to_libraryFragment)
         }
 
         // Open changelog sheet on changelog button press

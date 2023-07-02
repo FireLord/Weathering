@@ -9,11 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.firelord.weathering.presentation.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.firelord.weathering.presentation.ui.search.SearchFragment"
@@ -25,9 +21,19 @@
         android:name="com.firelord.weathering.presentation.ui.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.firelord.weathering.presentation.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.firelord.weathering.presentation.ui.info.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
 </navigation>

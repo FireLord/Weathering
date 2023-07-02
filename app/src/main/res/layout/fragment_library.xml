@@ -46,18 +46,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLibInfo" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabLib"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:rippleColor="@color/girlGrey"
-        app:backgroundTint="?android:attr/colorPrimary"
-        app:tint="@color/fabIcon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvLibInfo"
-        app:layout_constraintTop_toTopOf="@+id/rvLibs"
-        app:layout_constraintVertical_bias="0.9"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
