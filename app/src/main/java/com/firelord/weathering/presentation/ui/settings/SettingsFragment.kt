@@ -2,47 +2,59 @@ package com.firelord.weathering.presentation.ui.settings
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import androidx.preference.SwitchPreferenceCompat
 import com.firelord.weathering.R
-import com.firelord.weathering.presentation.ui.DashboardActivity
-import com.firelord.weathering.presentation.viewmodel.WeatherViewModel
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
-    private lateinit var viewModel: WeatherViewModel
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-        viewModel = (activity as DashboardActivity).viewModel
+        val sharedPreferences =
+            PreferenceManager.getDefaultSharedPreferences(requireContext())
 
         val themePreference: ListPreference? = findPreference("darkMode")
         themePreference?.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener { _, newValue ->
                 val themeValue = newValue as String
-                val sharedPreferences =
-                    PreferenceManager.getDefaultSharedPreferences(requireContext())
                 sharedPreferences.edit().putString("app_theme", themeValue).apply()
                 applyAppTheme(themeValue)
                 true
             }
+
         val unitPreference: ListPreference? = findPreference("unitMode")
         unitPreference?.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener {_,newValue ->
                 val unitValue = newValue as String
-                when (unitValue) {
-                    "metric" -> {
-                        viewModel.weatherUnit.value = "metric"
-                    }
-                    "imperial" -> {
-                        viewModel.weatherUnit.value = "imperial"
-                    }
-                }
+                sharedPreferences.edit().putString("unitValue", unitValue).apply()
                 true
             }
+
+        val autoLocationSwitchPreference = findPreference<SwitchPreferenceCompat>("autoLocation")
+        val manualLocationEditTextPreference = findPreference<EditTextPreference>("manualLocation")
+
+        // Set the preference change listener on the SwitchPreferenceCompat
+        autoLocationSwitchPreference?.onPreferenceChangeListener =
+            Preference.OnPreferenceChangeListener { preference, newValue ->
+                val isEnabled = newValue as Boolean
+
+                // Enable or disable the EditTextPreference based on the switch state
+                manualLocationEditTextPreference?.isEnabled = !isEnabled
+                true // Return true to allow the preference change
+            }
+
+        manualLocationEditTextPreference?.setOnPreferenceChangeListener { preference, newValue ->
+            val newValue = newValue as String
+            sharedPreferences.edit().putString("location", newValue).apply()
+            true
+        }
     }
+
     private fun applyAppTheme(themeValue: String) {
         when (themeValue) {
             "dark" -> {

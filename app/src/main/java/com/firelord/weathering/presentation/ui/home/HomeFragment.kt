@@ -2,6 +2,7 @@ package com.firelord.weathering.presentation.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.firelord.weathering.R
 import com.firelord.weathering.data.model.RemoteFetch
 import com.firelord.weathering.data.util.Resource
@@ -37,6 +39,21 @@ class HomeFragment : Fragment() {
 
         viewModel = (activity as DashboardActivity).viewModel
         viewWeatherInfo()
+
+        val sharedPreferences: SharedPreferences =
+            PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val unitValue = sharedPreferences.getString("unitValue", "metric")
+        when (unitValue) {
+            "metric" -> {
+                viewModel.weatherUnit.value = "metric"
+            }
+            "imperial" -> {
+                viewModel.weatherUnit.value = "imperial"
+            }
+        }
+
+        val locationValue = sharedPreferences.getString("location","noida")
+        viewModel.location.value = locationValue
     }
 
     private fun viewWeatherInfo(){

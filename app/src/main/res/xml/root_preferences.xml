@@ -30,10 +30,8 @@
             app:defaultValue="true"
             app:summary="Noida"/>
         <EditTextPreference
-            app:dependency="autoLocation"
             app:key="manualLocation"
             app:title="Search location"
-            app:defaultValue="false"
             app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
 </PreferenceScreen>
