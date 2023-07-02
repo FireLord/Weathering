@@ -1,15 +1,12 @@
 package com.firelord.weathering.presentation.ui.settings
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.firelord.weathering.R
-
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
