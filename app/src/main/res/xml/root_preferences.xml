@@ -26,7 +26,7 @@
         <SwitchPreferenceCompat
             app:key="autoLocation"
             app:title="Get location automatically"
-            app:icon="@drawable/ic_add_location"
+            app:icon="@drawable/ic_place_add"
             app:defaultValue="true"
             app:summary="Noida"/>
         <EditTextPreference

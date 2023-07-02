@@ -25,18 +25,8 @@
     <string name="str_location_info">According to your privacy liking you can select location to be manual or by using device location for ease.</string>
     <string name="str_celcius">°C</string>
     <string name="str_fahrenheit">°F</string>
-    <string name="str_about_app">Hello everyone, this app is my first project with goal in mind to keep it minimal and have beautiful illustrations according to the weather conditions. So I’ll be designing more illustrations as times goes by. Thank you for trying my app and please rate it if you liked the app and illustrations.</string>
+    <string name="str_about_app">Hello everyone, this app is my first project with goal in mind to keep it minimal and have beautiful illustrations according to the weather conditions. So I’ll be designing more illustrations as times goes by. Thank you for trying my app and please rate it if you liked the app and illustrations. This app would not be possible without Shubham Singh, Devansh Bajaj, Harsh Shandilya and Samir Khushwaha support and help.</string>
     <string name="str_love_india">Made with ❤️ in India</string>
-    <string name="str_contributors">Contributors</string>
-    <string name="str_contributors_info">Group of friends who helped me to bring this fine looking app to table for you all.</string>
-    <string name="str_devansh">Devansh Bajaj</string>
-    <string name="str_devansh_info">Web Developer</string>
-    <string name="str_harsh">Harsh Shandilya</string>
-    <string name="str_harsh_info">Android developer</string>
-    <string name="str_sam">Samir Khushwaha</string>
-    <string name="str_sam_info">Hold my ppt / Designer</string>
-    <string name="str_shubham">Shubham Singh</string>
-    <string name="str_shubham_info">Android developer</string>
     <string name="str_dark">Dark</string>
     <string name="str_light">Light</string>
     <string name="str_theme_system">System setting</string>
@@ -44,18 +34,4 @@
     <string name="str_changelog">Changelog</string>
     <string name="str_lib_info">Names of all the libraries used to make this app functional with their license and author name.</string>
     <string name="str_version">Version</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

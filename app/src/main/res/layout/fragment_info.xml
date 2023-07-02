@@ -75,26 +75,6 @@
         app:rippleColor="@color/buBlueClick"
         app:strokeColor="@color/buBlue" />
 
-    <Button
-        android:id="@+id/buConti"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto"
-        android:padding="20dp"
-        android:text="@string/str_contributors"
-        android:textAllCaps="false"
-        android:textColor="@color/buYellow"
-        android:textSize="18sp"
-        app:icon="@drawable/ic_person"
-        app:iconTint="@color/buYellow"
-        app:layout_constraintEnd_toEndOf="@+id/buChangelog"
-        app:layout_constraintStart_toStartOf="@+id/buChangelog"
-        app:layout_constraintTop_toBottomOf="@+id/buChangelog"
-        app:rippleColor="@color/buYellowClick"
-        app:strokeColor="@color/buYellow" />
-
     <TextView
         android:id="@+id/tvVersion"
         android:layout_width="wrap_content"

@@ -26,12 +26,6 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Open conti activity on conti Button press
-        infoBinding.buConti.setOnClickListener {
-            val conti = Intent(activity, ContributorsActivity::class.java)
-            startActivity(conti)
-        }
-
         // Open lib activity on lib Button press
         infoBinding.buLibrary.setOnClickListener {
             val library = Intent(activity, LibraryActivity::class.java)
