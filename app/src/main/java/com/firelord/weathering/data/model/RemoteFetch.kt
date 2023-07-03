@@ -1,11 +1,17 @@
 package com.firelord.weathering.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "remote_fetch"
+)
 data class RemoteFetch(
     val base: String,
     val clouds: Clouds,
     val cod: Int,
-    val coord: Coord,
     val dt: Int,
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val main: Main, // this contains the temp
     val name: String,
