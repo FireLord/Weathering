@@ -20,19 +20,22 @@ import androidx.preference.SwitchPreferenceCompat
 import com.firelord.weathering.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SettingsFragment : PreferenceFragmentCompat() {
 
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    @Inject
+    lateinit var locationClient: LocationClient
     private val REQUEST_CODE = 100
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
         val sharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(requireContext())
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         val themePreference: ListPreference? = findPreference("darkMode")
         themePreference?.onPreferenceChangeListener =
@@ -59,7 +62,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
             Preference.OnPreferenceChangeListener { preference, newValue ->
                 val isEnabled = newValue as Boolean
                 if (isEnabled){
-                    getLastLocation()
+                    getPermission()
+                    locationClient.getLastLocation()
                     //sharedPreferences.edit().putString("city", cityName).apply()
                     manualLocationEditTextPreference?.text = ""
                 }
@@ -89,37 +93,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
     }
 
-    private fun getLastLocation(){
-        if (ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                REQUEST_CODE
-            )
-        }
-        else {
-            fusedLocationClient.lastLocation
-                .addOnSuccessListener { location: Location? ->
-                    // Got last known location. In some rare situations this can be null.
-                    val geocoder = Geocoder(requireContext(), Locale.getDefault())
-                    val addresses: List<Address>? = geocoder.getFromLocation(
-                        location!!.latitude, location.longitude, 1
-                    )
-                    val cityName = addresses?.get(0)!!.getLocality()
-                    val sharedPreferences =
-                        PreferenceManager.getDefaultSharedPreferences(requireContext())
-                    sharedPreferences.edit().putString("city", cityName).apply()
-
-                }
-                .addOnFailureListener {
-                    Log.e("fusedLocation",it.message.toString())
-                }
-        }
+    private fun getPermission(){
+        ActivityCompat.requestPermissions(
+            requireActivity(),
+            arrayOf(
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            ),
+            REQUEST_CODE
+        )
     }
 
     private fun applyAppTheme(themeValue: String) {
