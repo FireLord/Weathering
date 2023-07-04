@@ -19,6 +19,7 @@ import com.firelord.weathering.data.util.Resource
 import com.firelord.weathering.databinding.FragmentHomeBinding
 import com.firelord.weathering.presentation.ui.DashboardActivity
 import com.firelord.weathering.presentation.viewmodel.WeatherViewModel
+import com.google.android.material.snackbar.Snackbar
 import java.util.Calendar
 
 class HomeFragment : Fragment() {
@@ -66,8 +67,12 @@ class HomeFragment : Fragment() {
         viewModel.weatherInfo.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
-                    response.data?.let {
-                        setData(it)
+                    response.data?.let {remoteFetch ->
+                        setData(remoteFetch)
+                        homeBinding.fabSave.setOnClickListener {
+                            viewModel.saveWeather(remoteFetch)
+                            Snackbar.make(homeBinding.root,"Saved DB successfully",Snackbar.LENGTH_LONG).show()
+                        }
                     }
                 }
 

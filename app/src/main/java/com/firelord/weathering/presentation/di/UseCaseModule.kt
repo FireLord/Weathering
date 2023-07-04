@@ -2,6 +2,7 @@ package com.firelord.weathering.presentation.di
 
 import com.firelord.weathering.domain.repository.WeatherRepository
 import com.firelord.weathering.domain.usecase.GetWeatherInfoUseCase
+import com.firelord.weathering.domain.usecase.SaveWeatherUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,4 +21,11 @@ class UseCaseModule {
         return GetWeatherInfoUseCase(weatherRepository)
     }
 
+    @Singleton
+    @Provides
+    fun provideSaveWeatherInfoUseCase(
+        weatherRepository: WeatherRepository
+    ):SaveWeatherUseCase{
+        return SaveWeatherUseCase(weatherRepository)
+    }
 }

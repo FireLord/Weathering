@@ -2,6 +2,7 @@ package com.firelord.weathering.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(
     tableName = "remote_fetch"
@@ -20,4 +21,4 @@ data class RemoteFetch(
     val visibility: Int,
     val weather: List<Weather>,
     val wind: Wind
-)
+):Serializable

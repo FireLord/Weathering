@@ -13,13 +13,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.firelord.weathering.data.model.RemoteFetch
 import com.firelord.weathering.data.util.Resource
+import com.firelord.weathering.domain.usecase.DeleteSavedWeatherUseCase
 import com.firelord.weathering.domain.usecase.GetWeatherInfoUseCase
+import com.firelord.weathering.domain.usecase.SaveWeatherUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class WeatherViewModel(
     private val app:Application,
-    private val getWeatherInfoUseCase: GetWeatherInfoUseCase
+    private val getWeatherInfoUseCase: GetWeatherInfoUseCase,
+    private val saveWeatherUseCase: SaveWeatherUseCase
 ):AndroidViewModel(app) {
     val weatherInfo : MutableLiveData<Resource<RemoteFetch>> = MutableLiveData()
     val location: MutableLiveData<String> = MutableLiveData()
@@ -68,5 +71,10 @@ class WeatherViewModel(
             }
         }
         return result
+    }
+
+    // Local data
+    fun saveWeather(remoteFetch: RemoteFetch) = viewModelScope.launch {
+        saveWeatherUseCase.execute(remoteFetch)
     }
 }

@@ -1,6 +1,7 @@
 package com.firelord.weathering.presentation.di
 
 import com.firelord.weathering.data.Repository.WeatherRepositoryImpl
+import com.firelord.weathering.data.Repository.dataSource.WeatherLocalDataSource
 import com.firelord.weathering.data.Repository.dataSource.WeatherRemoteDataSource
 import com.firelord.weathering.domain.repository.WeatherRepository
 import dagger.Module
@@ -16,8 +17,11 @@ class RepositoryModule {
     @Singleton
     @Provides
     fun provideWeatherRepository(
-        weatherRemoteDataSource: WeatherRemoteDataSource
+        weatherRemoteDataSource: WeatherRemoteDataSource,
+        weatherLocalDataSource: WeatherLocalDataSource
     ):WeatherRepository{
-        return WeatherRepositoryImpl(weatherRemoteDataSource)
+        return WeatherRepositoryImpl(
+            weatherRemoteDataSource,
+            weatherLocalDataSource)
     }
 }

@@ -195,4 +195,15 @@
         app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
         app:layout_constraintTop_toBottomOf="@+id/tvAddInfo" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_add_location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidity" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ interface WeatherRepository {
 
     suspend fun getWeatherInfo(location: String, unit: String): Resource<RemoteFetch>
     suspend fun getSearchedWeather(searchQuery:String): Resource<RemoteFetch>
-    suspend fun saveWeather(main: Main)
-    suspend fun deleteWeather(main: Main)
-    fun getSavedWeather():Flow<List<Main>>
+    suspend fun saveWeather(remoteFetch: RemoteFetch)
+    suspend fun deleteWeather(remoteFetch: RemoteFetch)
+    fun getSavedWeather():Flow<List<RemoteFetch>>
 }
