@@ -2,18 +2,14 @@ package com.firelord.weathering.presentation.viewmodel
 
 import android.app.Application
 import android.content.Context
-import android.location.Location
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.firelord.weathering.data.model.RemoteFetch
 import com.firelord.weathering.data.util.Resource
-import com.firelord.weathering.domain.usecase.DeleteSavedWeatherUseCase
 import com.firelord.weathering.domain.usecase.GetWeatherInfoUseCase
 import com.firelord.weathering.domain.usecase.SaveWeatherUseCase
 import kotlinx.coroutines.Dispatchers

@@ -27,8 +27,7 @@
             app:key="autoLocation"
             app:title="Get location automatically"
             app:icon="@drawable/ic_place_add"
-            app:defaultValue="true"
-            app:summary="Noida"/>
+            app:defaultValue="false" />
         <EditTextPreference
             app:key="manualLocation"
             app:title="Search location"

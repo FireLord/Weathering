@@ -1,12 +1,9 @@
 package com.firelord.weathering.presentation.ui
 
 import android.app.Application
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
-import com.firelord.weathering.data.Constants
-import com.firelord.weathering.core.data.Preferences
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
