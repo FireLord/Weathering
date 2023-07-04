@@ -1,4 +1,4 @@
-package com.firelord.weathering.core.utils
+package com.firelord.weathering.data.util
 
 import android.content.Context
 import android.net.ConnectivityManager
