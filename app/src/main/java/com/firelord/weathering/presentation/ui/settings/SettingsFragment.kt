@@ -7,6 +7,10 @@ import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContentProviderCompat.requireContext
@@ -30,7 +34,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     @Inject
     lateinit var locationClient: LocationClient
-    private val REQUEST_CODE = 100
+
+    private var locationPermissionRequest: ActivityResultLauncher<Array<String>>? = null
+    private var autoLocationSwitchPreference: SwitchPreferenceCompat? = null
+    private var manualLocationEditTextPreference: EditTextPreference? = null
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
@@ -54,8 +61,25 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 true
             }
 
-        val autoLocationSwitchPreference = findPreference<SwitchPreferenceCompat>("autoLocation")
-        val manualLocationEditTextPreference = findPreference<EditTextPreference>("manualLocation")
+        autoLocationSwitchPreference = findPreference("autoLocation")
+        manualLocationEditTextPreference = findPreference("manualLocation")
+
+        locationPermissionRequest = registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            when {
+                permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true -> {
+                    locationClient.getLastLocation {
+                        autoLocationSwitchPreference?.summaryOn = sharedPreferences.getString("city","not set")
+                    }
+                }
+                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true -> {
+                    getPermission() // if precise location permission is needed, just re invoke permission request
+                } else -> {
+                Toast.makeText(requireContext(), "This app needs location permission, please grant it.", Toast.LENGTH_LONG).show()
+            }
+            }
+        }
 
         // Set the preference change listener on the SwitchPreferenceCompat
         autoLocationSwitchPreference?.onPreferenceChangeListener =
@@ -63,8 +87,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 val isEnabled = newValue as Boolean
                 if (isEnabled){
                     getPermission()
-                    locationClient.getLastLocation()
-                    //sharedPreferences.edit().putString("city", cityName).apply()
                     manualLocationEditTextPreference?.text = ""
                 }
                 sharedPreferences.edit().putBoolean("autoLocation", isEnabled).apply()
@@ -81,26 +103,21 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val autoBool = sharedPreferences.getBoolean("autoLocation",false)
         manualLocationEditTextPreference?.isEnabled = !autoBool
 
-        manualLocationEditTextPreference?.setOnPreferenceChangeListener { preference, newValue ->
-            val newValue = newValue as String
-            sharedPreferences.edit().putString("city", newValue).apply()
+        manualLocationEditTextPreference?.setOnPreferenceChangeListener { _, newValue ->
+            sharedPreferences.edit().putString("city", newValue as String).apply()
             true
         }
 
         manualLocationEditTextPreference?.summaryProvider =
-            Preference.SummaryProvider<EditTextPreference> { preference ->
+            Preference.SummaryProvider<EditTextPreference> { _ ->
                 sharedPreferences.getString("city","not set")
             }
     }
 
     private fun getPermission(){
-        ActivityCompat.requestPermissions(
-            requireActivity(),
-            arrayOf(
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ),
-            REQUEST_CODE
-        )
+        locationPermissionRequest?.launch(arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION))
     }
 
     private fun applyAppTheme(themeValue: String) {

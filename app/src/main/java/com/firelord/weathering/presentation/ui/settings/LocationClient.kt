@@ -1,7 +1,6 @@
 package com.firelord.weathering.presentation.ui.settings
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.SharedPreferences
 import android.location.Address
 import android.location.Geocoder
@@ -16,15 +15,19 @@ class LocationClient
     private val geocoder: Geocoder,
     private val sharedPreferences: SharedPreferences
 ) {
+
     @SuppressLint("MissingPermission")
-    fun getLastLocation() {
+    fun getLastLocation(onLocationSuccessHandler: () -> Unit) {
             fusedLocationClient.lastLocation
                 .addOnSuccessListener { location: Location? ->
                     val addresses: List<Address>? = geocoder.getFromLocation(
-                        location!!.latitude, location.longitude, 1
+                        location!!.latitude, location.longitude, 2
                     )
+
                     val cityName = addresses?.get(0)?.locality
+
                     sharedPreferences.edit().putString("city", cityName).apply()
+                    onLocationSuccessHandler.invoke()
                 }
                 .addOnFailureListener {
                     Log.e("fusedLocation", it.message.toString())
