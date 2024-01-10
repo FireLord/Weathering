@@ -1,0 +1,17 @@
+image: alvrme/alpine-android:android-34-jdk17
+
+pipelines:
+  default:
+    - step:
+        name: Build and Deploy
+        caches:
+          - gradle
+        script:
+          - apk add --no-cache openssl
+          - ./release/signing-setup.sh "$ENCRYPT_KEY"
+          - ./gradlew :app:assembleRelease
+          - export TG_FILE=app/build/outputs/apk/release/app-release.apk
+          - ./release/deploy-telegram.sh $TG_TO $TG_TOKEN
+          - ./release/changelog-telegram.sh $TG_TO $TG_TOKEN
+        after-script:
+          - ./release/signing-cleanup.sh
