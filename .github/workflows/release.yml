@@ -1,9 +1,10 @@
 name: Build release
+
 on:
   push:
-    branches: [ android ]
+    branches: [android]
   pull_request:
-    branches: [ android ]
+    branches: [android]
     paths:
       - '.github/**'
       - 'app/**'
@@ -16,38 +17,37 @@ on:
 jobs:
   generate-release-build:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    if: "contains(github.event.head_commit.message, '[release build]')"
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
+          cache: 'gradle'
+
       - name: Decrypt secrets
         run: release/signing-setup.sh "$ENCRYPT_KEY"
         env:
           ENCRYPT_KEY: ${{ secrets.ENCRYPT_KEY }}
 
-      - name: Copy CI gradle.properties
-        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Download gradle dependencies
-        run: ./gradlew dependencies
-
       - name: Build Release app
         run: ./gradlew :app:assembleRelease
 
       - name: Send APK to Telegram
+        if: github.event_name == 'push'  # Only execute for push events, not pull requests
         run: release/deploy-telegram.sh
         env:
           TG_TO: ${{ secrets.TELEGRAM_TO }}
           TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TG_FILE: ./app/build/outputs/apk/release/app-release.apk
-      
+
       - name: Send changelog to Telegram
+        if: github.event_name == 'push'  # Only execute for push events, not pull requests
         run: release/changelog-telegram.sh
         env:
           TG_TO: ${{ secrets.TELEGRAM_TO }}
