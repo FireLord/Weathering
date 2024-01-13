@@ -12,7 +12,7 @@ function send_to_tg() {
 
 # Extract versionCode and versionName from build.gradle
 versionCode=$(grep "versionCode" app/build.gradle | awk '{print $2}' | tr -d '\r')
-versionName=$(grep "versionName" app/build.gradle | awk '{print $2}' | tr -d '\r')
+versionName=$(grep "versionName" app/build.gradle | awk -F'"' '{print $2}' | tr -d '\r')
 
 # Set the source and destination paths
 source_file="${TG_FILE:?}"
