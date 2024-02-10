@@ -6,6 +6,7 @@ plugins {
     id 'com.mikepenz.aboutlibraries.plugin'
     id 'com.google.dagger.hilt.android'
     id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
 }
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -70,6 +71,7 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.firebase:firebase-analytics:21.5.1'
 
     // Retrofit
     def retrofit_version = "2.9.0"

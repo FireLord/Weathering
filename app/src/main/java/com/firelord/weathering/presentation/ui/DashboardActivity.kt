@@ -12,6 +12,9 @@ import com.firelord.weathering.data.Constants
 import com.firelord.weathering.databinding.ActivityDashboardBinding
 import com.firelord.weathering.presentation.viewmodel.WeatherViewModel
 import com.firelord.weathering.presentation.viewmodel.WeatherViewModelFactory
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -23,11 +26,13 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var factory: WeatherViewModelFactory
     lateinit var viewModel: WeatherViewModel
     private var currentPosition: Int = Constants.POSITION_HOME
+    private lateinit var analytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dashboardBinding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(dashboardBinding.root)
+        analytics = Firebase.analytics
 
         val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
