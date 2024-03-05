@@ -11,7 +11,7 @@ plugins {
     id("kotlin-parcelize")
 }
 
-val keystorePropertiesFile = rootProject.file("release/keystore.properties")
+val keystorePropertiesFile = rootProject.file("keystore.properties")
 val keystoreProperties = Properties()
 keystoreProperties.load(keystorePropertiesFile.inputStream())
 

@@ -1,4 +1,4 @@
-package com.firelord.weathering.presentation.ui.ui.theme
+package com.firelord.weathering.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

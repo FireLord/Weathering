@@ -3,14 +3,17 @@ package com.firelord.weathering.presentation.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.firelord.weathering.presentation.ui.ui.theme.WeatheringTheme
+import com.firelord.weathering.presentation.ui.theme.WeatheringTheme
 
 class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +40,26 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+
+@Composable
+fun WaButton(name: String, modifier: Modifier = Modifier) {
+    Button(onClick = { }) {
+        Text(text = name, modifier = modifier.background(Color.Black))
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     WeatheringTheme {
         Greeting("Android")
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun WaButtonPreview() {
+    WeatheringTheme {
+        WaButton("Android")
     }
 }
