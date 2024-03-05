@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.firelord.weathering.R
-import com.firelord.weathering.core.utils.Utilities.checkNetwork
+import com.firelord.weathering.data.util.NetworkCheck.checkNetwork
 import com.firelord.weathering.databinding.BottomSheetChangelogBinding
 import com.firelord.weathering.presentation.ui.info.data.GithubRawAPIService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

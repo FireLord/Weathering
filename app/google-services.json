@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "243100702410",
+    "project_id": "weathering-ce582",
+    "storage_bucket": "weathering-ce582.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243100702410:android:a922a5f815d799b57c4633",
+        "android_client_info": {
+          "package_name": "com.firelord.weathering"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4PDvtdtmmUgtSifPk6P7CrndG-PMfUJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

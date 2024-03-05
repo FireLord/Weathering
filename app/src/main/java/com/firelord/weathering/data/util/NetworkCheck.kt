@@ -1,10 +1,10 @@
-package com.firelord.weathering.core.utils
+package com.firelord.weathering.data.util
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 
-object Utilities {
+object NetworkCheck {
 
     fun checkNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
