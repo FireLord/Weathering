@@ -25,7 +25,6 @@ class DashboardActivity : AppCompatActivity() {
     @Inject
     lateinit var factory: WeatherViewModelFactory
     lateinit var viewModel: WeatherViewModel
-    private var currentPosition: Int = Constants.POSITION_HOME
     private lateinit var analytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
