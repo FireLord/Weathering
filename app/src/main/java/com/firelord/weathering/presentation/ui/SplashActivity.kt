@@ -18,18 +18,23 @@ class SplashActivity : AppCompatActivity() {
         val view = splashBinding.root
         setContentView(view)
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val activityOpened = sharedPreferences.getBoolean("activityOpened", false)
-        if (activityOpened){
-            // Start DashBoard as location is there
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            // Start MainActivity for location
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        // Start MainActivity for location
+        val intent = Intent(this, ComposeActivity::class.java)
+        startActivity(intent)
+        finish()
+
+//        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+//        val activityOpened = sharedPreferences.getBoolean("activityOpened", false)
+//        if (activityOpened){
+//            // Start DashBoard as location is there
+//            val intent = Intent(this, DashboardActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        } else {
+//            // Start MainActivity for location
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 }
