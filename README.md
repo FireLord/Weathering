@@ -31,4 +31,4 @@ To run the Weathering App on your local machine, follow these steps:
 2. Open the project in Android Studio.
 3. Build and run the app on an emulator or physical device.
 
-Make sure you have an active internet connection to fetch the latest news data from the API.
+Make sure you have an active internet connection to fetch the latest weather data from the API.
