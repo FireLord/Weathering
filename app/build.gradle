@@ -15,12 +15,12 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace 'com.firelord.weathering'
-    compileSdkVersion 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.firelord.weathering"
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
 

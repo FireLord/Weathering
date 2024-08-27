@@ -28,12 +28,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/Weather.MainActivity" />
         <activity
-            android:name=".presentation.ui.info.ContributorsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".presentation.ui.info.LibraryActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".presentation.ui.DashboardActivity"
             android:screenOrientation="portrait" />
     </application>
